@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  forsaj-app:
+    build: .
+    container_name: forsaj-club-offroad
+    restart: always
+    volumes:
+      - ./json:/app/json
+      - ./uploads:/app/uploads
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.forsaj.rule=Host(`forsaj.octotech.az`)"
+      - "traefik.http.routers.forsaj.entrypoints=websecure"
+      - "traefik.http.routers.forsaj.tls.certresolver=myresolver"
+      - "traefik.http.services.forsaj.loadbalancer.server.port=3001"
+
+networks:
+  web:
+    external: true
