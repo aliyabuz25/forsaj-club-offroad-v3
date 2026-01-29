@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "title": "QOBUSTAN 4X4 TROPHY: PALÇIQ MÜHARİBƏSİ",
+        "description": "Palçıqlı yolların qəhrəmanları və mövsümün ən böyük yarışı.",
+        "date": "2024-06-15",
+        "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop",
+        "category": "SENSASİYA",
+        "isMain": true
+    },
+    {
+        "id": "2",
+        "title": "BUGGY SÜRƏT HƏDDİ",
+        "description": "Səhrada yeni rekordlar və tətbiq edilən innovativ mühəndislik həlləri.",
+        "date": "2024-05-18",
+        "image": "https://images.unsplash.com/photo-1547038577-da80abbc4f19?q=80&w=2055&auto=format&fit=crop",
+        "category": "TEXNOLOGİYA",
+        "isMain": false
+    },
+    {
+        "id": "3",
+        "title": "DAKAR 2025 HAZIRLIĞI",
+        "description": "Azərbaycan komandası Səudiyyə Ərəbistanındakı çətin çöl sınaqlarında.",
+        "date": "2024-05-20",
+        "image": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=1974&auto=format&fit=crop",
+        "category": "YARIŞLAR",
+        "isMain": false
+    }
+]

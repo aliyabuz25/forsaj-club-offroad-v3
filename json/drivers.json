@@ -1,0 +1,29 @@
+[
+  {
+    "id": "3",
+    "name": "HƏSƏN QULIYEV",
+    "category": "LEGEND",
+    "points": 380,
+    "car": "Toyota Land Cruiser",
+    "team": "SILK ROAD",
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&fit=crop"
+  },
+  {
+    "id": "4",
+    "name": "KAMRAN HƏSƏNOV",
+    "category": "SEMI STOCK",
+    "points": 310,
+    "car": "Mitsubishi Pajero",
+    "team": "CASPIAN RAIDERS",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&fit=crop"
+  },
+  {
+    "id": "5",
+    "name": "ELNUR ƏLİYEV",
+    "category": "UTV",
+    "points": 290,
+    "car": "Can-Am Maverick",
+    "team": "OFFROAD AZ",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&fit=crop"
+  }
+]

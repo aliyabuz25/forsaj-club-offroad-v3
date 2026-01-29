@@ -1,0 +1,153 @@
+[
+    {
+        "id": "1",
+        "title": "SUMQAYIT CHALLENGE 2024",
+        "date": "İyul 2024",
+        "photos": [
+            {
+                "id": "101",
+                "title": "SAHİL START",
+                "url": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "102",
+                "title": "QUMLUQ SINAĞI",
+                "url": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "103",
+                "title": "PİT STOP",
+                "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "104",
+                "title": "FİNİŞ ANI",
+                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "105",
+                "title": "TEXNİKİ BAXIŞ",
+                "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "106",
+                "title": "AZARKEŞLƏR",
+                "url": "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "107",
+                "title": "QALİB KÜRSÜSÜ",
+                "url": "https://images.unsplash.com/photo-1547038577-da80abbc4f19?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "108",
+                "title": "GÜN BATIMI",
+                "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&fit=crop"
+            }
+        ],
+        "videos": [
+            {
+                "id": "201",
+                "title": "RƏSMİ RECAP",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "02:45",
+                "url": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "202",
+                "title": "DRONE GÖRÜNTÜLƏRİ",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "01:30",
+                "url": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "203",
+                "title": "KABİN İÇİ",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "05:12",
+                "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "204",
+                "title": "OFFROAD HIGHLIGHTS",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "03:20",
+                "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "205",
+                "title": "MÜSAHİBƏLƏR",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "04:15",
+                "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&fit=crop"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "XIZI DAĞ SINAĞI 2024",
+        "date": "May 2024",
+        "photos": [
+            {
+                "id": "301",
+                "title": "ZİRVƏYƏ DOĞRU",
+                "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "302",
+                "title": "DAŞLIQ ƏRAZİ",
+                "url": "https://images.unsplash.com/photo-1547038577-da80abbc4f19?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "303",
+                "title": "DİNAMİKA",
+                "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "304",
+                "title": "PİLOT BAXIŞI",
+                "url": "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "305",
+                "title": "BULUDLAR ÜSTÜNDƏ",
+                "url": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=400&fit=crop"
+            },
+            {
+                "id": "306",
+                "title": "QARLI KEÇİD",
+                "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&fit=crop"
+            }
+        ],
+        "videos": [
+            {
+                "id": "401",
+                "title": "DAĞ RALLİSİ FİNAL",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "10:15",
+                "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "402",
+                "title": "EXTREME CLIMB",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "02:10",
+                "url": "https://images.unsplash.com/photo-1547038577-da80abbc4f19?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "403",
+                "title": "ENGINE SOUNDS",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "01:05",
+                "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&fit=crop"
+            },
+            {
+                "id": "404",
+                "title": "XIZI LANDSCAPE",
+                "videoId": "dQw4w9WgXcQ",
+                "duration": "03:30",
+                "url": "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?q=80&w=800&fit=crop"
+            }
+        ]
+    }
+]

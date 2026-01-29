@@ -1,0 +1,100 @@
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { useAdmin } from '../context/AdminContext';
+
+interface CategoryLeadersProps {
+  onViewChange: (view: 'home' | 'about' | 'news' | 'events' | 'drivers' | 'rules' | 'contact', category?: string) => void;
+}
+
+const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
+  const { drivers } = useAdmin();
+
+  const getLeader = (category: string) => {
+    return drivers
+      .filter(d => d.category === category)
+      .sort((a, b) => b.points - a.points)[0];
+  };
+
+  const categories = [
+    { id: 'UNLIMITED', title: 'UNLIMITED LİDER' },
+    { id: 'LEGEND', title: 'LEGEND LİDER' },
+    { id: 'SEMI STOCK', title: 'SEMI STOCK LİDER' },
+    { id: 'UTV', title: 'UTV LİDER' },
+  ];
+
+  const leaders = categories.map(cat => ({
+    ...cat,
+    leader: getLeader(cat.id)
+  })).filter(l => l.leader);
+
+  return (
+    <section className="py-24 px-6 lg:px-20 bg-[#0A0A0A]">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+        <div className="flex items-start gap-4">
+          <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.5)]"></div>
+          <div>
+            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
+              KATEQORİYA LİDƏRLƏRİ
+            </h2>
+            <p className="text-[#FF4D00] font-black italic text-[10px] md:text-xs mt-2 uppercase tracking-widest">
+              HƏR KLASS ÜZRƏ MÖVSÜMÜN ƏN GÜCLÜ PİLOTLARI
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={() => onViewChange('drivers')}
+          className="bg-white/5 border border-white/10 text-white font-black italic text-[10px] px-8 py-4 transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all shadow-md active:scale-95 group"
+        >
+          <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">
+            BÜTÜN REYTİNG <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </span>
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {leaders.map((item) => (
+          <div key={item.title} className="flex flex-col group">
+            <div className="text-center mb-6">
+              <h4 className="text-gray-500 font-black italic text-xs tracking-[0.2em] uppercase group-hover:text-[#FF4D00] transition-colors">{item.title}</h4>
+            </div>
+
+            <div
+              onClick={() => onViewChange('drivers', item.id)}
+              className="relative aspect-[4/5] overflow-hidden bg-[#111] shadow-2xl rounded-sm border border-white/5 cursor-pointer"
+            >
+              <img
+                src={item.leader.image}
+                alt={item.leader.name}
+                className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-60 transition-opacity"></div>
+
+              <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                <div className="flex flex-col">
+                  <h3 className="text-white text-2xl font-black italic leading-none tracking-tight uppercase mb-1">
+                    {item.leader.name}
+                  </h3>
+                  <p className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-wider">
+                    {item.leader.team}
+                  </p>
+                </div>
+
+                <div className="text-right flex flex-col items-end">
+                  <span className="text-gray-400 font-black italic text-[8px] uppercase leading-none mb-1">XAL</span>
+                  <span className="text-white text-5xl font-black italic leading-none">
+                    {item.leader.points}
+                  </span>
+                </div>
+              </div>
+
+              <div className="absolute inset-0 border-0 group-hover:border-2 border-[#FF4D00]/50 transition-all duration-300 pointer-events-none"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default CategoryLeaders;

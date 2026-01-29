@@ -1,0 +1,377 @@
+{
+    "nav.home": {
+        "AZ": "ANA SƏHİFƏ",
+        "EN": "HOME",
+        "RU": "ГЛАВНАЯ"
+    },
+    "nav.about": {
+        "AZ": "HAQQIMIZDA",
+        "EN": "ABOUT",
+        "RU": "О НАС"
+    },
+    "nav.news": {
+        "AZ": "XƏBƏRLƏR",
+        "EN": "NEWS",
+        "RU": "НОВОСТИ"
+    },
+    "nav.events": {
+        "AZ": "TƏDBİRLƏR",
+        "EN": "EVENTS",
+        "RU": "МЕРОПРИЯТИЯ"
+    },
+    "nav.drivers": {
+        "AZ": "SÜRÜCÜLƏR",
+        "EN": "DRIVERS",
+        "RU": "ВОДИТЕЛИ"
+    },
+    "nav.gallery": {
+        "AZ": "QALEREYA",
+        "EN": "GALLERY",
+        "RU": "ГАЛЕРЕЯ"
+    },
+    "nav.rules": {
+        "AZ": "QAYDALAR",
+        "EN": "RULES",
+        "RU": "ПРАВИЛА"
+    },
+    "nav.contact": {
+        "AZ": "ƏLAQƏ",
+        "EN": "CONTACT",
+        "RU": "КОНТАКТЫ"
+    },
+    "common.more": {
+        "AZ": "DAHA ÇOX",
+        "EN": "SEE MORE",
+        "RU": "ПОДРОБНЕЕ"
+    },
+    "common.back": {
+        "AZ": "GERİ QAYIT",
+        "EN": "GO BACK",
+        "RU": "НАЗАД"
+    },
+    "common.download": {
+        "AZ": "YÜKLƏ",
+        "EN": "DOWNLOAD",
+        "RU": "СКАЧАТЬ"
+    },
+    "common.watch": {
+        "AZ": "İZLƏ",
+        "EN": "WATCH",
+        "RU": "СМОТРЕТЬ"
+    },
+    "drivers.title": {
+        "AZ": "SÜRÜCÜLƏR",
+        "EN": "DRIVERS",
+        "RU": "ВОДИТЕЛИ"
+    },
+    "drivers.subtitle": {
+        "AZ": "RƏSMİ PİLOT SIRALAMASI // SEZON 2024",
+        "EN": "OFFICIAL PILOT STANDINGS // SEASON 2024",
+        "RU": "ОФИЦИАЛЬНЫЙ РЕЙТИНГ ПИЛОТОВ // СЕЗОН 2024"
+    },
+    "drivers.rank": {
+        "AZ": "REYTİNQ",
+        "EN": "RANKING",
+        "RU": "РЕЙТИНГ"
+    },
+    "drivers.pts": {
+        "AZ": "XAL",
+        "EN": "PTS",
+        "RU": "БАЛЛЫ"
+    },
+    "drivers.team": {
+        "AZ": "KOMANDA",
+        "EN": "TEAM",
+        "RU": "КОМАНДА"
+    },
+    "drivers.license": {
+        "AZ": "LİSENZİYA",
+        "EN": "LICENSE",
+        "RU": "ЛИЦЕНЗИЯ"
+    },
+    "drivers.podium": {
+        "AZ": "KÜRSÜ LİDERLƏRİ",
+        "EN": "PODIUM LEADERS",
+        "RU": "ЛИДЕРЫ ПОДИУМА"
+    },
+    "drivers.full_standing": {
+        "AZ": "TAM SIRALAMA",
+        "EN": "FULL STANDINGS",
+        "RU": "ПОЛНЫЙ РЕЙТИНГ"
+    },
+    "drivers.view_all": {
+        "AZ": "HAMISINA BAX",
+        "EN": "VIEW ALL",
+        "RU": "СМОТРЕТЬ ВСЕ"
+    },
+    "gallery.title": {
+        "AZ": "QALEREYA",
+        "EN": "GALLERY",
+        "RU": "ГАЛЕРЕЯ"
+    },
+    "gallery.subtitle": {
+        "AZ": "XRONOLOJİ MOTORSPORT ARXİVİ",
+        "EN": "CHRONOLOGICAL MOTORSPORT ARCHIVE",
+        "RU": "ХРОНОЛОГИЧЕСКИЙ АРХИВ МОТОСПОРТА"
+    },
+    "gallery.photos": {
+        "AZ": "FOTOLAR",
+        "EN": "PHOTOS",
+        "RU": "ФОТОГРАФИИ"
+    },
+    "gallery.videos": {
+        "AZ": "VİDEOLAR",
+        "EN": "VIDEOS",
+        "RU": "ВИДЕО"
+    },
+    "gallery.total": {
+        "AZ": "TOPLAM",
+        "EN": "TOTAL",
+        "RU": "ВСЕГО"
+    },
+    "admin.panel": {
+        "AZ": "ADMIN PANELİ",
+        "EN": "ADMIN PANEL",
+        "RU": "АДМИН ПАНЕЛЬ"
+    },
+    "admin.login": {
+        "AZ": "DAXİL OL",
+        "EN": "LOGIN",
+        "RU": "ВОЙТИ"
+    },
+    "hero.hub": {
+        "AZ": "AZƏRBAYCAN OFFROAD MOTORSPORT MƏRKƏZİ",
+        "EN": "AZERBAIJAN OFFROAD MOTORSPORT HUB",
+        "RU": "ЦЕНТР ОФФРОУД МОТОСПОРТА АЗЕРБАЙДЖАНА"
+    },
+    "hero.title_1": {
+        "AZ": "SƏRHƏDSİZ",
+        "EN": "UNLIMITED",
+        "RU": "БЕЗГРАНИЧНЫЙ"
+    },
+    "hero.title_2": {
+        "AZ": "HƏYƏCANI",
+        "EN": "EXCITEMENT",
+        "RU": "ДРАЙВ"
+    },
+    "hero.desc": {
+        "AZ": "Azərbaycanın ən çətin yollarında peşəkar yarışlar və adrenalin dolu anlar.",
+        "EN": "Professional races and adrenaline-filled moments on the toughest roads of Azerbaijan.",
+        "RU": "Профессиональные гонки и полные адреналина моменты на самых сложных дорогах Азербайджана."
+    },
+    "hero.races": {
+        "AZ": "YARIŞLARA BAX",
+        "EN": "VIEW RACES",
+        "RU": "СМОТРЕТЬ ГОНКИ"
+    },
+    "footer.desc": {
+        "AZ": "Azərbaycanın ən prestijli motorsport mərkəzi. Sərhədsiz offroad həyəcanını bizimlə yaşayın.",
+        "EN": "The most prestigious motorsport center in Azerbaijan. Experience the excitement of unlimited offroad with us.",
+        "RU": "Самый престижный автоспортивный центр Азербайджана. Испытайте азарт безграничного бездорожья вместе с нами."
+    },
+    "footer.nav": {
+        "AZ": "NAVİQASİYA",
+        "EN": "NAVIGATION",
+        "RU": "НАВИГАЦИЯ"
+    },
+    "footer.motorsport": {
+        "AZ": "MOTORSPORT",
+        "EN": "MOTORSPORT",
+        "RU": "МОТОСПОРТ"
+    },
+    "footer.stay_updated": {
+        "AZ": "XƏBƏRDAR OL",
+        "EN": "STAY UPDATED",
+        "RU": "БУДЬ В КУРСЕ"
+    },
+    "footer.newsletter_desc": {
+        "AZ": "Yarış təqvimi və xəbərlərdən anında xəbərdar olmaq üçün abunə olun.",
+        "EN": "Subscribe to stay updated on the race calendar and news.",
+        "RU": "Подпишитесь, чтобы быть в курсе календаря гонок и новостей."
+    },
+    "footer.email_placeholder": {
+        "AZ": "EMAIL DAXİL EDİN",
+        "EN": "ENTER EMAIL",
+        "RU": "ВВЕДИТЕ EMAIL"
+    },
+    "aboutTitle": {
+        "AZ": "HAQQIMIZDA",
+        "EN": "ABOUT US",
+        "RU": "О НАС"
+    },
+    "aboutSubtitle": {
+        "AZ": "BİZİM HEKAYƏMİZ // MİSSİYAMIZ VƏ GƏLƏCƏYİMİZ",
+        "EN": "OUR STORY // MISSION AND FUTURE",
+        "RU": "НАША ИСТОРИЯ // МИССИЯ И БУДУЩЕЕ"
+    },
+    "aboutHeroText": {
+        "AZ": "\"FORSAJ CLUB\" AZƏRBAYCANIN OFFROAD MƏDƏNİYYƏTİNİ PEŞƏKAR SƏVİYYƏYƏ ÇATDIRMAQ ÜÇÜN YARADILMIŞDIR.",
+        "EN": "\"FORSAJ CLUB\" WAS CREATED TO BRING AZERBAIJAN'S OFFROAD CULTURE TO A PROFESSIONAL LEVEL.",
+        "RU": "КЛУБ «ФОРСАЖ» БЫЛ СОЗДАН ДЛЯ ПОДНЯТИЯ КУЛЬТУРЫ ОФФРОУДА В АЗЕРБАЙДЖАНЕ НА ПРОФЕССИОНАЛЬНЫЙ УРОВЕНЬ."
+    },
+    "aboutDescription": {
+        "AZ": "Klubumuz sadəcə bir həvəskar qrupu deyil, ölkəmizi beynəlxalq ralli xəritəsinə daxil etməyi hədəfləyən rəsmi və peşəkar bir platformadır. 2018-ci ildən bəri biz 50-dən çox rəsmi yarış, 100-dən çox ekspedisiya və saysız-hesabsız adrenalin dolu anlar yaşamışıq.",
+        "EN": "Our club is not just an amateur group, but an official and professional platform aiming to include our country in the international rally map. Since 2018, we have experienced more than 50 official races, more than 100 expeditions and countless adrenaline-filled moments.",
+        "RU": "Наш клуб — это не просто группа любителей, а официальная и профессиональная платформа, целью которой является включение нашей страны в карту международных ралли. С 2018 года мы провели более 50 официальных гонок, более 100 экспедиций и пережили бесчисленное количество полных адреналина моментов."
+    },
+    "pilotsLabel": {
+        "AZ": "PİLOTLAR",
+        "EN": "PILOTS",
+        "RU": "ПИЛОТЫ"
+    },
+    "racesLabel": {
+        "AZ": "YARIŞLAR",
+        "EN": "RACES",
+        "RU": "ГОНКИ"
+    },
+    "youthLabel": {
+        "AZ": "GƏNCLƏR",
+        "EN": "YOUTH",
+        "RU": "МОЛОДЕЖЬ"
+    },
+    "missionTitle": {
+        "AZ": "BİZİM MİSSİYAMIZ",
+        "EN": "OUR MISSION",
+        "RU": "НАША МИССИЯ"
+    },
+    "missionDescription": {
+        "AZ": "Azərbaycanın hər bir guşəsində offroad idmanını təbliğ etmək, yerli pilotları beynəlxalq standartlara uyğun yetişdirmək və təbiəti qoruyaraq ekstremal adrenalin təcrübəsi bəxş etmək.",
+        "EN": "To promote offroad sports in every corner of Azerbaijan, to train local pilots according to international standards and to provide an extreme adrenaline experience while protecting nature.",
+        "RU": "Продвигать оффроуд-спорт в каждом уголке Азербайджана, обучать местных пилотов по международным стандартам и дарить незабываемые впечатления от экстремального адреналина, оберегая природу."
+    },
+    "targetText": {
+        "AZ": "HƏDƏFİMİZ: DAKAR RALLİ 2026",
+        "EN": "GOAL: DAKAR RALLY 2026",
+        "RU": "ЦЕЛЬ: ДАКАР РАЛЛИ 2026"
+    },
+    "visionTitle": {
+        "AZ": "BİZİM BAXIŞIMIZ",
+        "EN": "OUR VISION",
+        "RU": "НАШЕ ВИДЕНИЕ"
+    },
+    "visionDescription": {
+        "AZ": "Regionun ən böyük motorsport hubuna çevrilmək, rəqəmsal və fiziki infrastrukturlarla pilotlarımızı dəstəkləmək və motorsportu hər kəs üçün əlçatan bir ehtirasa çevirmək.",
+        "EN": "To become the largest motorsport hub in the region, supporting our pilots with digital and physical infrastructure and making motorsport accessible passion for everyone.",
+        "RU": "Стать крупнейшим автоспортивным хабом в регионе, поддерживая наших пилотов цифровой и физической инфраструктурой и делая автоспорт доступным увлечением для каждого."
+    },
+    "visionGoal": {
+        "AZ": "QAFQAZIN LİDER KLUBUNA ÇEVRİLMƏK",
+        "EN": "TO BECOME THE LEADER CLUB OF THE CAUCASUS",
+        "RU": "СТАТЬ ЛИДИРУЮЩИМ КЛУБОМ КАВКАЗА"
+    },
+    "valuesHeader": {
+        "AZ": "FUNDAMENTAL PRİNSİPLƏR",
+        "EN": "FUNDAMENTAL PRINCIPLES",
+        "RU": "ФУНДАМЕНТАЛЬНЫЕ ПРИНЦИПЫ"
+    },
+    "valuesTitle": {
+        "AZ": "ƏSAS DƏYƏRLƏRİMİZ",
+        "EN": "OUR CORE VALUES",
+        "RU": "НАШИ ОСНОВНЫЕ ЦЕННОСТИ"
+    },
+    "value1Title": {
+        "AZ": "TƏHLÜKƏSİZLİK",
+        "EN": "SAFETY",
+        "RU": "БЕЗОПАСНОСТЬ"
+    },
+    "value1Desc": {
+        "AZ": "EKSTREMAL İDMANDA CAN SAĞLIĞI BİZİM BİR NÖMRƏLİ QAYDAMIZDIR. BÜTÜN TEXNİKALARIMIZ FIA STANDARTLARINA UYĞUN YOXLANILIR.",
+        "EN": "HEALTH IN EXTREME SPORTS IS OUR NUMBER ONE RULE. ALL OUR EQUIPMENT IS CHECKED ACCORDING TO FIA STANDARDS.",
+        "RU": "ЗДОРОВЬЕ В ЭКСТРЕМАЛЬНЫХ ВИДАХ СПОРТА — НАШЕ ПРАВИЛО НОМЕР ОДИН. ВСЯ НАША ТЕХНИКА ПРОВЕРЯЕТСЯ СОГЛАСНО СТАНДАРТАМ FIA."
+    },
+    "value2Title": {
+        "AZ": "İCMA RUHU",
+        "EN": "COMMUNITY SPIRIT",
+        "RU": "ДУХ СООБЩЕСТВА"
+    },
+    "value2Desc": {
+        "AZ": "FORSAJ BİR KLUBDAN DAHA ÇOX, SADİQ VƏ BÖYÜK BİR AİLƏDİR. BİRİMİZ HAMIMIZ, HAMIMIZ BİRİMİZ ÜÇÜN!",
+        "EN": "FORSAJ IS MORE THAN A CLUB, IT IS A LOYAL AND BIG FAMILY. ALL FOR ONE, ONE FOR ALL!",
+        "RU": "«ФОРСАЖ» — ЭТО БОЛЬШЕ, ЧЕМ КЛУБ, ЭТО ПРЕДАННАЯ И БОЛЬШАЯ СЕМЬЯ. ОДИН ЗА ВСЕХ И ВСЕ ЗА ОДНОГО!"
+    },
+    "value3Title": {
+        "AZ": "TƏBİƏTİ QORU",
+        "EN": "PROTECT NATURE",
+        "RU": "БЕРЕГИ ПРИРОДУ"
+    },
+    "value3Desc": {
+        "AZ": "BİZ OFFROAD EDƏRKƏN TƏBİƏTƏ ZƏRƏR VERMƏMƏYİ ÖZÜMÜZƏ BORC BİLİRİK. EKOLOJİ BALANS BİZİM ÜÇÜN MÜQƏDDƏSDİR.",
+        "EN": "WE FEEL IT OUR DUTY NOT TO DAMAGE NATURE WHILE OFFROADING. ECOLOGICAL BALANCE IS SACRED TO US.",
+        "RU": "МЫ СЧИТАЕМ СВОИМ ДОЛГОМ НЕ НАНОСИТЬ ВРЕД ПРИРОДЕ ВО ВРЕМЯ ОФФРОУДА. ЭКОЛОГИЧЕСКИЙ БАЛАНС ДЛЯ НАС СВЯЩЕНЕН."
+    },
+    "value4Title": {
+        "AZ": "MÜKƏMMƏLLİK",
+        "EN": "EXCELLENCE",
+        "RU": "СОВЕРШЕНСТВО"
+    },
+    "value4Desc": {
+        "AZ": "HƏR YARIŞDA, HƏR DÖNGƏDƏ DAHA YAXŞI OLMAĞA ÇALIŞIRIQ. TƏLİMLƏRİMİZ PEŞƏKAR İNSTRUKTORLAR TƏRƏFİNDƏN İDARƏ OLUNUR.",
+        "EN": "WE STRIVE TO BE BETTER IN EVERY RACE, EVERY TURN. OUR TRAINING SESSIONS ARE MANAGED BY PROFESSIONAL INSTRUCTORS.",
+        "RU": "МЫ СТРЕМИМСЯ БЫТЬ ЛУЧШЕ В КАЖДОЙ ГОНКЕ, НА КАЖДОМ ПОВОРОТЕ. НАШИ ТРЕНИРОВКИ ПРОВОДЯТ ПРОФЕССИОНАЛЬНЫЕ ИНСТРУКТОРЫ."
+    },
+    "rules.title": {
+        "AZ": "QAYDALAR",
+        "EN": "RULES",
+        "RU": "ПРАВИЛА"
+    },
+    "rules.subtitle": {
+        "AZ": "FORSAJ MOTORSPORT RƏSMİ QAYDALARI",
+        "EN": "FORSAJ MOTORSPORT OFFICIAL RULES",
+        "RU": "ОФИЦИАЛЬНЫЕ ПРАВИЛА FORSAJ MOTORSPORT"
+    },
+    "rules.pilot_protocol": {
+        "AZ": "PİLOT PROTOKOLU",
+        "EN": "PILOT PROTOCOL",
+        "RU": "ПРОТОКОЛ ПИЛОТА"
+    },
+    "rules.technical_norms": {
+        "AZ": "TEXNİKİ NORMALAR",
+        "EN": "TECHNICAL NORMS",
+        "RU": "ТЕХНИЧЕСКИЕ НОРМЫ"
+    },
+    "rules.safety_rules": {
+        "AZ": "TƏHLÜKƏSİZLİK QAYDALARI",
+        "EN": "SAFETY RULES",
+        "RU": "ПРАВИЛА БЕЗОПАСНОСТИ"
+    },
+    "rules.eco_responsibility": {
+        "AZ": "EKOLOJİ MƏSULİYYƏT",
+        "EN": "ECO RESPONSIBILITY",
+        "RU": "ЭКОЛОГИЧЕСКАЯ ОТВЕТСТВЕННОСТЬ"
+    },
+    "contact.title": {
+        "AZ": "ƏLAQƏ",
+        "EN": "CONTACT",
+        "RU": "КОНТАКТЫ"
+    },
+    "contact.subtitle": {
+        "AZ": "BİZA SUALINIZ VAR? BİZİMLƏ ƏLAQƏ SAXLAYIN",
+        "EN": "HAVE A QUESTION? CONTACT US",
+        "RU": "ЕСТЬ ВОПРОСЫ? СВЯЖИТЕСЬ С НАМИ"
+    },
+    "contact.form_name": {
+        "AZ": "AD SOYAD",
+        "EN": "FULL NAME",
+        "RU": "ИМЯ ФАМИЛИЯ"
+    },
+    "contact.form_email": {
+        "AZ": "E-POÇT ÜNVANI",
+        "EN": "EMAIL ADDRESS",
+        "RU": "E-MAIL АДРЕС"
+    },
+    "contact.form_message": {
+        "AZ": "MESAJINIZ",
+        "EN": "YOUR MESSAGE",
+        "RU": "ВАШЕ СООБЩЕНИЕ"
+    },
+    "contact.send_button": {
+        "AZ": "MESAJI GÖNDƏR",
+        "EN": "SEND MESSAGE",
+        "RU": "ОТПРАВИТЬ СООБЩЕНИЕ"
+    },
+    "common.all": {
+        "AZ": "HAMISI",
+        "EN": "ALL",
+        "RU": "ВСЕ"
+    }
+}
