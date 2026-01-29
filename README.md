@@ -1,57 +1,57 @@
 # Forsaj Club Offroad V3 🏎💨
 
-Azerbaijan's premier offroad motorsport hub. This platform features a dynamic leaderboard, event galleries, video archives, and a multi-language localization system.
+Azerbaycan'ın önde gelen offroad motor sporları merkezi. Bu platform; dinamik bir liderlik tablosu, etkinlik galerileri, video arşivleri ve çok dilli yerelleştirme sistemi sunar.
 
-## 🚀 Features
+## 🚀 Özellikler
 
-- **Dynamic Leaderboard**: Automated driver ranking across 4 categories (Unlimited, Legend, Semi Stock, UTV).
-- **Admin Dashboard**: Secure management of sitewide settings, marquee announcements, and driver points.
-- **User Management**: Create and manage admin accounts (Master & Secondary roles).
-- **Localization**: Full support for **Azerbaijani (AZ)**, **English (EN)**, and **Russian (RU)**.
-- **Media Archive**: High-density photo gallery with download capability and integrated YouTube video modals.
-- **Premium Aesthetics**: High-performance dark mode UI with glassmorphism and smooth micro-animations.
+- **Dinamik Liderlik Tablosu**: 4 kategoride (Unlimited, Legend, Semi Stock, UTV) otomatik sürücü sıralaması.
+- **Admin Paneli**: Site genelindeki ayarların, duyuruların ve sürücü puanlarının güvenli yönetimi.
+- **Kullanıcı Yönetimi**: Admin hesapları oluşturma ve düzenleme (Master ve Secondary rolleri).
+- **Yerelleştirme**: **Azerbaycan Türkçesi (AZ)**, **İngilizce (EN)** ve **Rusça (RU)** için tam destek.
+- **Medya Arşivi**: İndirme özellikli yüksek çözünürlüklü fotoğraf galerisi ve entegre YouTube video modalları.
+- **Premium Estetik**: Glassmorphism ve pürüzsüz mikro animasyonlara sahip yüksek performanslı karanlık mod arayüzü.
 
-## 🛠 Tech Stack
+## 🛠 Teknoloji Yığını
 
 - **Frontend**: React (Vite)
 - **Backend**: Node.js (Express)
-- **Database**: JSON-based Flat File Persistence
-- **Deployment**: Docker & Docker Compose
-- **Proxy**: Traefik (HTTPS Ready)
+- **Veritabanı**: JSON tabanlı dosya sistemi (Persistence)
+- **Dağıtım**: Docker & Docker Compose
+- **Proxy**: Traefik (HTTPS Hazır)
 
-## 🔐 Admin Panel
+## 🔐 Admin Paneli
 
-The admin dashboard is accessible via a hidden hash route.
+Admin paneline gizli bir hash rotası üzerinden erişilebilir.
 - **URL**: `https://forsaj.octotech.az/#admin`
 
-### Default Credentials
-| Username | Password | Role | Permissions |
+### Varsayılan Kimlik Bilgileri
+| Kullanıcı Adı | Şifre | Rol | Yetkiler |
 | :--- | :--- | :--- | :--- |
-| `admin` | `admin123` | Master | Full Access (Settings + Users) |
+| `admin` | `admin123` | Master | Tam Erişim (Ayarlar + Kullanıcılar) |
 
-## 📦 Deployment (Docker)
+## 📦 Kurulum ve Canlıya Alım (Docker)
 
-To deploy the application using Docker and Traefik:
+Uygulamayı Docker ve Traefik kullanarak yayına almak için:
 
-1. **Clone the repository**:
+1. **Depoyu klonlayın**:
    ```bash
    git clone https://github.com/aliyabuz25/forsaj-club-offroad-v3.git
    cd forsaj-club-offroad-v3
    ```
 
-2. **Deploy with Docker Compose**:
+2. **Docker Compose ile başlatın**:
    ```bash
    docker-compose up -d --build
    ```
 
-*Note: Ensure you have an external network named `web` or update the `docker-compose.yml` to match your Traefik setup.*
+*Not: `web` adında harici bir ağınız olduğundan emin olun veya `docker-compose.yml` dosyasını kendi Traefik kurulumunuza göre güncelleyin.*
 
-## 📂 Project Structure
+## 📂 Proje Yapısı
 
-- `/components`: UI units and page sections.
-- `/context`: Global state for Admin settings and Language localization.
-- `/json`: External data sources (Users, Settings, etc.).
-- `/uploads`: Persistent storage for uploaded media.
+- `/components`: UI birimleri ve sayfa bölümleri.
+- `/context`: Admin ayarları ve dil yerelleştirmesi için global state (durum) yönetimi.
+- `/json`: Harici veri kaynakları (Kullanıcılar, Ayarlar vb.).
+- `/uploads`: Yüklenen medyalar için kalıcı depolama alanı.
 
 ---
-© 2024 Forsaj Club. All Rights Reserved.
+© 2024 Forsaj Club. Tüm Hakları Saklıdır.
