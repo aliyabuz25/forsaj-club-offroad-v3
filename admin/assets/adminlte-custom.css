@@ -1,0 +1,63 @@
+/* Force text color reset for Admin Panel */
+body.admin-page {
+    color: #212529 !important;
+    background-color: #f4f6f9 !important;
+}
+
+.admin-page .wrapper,
+.admin-page .content-wrapper,
+.admin-page .card,
+.admin-page .navbar,
+.admin-page .main-sidebar {
+    color: #212529;
+}
+
+.admin-page h1,
+.admin-page h2,
+.admin-page h3,
+.admin-page h4,
+.admin-page h5,
+.admin-page h6 {
+    color: #212529 !important;
+}
+
+.admin-page .navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, .5);
+}
+
+.admin-page .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, .7);
+}
+
+/* Fix sidebar color override if affected */
+.admin-page .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+.admin-page .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #007bff;
+    color: #fff !important;
+}
+
+.admin-page .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link {
+    color: #c2c7d0;
+}
+
+/* Card overrides */
+.admin-page .card-title {
+    color: inherit;
+}
+
+/* Modal overrides */
+.admin-page .modal-content {
+    background-color: #fff !important;
+    color: #212529 !important;
+}
+
+.admin-page .modal-title {
+    color: #212529 !important;
+}
+
+.admin-page input,
+.admin-page textarea,
+.admin-page select {
+    color: #495057 !important;
+    background-color: #fff !important;
+}

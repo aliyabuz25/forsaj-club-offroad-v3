@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
+import { useLanguage } from '../context/LanguageContext';
 
 interface CategoryLeadersProps {
   onViewChange: (view: 'home' | 'about' | 'news' | 'events' | 'drivers' | 'rules' | 'contact', category?: string) => void;
@@ -8,6 +9,7 @@ interface CategoryLeadersProps {
 
 const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
   const { drivers } = useAdmin();
+  const { t } = useLanguage();
 
   const getLeader = (category: string) => {
     return drivers
@@ -34,10 +36,10 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.5)]"></div>
           <div>
             <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              KATEQORİYA LİDƏRLƏRİ
+              {t('leaders.title')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[10px] md:text-xs mt-2 uppercase tracking-widest">
-              HƏR KLASS ÜZRƏ MÖVSÜMÜN ƏN GÜCLÜ PİLOTLARI
+              {t('leaders.subtitle')}
             </p>
           </div>
         </div>
@@ -46,7 +48,7 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
           className="bg-white/5 border border-white/10 text-white font-black italic text-[10px] px-8 py-4 transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all shadow-md active:scale-95 group"
         >
           <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">
-            BÜTÜN REYTİNG <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {t('leaders.full_rating')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </span>
         </button>
       </div>

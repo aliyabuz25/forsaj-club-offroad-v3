@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Calendar, MapPin, X, Car, Users as UsersIcon, Download, FileText, ChevronDown } from 'lucide-react';
 import { useAdmin, EventItem } from '../context/AdminContext';
+import { useLanguage } from '../context/LanguageContext';
 
 interface EventsPageProps {
   onViewChange: (view: 'home' | 'about' | 'news' | 'events' | 'drivers' | 'rules' | 'contact' | 'gallery') => void;
@@ -8,6 +9,7 @@ interface EventsPageProps {
 
 const EventsPage: React.FC<EventsPageProps> = ({ onViewChange }) => {
   const { events } = useAdmin();
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'planned' | 'past'>('planned');
   const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
   const [regStep, setRegStep] = useState<'select' | 'pilot' | null>(null);
@@ -36,13 +38,13 @@ const EventsPage: React.FC<EventsPageProps> = ({ onViewChange }) => {
           <button onClick={() => setRegStep(null)} className="absolute top-8 right-8 text-gray-600 hover:text-white transition-colors"><X size={32} /></button>
           {regStep === 'select' ? (
             <div className="text-center animate-in fade-in zoom-in-95 duration-300">
-              <h2 className="text-5xl md:text-8xl font-black italic text-white uppercase tracking-tighter mb-2 leading-none">YARIŞDA İŞTİRAK</h2>
+              <h2 className="text-5xl md:text-8xl font-black italic text-white uppercase tracking-tighter mb-2 leading-none">{t('events.join')}</h2>
               <p className="text-[#FF4D00] font-black italic text-xs uppercase tracking-[0.3em] mb-16">{selectedEvent?.title} // {selectedEvent?.location}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div onClick={() => setRegStep('pilot')} className="group cursor-pointer bg-black border border-white/5 hover:border-[#FF4D00] transition-all p-12 flex flex-col items-center justify-center min-h-[300px] shadow-2xl">
                   <div className="bg-[#FF4D00] p-6 mb-8 transform -skew-x-12 group-hover:scale-110 group-hover:bg-white transition-all shadow-[0_0_20px_rgba(255,77,0,0.3)]"><Car size={40} className="text-black transform skew-x-12" /></div>
-                  <h3 className="text-3xl font-black italic text-white uppercase mb-2 tracking-tighter">PİLOT KİMİ QATIL</h3>
-                  <p className="text-gray-500 font-bold italic text-[10px] uppercase tracking-widest">TEXNİKİ REQLAMENTƏ UYĞUN OLARAQ</p>
+                  <h3 className="text-3xl font-black italic text-white uppercase mb-2 tracking-tighter">{t('events.join_pilot')}</h3>
+                  <p className="text-gray-500 font-bold italic text-[10px] uppercase tracking-widest">{t('events.join_pilot_desc')}</p>
                 </div>
                 <div onClick={handleJoinSpectator} className="group cursor-pointer bg-black border border-white/5 hover:border-white transition-all p-12 flex flex-col items-center justify-center min-h-[300px] shadow-2xl">
                   <div className="bg-white/10 p-6 mb-8 transform -skew-x-12 group-hover:scale-110 group-hover:bg-white transition-all"><UsersIcon size={40} className="text-white transform skew-x-12 group-hover:text-black" /></div>

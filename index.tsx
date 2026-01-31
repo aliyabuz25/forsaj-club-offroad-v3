@@ -5,6 +5,7 @@ import App from './App';
 
 import { AdminProvider } from './context/AdminContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { ContentProvider } from './context/ContentContext';
 
 import { Toaster } from 'react-hot-toast';
 
@@ -18,7 +19,9 @@ root.render(
   <React.StrictMode>
     <LanguageProvider>
       <AdminProvider>
-        <App />
+        <ContentProvider>
+          <App />
+        </ContentProvider>
         <Toaster position="top-right" />
       </AdminProvider>
     </LanguageProvider>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Clock, Share2, MessageSquare, ChevronRight, Calendar } from 'lucide-react';
 import { useAdmin, NewsItem } from '../context/AdminContext';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NewsPageProps {
   onViewChange: (view: any) => void;
@@ -8,6 +9,7 @@ interface NewsPageProps {
 
 const NewsPage: React.FC<NewsPageProps> = ({ onViewChange }) => {
   const { news } = useAdmin();
+  const { t } = useLanguage();
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
 
   if (!news || news.length === 0) {

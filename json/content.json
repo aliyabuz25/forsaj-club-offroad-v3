@@ -1,0 +1,23 @@
+[
+    {
+        "id": "hero_title",
+        "section": "Home",
+        "key": "hero_title",
+        "value": "AZƏRBAYCAN OFFROAD MƏDƏNİYYƏTİ",
+        "image": ""
+    },
+    {
+        "id": "hero_subtitle",
+        "section": "Home",
+        "key": "hero_subtitle",
+        "value": "Adrenalin, Güc və Təbiətin Vəhdəti",
+        "image": ""
+    },
+    {
+        "id": "about_title",
+        "section": "About",
+        "key": "intro_title",
+        "value": "BİZ KİMİK?",
+        "image": ""
+    }
+]

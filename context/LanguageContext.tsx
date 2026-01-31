@@ -28,12 +28,61 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     const [translations, setTranslations] = useState<Translations>({});
 
     React.useEffect(() => {
-        fetch('/api/translations').then(res => res.json()).then(setTranslations);
+        fetch('/api/translations')
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    const map: Translations = {};
+                    data.forEach(item => {
+                        map[item.key || item.id] = { AZ: item.AZ, EN: item.EN, RU: item.RU };
+                    });
+                    setTranslations(map);
+                } else {
+                    setTranslations(data);
+                }
+            });
     }, []);
 
+    const [pendingTranslations, setPendingTranslations] = useState<Set<string>>(new Set());
+
     const t = (key: string): string => {
-        if (!translations[key]) return key;
-        return translations[key][language] || translations[key]['AZ'] || key;
+        // If we have the exact translation
+        if (translations[key] && translations[key][language]) {
+            return translations[key][language];
+        }
+
+        // Fallback to AZ (assuming key might be the text itself if not found in keys)
+        const fallback = translations[key]?.AZ || key;
+
+        // If we are not in AZ and translation is missing, try to auto-translate
+        if (language !== 'AZ' && !pendingTranslations.has(`${key}_${language}`)) {
+            // Mark as pending to avoid loops
+            pendingTranslations.add(`${key}_${language}`);
+
+            // Trigger translation
+            fetch('/api/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: fallback, targetLang: language.toLowerCase() })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.translatedText) {
+                        setTranslations(prev => ({
+                            ...prev,
+                            [key]: {
+                                ...(prev[key] || { AZ: fallback, EN: '', RU: '' }),
+                                [language]: data.translatedText
+                            }
+                        }));
+                    }
+                })
+                .catch(() => {
+                    // Ignore errors
+                });
+        }
+
+        return fallback;
     };
 
     const updateTranslation = async (key: string, values: { AZ: string, EN: string, RU: string }) => {

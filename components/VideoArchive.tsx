@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlayCircle, ArrowRight, X } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
+import { useLanguage } from '../context/LanguageContext';
 
 interface VideoArchiveProps {
   onViewChange: (view: any) => void;
@@ -8,6 +9,7 @@ interface VideoArchiveProps {
 
 const VideoArchive: React.FC<VideoArchiveProps> = ({ onViewChange }) => {
   const { gallery } = useAdmin();
+  const { t } = useLanguage();
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
 
   // Collect all videos from all gallery sections
@@ -58,9 +60,9 @@ const VideoArchive: React.FC<VideoArchiveProps> = ({ onViewChange }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.5)]"></div>
           <div>
             <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              VİDEO ARXİVİ
+              {t('archive.title')}
             </h2>
-            <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-[0.3em]">Tarixi yarışların unudulmaz anları</p>
+            <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-[0.3em]">{t('archive.subtitle')}</p>
           </div>
         </div>
         <button
@@ -68,7 +70,7 @@ const VideoArchive: React.FC<VideoArchiveProps> = ({ onViewChange }) => {
           className="bg-white/5 border border-white/10 text-white font-black italic text-xs px-10 py-4 rounded-sm transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all shadow-md active:scale-95 group"
         >
           <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">
-            BÜTÜN QALEREYA <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            {t('archive.all')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </span>
         </button>
       </div>
