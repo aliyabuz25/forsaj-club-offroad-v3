@@ -13,7 +13,7 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.docker.network=edge'
-      - 'traefik.http.routers.forsaj-api.rule=(Host(`forsaj.local`) || Host(`forsaj-club.com`)) && (PathPrefix(`/api`) || PathPrefix(`/uploads`))'
+      - 'traefik.http.routers.forsaj-api.rule=(Host(`forsaj.octotech.az`) || Host(`forsaj.az`)) && (PathPrefix(`/api`) || PathPrefix(`/uploads`))'
       - 'traefik.http.routers.forsaj-api.entrypoints=web'
       - 'traefik.http.routers.forsaj-api.priority=100'
       - 'traefik.http.services.forsaj-api.loadbalancer.server.port=3001'
@@ -28,7 +28,7 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.docker.network=edge'
-      - 'traefik.http.routers.forsaj.rule=Host(`forsaj.local`) || Host(`forsaj-club.com`)'
+      - 'traefik.http.routers.forsaj.rule=Host(`forsaj.octotech.az`) || Host(`forsaj.az`)'
       - 'traefik.http.routers.forsaj.entrypoints=web'
       - 'traefik.http.services.forsaj.loadbalancer.server.port=80'
 
