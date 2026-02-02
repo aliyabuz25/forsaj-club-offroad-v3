@@ -31,10 +31,26 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 // Serve static files (uploads)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Ensure Directories Exist
+// Ensure Directories Exist & Initialize defaults
 ['json', 'uploads'].forEach(dir => {
-    if (!fs.existsSync(path.join(__dirname, dir))) fs.mkdirSync(path.join(__dirname, dir));
+    const dirPath = path.join(__dirname, dir);
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+    }
 });
+
+// Seed JSON defaults if empty (for Docker volumes)
+const jsonDir = path.join(__dirname, 'json');
+const defaultsDir = path.join(__dirname, 'json_defaults');
+if (fs.existsSync(defaultsDir)) {
+    fs.readdirSync(defaultsDir).forEach(file => {
+        const destPath = path.join(jsonDir, file);
+        if (!fs.existsSync(destPath)) {
+            console.log(`Initializing ${file} from defaults...`);
+            fs.copyFileSync(path.join(defaultsDir, file), destPath);
+        }
+    });
+}
 
 // Multer Storage
 const storage = multer.diskStorage({
