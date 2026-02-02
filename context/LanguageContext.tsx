@@ -22,11 +22,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [language, setLangState] = useState<Language>(() => {
-        // First check Weglot current language if available via cookie or session
-        const wgLang = document.cookie.split('; ').find(row => row.startsWith('wg-lang='))?.split('=')[1];
-        if (wgLang) {
-            const code = wgLang.toUpperCase();
-            if (['AZ', 'EN', 'RU', 'TR'].includes(code)) return code as Language;
+        const getCookie = (name: string) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop()?.split(';').shift();
+            return null;
+        };
+        const googtrans = getCookie('googtrans');
+        if (googtrans) {
+            const langCode = googtrans.split('/').pop()?.toUpperCase();
+            if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) return langCode as Language;
         }
         return 'AZ';
     });
@@ -77,38 +82,39 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
         document.cookie = `${name}=${value}; expires=${expires}; path=/`;
         if (window.location.hostname !== 'localhost') {
-            const domainParts = window.location.hostname.split('.');
-            if (domainParts.length >= 2) {
-                const baseDomain = domainParts.slice(-2).join('.');
-                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.${baseDomain}`;
+            const parts = window.location.hostname.split('.');
+            if (parts.length >= 2) {
+                const domain = '.' + parts.slice(-2).join('.');
+                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=${domain}`;
             }
         }
     };
 
     const deleteCookie = (name: string) => {
-        const expires = "Thu, 01 Jan 1970 00:00:00 UTC";
-        document.cookie = `${name}=; expires=${expires}; path=/`;
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
         if (window.location.hostname !== 'localhost') {
-            const domainParts = window.location.hostname.split('.');
-            if (domainParts.length >= 2) {
-                const baseDomain = domainParts.slice(-2).join('.');
-                document.cookie = `${name}=; expires=${expires}; path=/; domain=.${baseDomain}`;
+            const parts = window.location.hostname.split('.');
+            if (parts.length >= 2) {
+                const domain = '.' + parts.slice(-2).join('.');
+                document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
             }
         }
     };
 
     useEffect(() => {
-        const syncWeglot = () => {
-            const wag = (window as any).Weglot;
-            if (wag && typeof wag.getCurrentLang === 'function') {
-                const current = wag.getCurrentLang().toUpperCase();
-                if (['AZ', 'EN', 'RU', 'TR'].includes(current) && current !== language) {
-                    setLangState(current as Language);
+        const checkGTranslate = () => {
+            const googtrans = getCookie('googtrans');
+            if (googtrans) {
+                const langCode = googtrans.split('/').pop()?.toUpperCase();
+                if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) {
+                    if (language !== langCode) setLangState(langCode as Language);
                 }
+            } else if (language !== 'AZ') {
+                setLangState('AZ');
             }
         };
 
-        const interval = setInterval(syncWeglot, 1000);
+        const interval = setInterval(checkGTranslate, 1000);
         return () => clearInterval(interval);
     }, [language]);
 
@@ -125,22 +131,13 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     }, [language]);
 
     const setLanguage = (lang: Language) => {
-        const target = lang.toLowerCase();
-        const wag = (window as any).Weglot;
-
-        if (wag && typeof wag.switchTo === 'function') {
-            try {
-                wag.switchTo(target);
-                setLangState(lang);
-            } catch (e) {
-                console.error('Weglot switch error:', e);
-                window.location.reload();
-            }
+        if (lang === 'AZ') {
+            deleteCookie('googtrans');
         } else {
-            // Fallback: reload might trigger Weglot on next load if state is saved
-            setLangState(lang);
-            window.location.reload();
+            setCookie('googtrans', `/az/${lang.toLowerCase()}`);
         }
+        setLangState(lang);
+        window.location.reload();
     };
 
     const t = (key: string, defaultValue?: string): string => {
@@ -166,6 +163,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage, t, refreshContent }}>
+            <div id="google_translate_element" style={{ display: 'none' }}></div>
             {children}
         </LanguageContext.Provider>
     );
