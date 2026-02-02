@@ -70,25 +70,42 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         refreshContent();
     }, []);
 
+    const getCookie = (name: string) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop()?.split(';').shift();
+        return null;
+    };
+
     const setCookie = (name: string, value: string) => {
-        const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
-        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-        if (window.location.hostname !== 'localhost') {
-            const parts = window.location.hostname.split('.');
+        const date = new Date();
+        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+        const expires = "; expires=" + date.toUTCString();
+
+        // Simple cookie setting for max compatibility
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
+        // If not on localhost, try to set it for the base domain as well
+        const hostname = window.location.hostname;
+        if (hostname !== 'localhost' && !/^[0-9.]+$/.test(hostname)) {
+            const parts = hostname.split('.');
             if (parts.length >= 2) {
-                const domain = '.' + parts.slice(-2).join('.');
-                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=${domain}`;
+                const baseDomain = parts.slice(-2).join('.');
+                document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=." + baseDomain;
             }
         }
     };
 
     const deleteCookie = (name: string) => {
-        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
-        if (window.location.hostname !== 'localhost') {
-            const parts = window.location.hostname.split('.');
+        const expires = "; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = name + "=; path=/; " + expires;
+
+        const hostname = window.location.hostname;
+        if (hostname !== 'localhost' && !/^[0-9.]+$/.test(hostname)) {
+            const parts = hostname.split('.');
             if (parts.length >= 2) {
-                const domain = '.' + parts.slice(-2).join('.');
-                document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+                const baseDomain = parts.slice(-2).join('.');
+                document.cookie = name + "=; path=/; domain=." + baseDomain + "; " + expires;
             }
         }
     };
