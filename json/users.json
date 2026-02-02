@@ -3,7 +3,7 @@
         "id": "1",
         "name": "Super Admin",
         "username": "admin",
-        "password": "$2b$10$TKauFz/ZrtaPDY5L5HBgSumVSwldRgE5wMOCt4U4AO/vIa5TWE86O",
+        "password": "admin123",
         "role": "admin"
     }
 ]

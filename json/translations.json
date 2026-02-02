@@ -98,6 +98,13 @@
     "RU": "ЗАГРУЗКА..."
   },
   {
+    "id": "news.loading",
+    "key": "news.loading",
+    "AZ": "XƏBƏRLƏR YÜKLƏNİR...",
+    "EN": "LOADING NEWS...",
+    "RU": "ЗАГРУЗКА НОВОСТЕЙ..."
+  },
+  {
     "id": "gallery.photos",
     "key": "gallery.photos",
     "AZ": "FOTOLAR",

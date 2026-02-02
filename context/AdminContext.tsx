@@ -239,19 +239,28 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
     const login = async (username: string, password: string): Promise<boolean> => {
         try {
-            const users = await fetch('/api/users').then(res => res.json());
-            const user = users.find((u: any) => u.username === username && u.password === password);
-            if (user) {
-                const userData: AdminUser = { username: user.username, role: user.role as 'master' | 'secondary' };
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+
+            if (res.ok) {
+                const userData: AdminUser = { username: data.user.username, role: data.user.role };
                 setCurrentUser(userData);
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('forsaj_admin_session', JSON.stringify(userData));
-                toast.success(`Xoş gəlmisiniz, ${user.username}!`);
+                toast.success(`Xoş gəlmisiniz, ${data.user.name || data.user.username}!`);
                 return true;
+            } else {
+                toast.error(data.message || 'İstifadəçi adı və ya şifrə yanlışdır');
+                return false;
             }
-            toast.error('İstifadəçi adı və ya şifrə yanlışdır');
-            return false;
         } catch (error) {
             console.error(error);
+            toast.error('Şəbəkə xətası baş verdi');
             return false;
         }
     };
