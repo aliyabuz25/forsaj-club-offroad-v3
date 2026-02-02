@@ -72,6 +72,15 @@ export interface AdminUser {
     role: 'master' | 'secondary';
 }
 
+export interface VideoItem {
+    id: string;
+    title: string;
+    videoUrl: string;
+    videoId: string;
+    url: string;
+    duration?: string;
+}
+
 interface AdminContextType {
     settings: AdminSettings;
     updateSettings: (newSettings: Partial<AdminSettings>) => Promise<void>;
@@ -79,6 +88,7 @@ interface AdminContextType {
     news: NewsItem[];
     events: EventItem[];
     gallery: GallerySection[];
+    videoArchive: VideoItem[];
     partners: Partner[];
     saveDriver: (driver: Partial<Driver>, imageFile?: File) => Promise<void>;
     deleteDriver: (id: string) => Promise<void>;
@@ -89,6 +99,8 @@ interface AdminContextType {
     deleteEvent: (id: string) => Promise<void>;
     saveGallery: (section: Partial<GallerySection>, imageFile?: File) => Promise<void>;
     deleteGallery: (id: string) => Promise<void>;
+    saveVideoArchive: (item: Partial<VideoItem>) => Promise<void>;
+    deleteVideoArchive: (id: string) => Promise<void>;
     savePartner: (partner: Partial<Partner>, imageFile?: File) => Promise<void>;
     deletePartner: (id: string) => Promise<void>;
     currentUser: AdminUser | null;
@@ -118,6 +130,7 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     const [news, setNews] = useState<NewsItem[]>([]);
     const [events, setEvents] = useState<EventItem[]>([]);
     const [gallery, setGallery] = useState<GallerySection[]>([]);
+    const [videoArchive, setVideoArchive] = useState<VideoItem[]>([]);
     const [partners, setPartners] = useState<Partner[]>([]);
 
     // Recovery session from localStorage safely
@@ -148,12 +161,13 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         };
 
         const loadContent = async () => {
-            const [s, dr, nw, ev, gl, pr] = await Promise.all([
+            const [s, dr, nw, ev, gl, va, pr] = await Promise.all([
                 safeFetch('/api/settings'),
                 safeFetch('/api/drivers'),
                 safeFetch('/api/news'),
                 safeFetch('/api/events'),
                 safeFetch('/api/gallery'),
+                safeFetch('/api/video_archive'),
                 safeFetch('/api/partners')
             ]);
 
@@ -171,6 +185,7 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
                 setEvents(normalized);
             }
             if (gl) setGallery(Array.isArray(gl) ? gl : []);
+            if (va) setVideoArchive(Array.isArray(va) ? va : []);
             if (pr) setPartners(Array.isArray(pr) ? pr : []);
         };
 
@@ -247,6 +262,9 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     const saveGallery = (data: any, file?: File) => saveEntity('gallery', data, file, setGallery);
     const deleteGallery = (id: string) => deleteEntity('gallery', id, setGallery);
 
+    const saveVideoArchive = (data: any) => saveEntity('video_archive', data, undefined, setVideoArchive);
+    const deleteVideoArchive = (id: string) => deleteEntity('video_archive', id, setVideoArchive);
+
     const savePartner = (data: any, file?: File) => saveEntity('partners', data, file, setPartners);
     const deletePartner = (id: string) => deleteEntity('partners', id, setPartners);
 
@@ -286,9 +304,10 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
     return (
         <AdminContext.Provider value={{
-            settings, updateSettings, drivers, news, events, gallery, partners,
+            settings, updateSettings, drivers, news, events, gallery, videoArchive, partners,
             saveDriver, deleteDriver, updateDriverPoints,
             saveNews, deleteNews, saveEvent, deleteEvent, saveGallery, deleteGallery,
+            saveVideoArchive, deleteVideoArchive,
             savePartner, deletePartner,
             currentUser, login, logout
         }}>

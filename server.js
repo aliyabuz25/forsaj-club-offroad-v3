@@ -212,6 +212,16 @@ const setupCrud = (entityName, fileName) => {
                 itemData.img = itemData.image;
             }
 
+            // YouTube Link Processing
+            if (itemData.videoUrl) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                const match = itemData.videoUrl.match(regExp);
+                if (match && match[2].length === 11) {
+                    itemData.videoId = match[2];
+                    itemData.url = `https://img.youtube.com/vi/${itemData.videoId}/0.jpg`;
+                }
+            }
+
             if (itemData.id) {
                 const index = items.findIndex(i => String(i.id) === String(itemData.id));
                 if (index !== -1) {
@@ -322,6 +332,7 @@ setupCrud('about', 'about.json');
 setupCrud('news', 'news.json');
 setupCrud('events', 'events.json');
 setupCrud('gallery', 'gallery.json');
+setupCrud('video_archive', 'video_archive.json');
 setupCrud('partners', 'partners.json');
 
 // --- FILE MANAGER API ---

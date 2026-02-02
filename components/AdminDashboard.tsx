@@ -87,11 +87,20 @@ const AdminDashboard: React.FC = () => {
             />;
             case 'gallery': return <ContentManager
                 entity="gallery"
-                title="Qalereya"
+                title="Şəkil Qalereyası"
                 fields={[
                     { name: 'title', label: 'Başlıq', type: 'text' },
                     { name: 'image', label: 'Şəkil', type: 'image' },
                     { name: 'category', label: 'Kateqoriya', type: 'text' }
+                ]}
+            />;
+            case 'video_archive': return <ContentManager
+                entity="video_archive"
+                title="Video Arxiv"
+                fields={[
+                    { name: 'title', label: 'Video Başlığı', type: 'text' },
+                    { name: 'videoUrl', label: 'YouTube Linki', type: 'text' },
+                    { name: 'duration', label: 'Müddət (məs: 04:20)', type: 'text' }
                 ]}
             />;
             case 'partners': return <ContentManager
@@ -107,12 +116,13 @@ const AdminDashboard: React.FC = () => {
             case 'files': return <FileManager />;
             case 'translations': return <ContentManager
                 entity="translations"
-                title="Translations"
+                title="Tərcümələr"
                 fields={[
-                    { name: 'key', label: 'Key', type: 'text' },
-                    { name: 'AZ', label: 'Azeri (AZ)', type: 'textarea' },
+                    { name: 'key', label: 'Açar', type: 'text' },
+                    { name: 'AZ', label: 'Azerbaycan (AZ)', type: 'textarea' },
                     { name: 'EN', label: 'English (EN)', type: 'textarea' },
-                    { name: 'RU', label: 'Russian (RU)', type: 'textarea' }
+                    { name: 'RU', label: 'Russian (RU)', type: 'textarea' },
+                    { name: 'TR', label: 'Turkish (TR)', type: 'textarea' }
                 ]}
             />;
             default: return <div>Select a module</div>;

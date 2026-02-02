@@ -55,14 +55,18 @@ const Hero: React.FC<HeroProps> = ({ onViewChange }) => {
             onClick={() => onViewChange('events')}
             className="w-full sm:w-auto min-w-[220px] bg-[#FF4D00] hover:bg-white hover:text-black text-black font-black italic py-5 px-10 rounded-sm flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_rgba(255,77,0,0.3)]"
           >
-            <span className="uppercase text-sm tracking-widest">{t('hero.races', 'YARIŞ TƏQVİMİ')}</span>
+            <span className="uppercase text-sm tracking-widest">
+              <TranslatableText text={t('hero.races', 'YARIŞ TƏQVİMİ')} />
+            </span>
             <ChevronRight className="w-5 h-5" />
           </button>
           <button
             onClick={() => onViewChange('about')}
             className="w-full sm:w-auto min-w-[220px] border-2 border-white/10 text-white hover:border-[#FF4D00] hover:text-[#FF4D00] font-black italic py-5 px-10 rounded-sm transition-all bg-white/5 backdrop-blur-sm"
           >
-            <span className="uppercase text-sm tracking-widest">{t('hero.about', 'HAQQIMIZDA')}</span>
+            <span className="uppercase text-sm tracking-widest">
+              <TranslatableText text={t('hero.about', 'HAQQIMIZDA')} />
+            </span>
           </button>
         </div>
       </div>

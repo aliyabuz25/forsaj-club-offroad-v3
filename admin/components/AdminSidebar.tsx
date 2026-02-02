@@ -17,8 +17,10 @@ const AdminSidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) => 
         { id: 'news', icon: 'fa-newspaper', label: 'Xəbərlər' },
         { id: 'events', icon: 'fa-calendar', label: 'Yarışlar' },
         { id: 'gallery', icon: 'fa-images', label: 'Qalereya' },
+        { id: 'video_archive', icon: 'fa-video', label: 'Video Arxiv' },
         { id: 'files', icon: 'fa-folder', label: 'Fayllar' },
         { id: 'partners', icon: 'fa-handshake', label: 'Tərəfdaşlar' },
+        { id: 'translations', icon: 'fa-language', label: 'Tərcümələr' },
         { id: 'settings', icon: 'fa-cogs', label: 'Ayarlar' }
     ];
 

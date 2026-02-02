@@ -9,7 +9,7 @@ interface GalleryPageProps {
 }
 
 const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
-  const { gallery } = useAdmin();
+  const { gallery, videoArchive } = useAdmin();
   const { t } = useLanguage();
   const [activeType, setActiveType] = useState<'photos' | 'videos'>('photos');
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
@@ -96,9 +96,53 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
 
       {/* Categorized Content */}
       <div className="space-y-32">
+        {/* Unified Videos Section if videos active */}
+        {activeType === 'videos' && (videoArchive?.length > 0) && (
+          <section className="relative group">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-white/5 pb-8">
+              <div className="flex items-start gap-4">
+                <div className="relative">
+                  <TranslatableText text={t('gallery.featured_videos', 'SEÇİLMİŞ VİDEOLAR')} as="h3" className="text-3xl md:text-5xl font-black italic text-white uppercase tracking-tighter leading-none mb-2" />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {videoArchive.map((video) => (
+                <div
+                  key={video.id}
+                  onClick={() => setPlayingVideoId(video.videoId)}
+                  className="group/video relative flex flex-col bg-[#111] border border-white/5 overflow-hidden transition-all duration-300 hover:border-[#FF4D00]/50 hover:shadow-2xl shadow-lg cursor-pointer"
+                >
+                  <div className="aspect-video relative overflow-hidden">
+                    <img
+                      src={video.url}
+                      className="w-full h-full object-cover grayscale opacity-30 transition-all duration-700 group-hover/video:scale-105 group-hover/video:grayscale-0 group-hover/video:opacity-100"
+                      alt={video.title}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-black/50 backdrop-blur-sm p-4 rounded-full border border-white/10 transition-all duration-300 group-hover/video:scale-110 group-hover/video:bg-[#FF4D00] group-hover/video:text-black">
+                        <PlayCircle size={40} strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    {video.duration && (
+                      <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-1 text-[8px] font-black italic uppercase tracking-widest border border-white/10 text-white/80">
+                        {video.duration}
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-4 border-t border-white/5">
+                    <TranslatableText text={video.title} as="h4" className="text-[11px] font-black italic text-gray-400 uppercase tracking-tight group-hover/video:text-[#FF4D00] transition-colors line-clamp-1" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {gallery.map((event, idx) => {
           const items = activeType === 'photos' ? event.photos : event.videos;
-          if (items.length === 0) return null;
+          if (!items || items.length === 0) return null;
 
           return (
             <section key={event.id} className="relative group">

@@ -1070,5 +1070,21 @@
     "EN": "BACK",
     "RU": "НАЗАД",
     "TR": "GERİ"
+  },
+  {
+    "id": "gallery.featured_videos",
+    "key": "gallery.featured_videos",
+    "AZ": "SEÇİLMİŞ VİDEOLAR",
+    "EN": "FEATURED VIDEOS",
+    "RU": "ИЗБРАННЫЕ ВИДЕО",
+    "TR": "ÖNE ÇIKAN VİDEOLAR"
+  },
+  {
+    "id": "common.loading",
+    "key": "common.loading",
+    "AZ": "YÜKLƏNİR...",
+    "EN": "LOADING...",
+    "RU": "ЗАГРУЗКА...",
+    "TR": "YÜKLENİYOR..."
   }
 ]

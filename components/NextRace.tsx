@@ -20,21 +20,29 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
 
   return (
     <section className="py-24 px-6 lg:px-20 bg-[#0F0F0F]">
-      <div className="flex justify-between items-end mb-12">
+      <div className="flex justify-between items-end mb-12 px-2">
         <div className="flex items-start gap-3">
           <div className="w-1.5 h-12 bg-[#FF4D00]"></div>
           <div>
-            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('events.next_race_title', 'NÖVBƏTİ YARIŞ')}
-            </h2>
-            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg', 'QEYDİYYAT DAVAM EDİR')}</p>
+            <TranslatableText
+              text={t('events.next_race_title', 'NÖVBƏTİ YARIŞ')}
+              as="h2"
+              className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white"
+            />
+            <TranslatableText
+              text={t('events.live_reg', 'QEYDİYYAT DAVAM EDİR')}
+              as="p"
+              className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]"
+            />
           </div>
         </div>
         <button
           onClick={() => onViewChange('events')}
           className="bg-white/5 text-white font-black italic text-[10px] px-8 py-3 rounded-sm transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all border border-white/5"
         >
-          <span className="transform skew-x-12">{t('events.full_calendar', 'TAM TƏQVİM')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
+          <span className="transform skew-x-12">
+            <TranslatableText text={t('events.full_calendar', 'TAM TƏQVİM')} />
+          </span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
         </button>
       </div>
 
@@ -57,21 +65,25 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
         <div className="md:w-1/2 p-10 md:p-20 flex flex-col justify-center">
           <div className="flex items-center gap-3 text-[#FF4D00] font-black italic mb-4">
             <Calendar className="w-5 h-5" />
-            <span className="text-lg tracking-widest uppercase">{nextEvent.date}</span>
+            <span className="text-lg tracking-widest uppercase">
+              <TranslatableText text={nextEvent.date} />
+            </span>
           </div>
           <h2 className="text-5xl md:text-7xl font-black italic leading-[0.9] mb-6 tracking-tighter uppercase text-white">
             <TranslatableText text={nextEvent.title} as="span" />
           </h2>
           <div className="flex items-center gap-2 text-gray-500 font-black italic mb-10 text-xs uppercase tracking-widest">
             <MapPin className="w-4 h-4 text-[#FF4D00]" />
-            <span><TranslatableText text={nextEvent.location} /> // {nextEvent.category}</span>
+            <span><TranslatableText text={nextEvent.location} /> // <TranslatableText text={nextEvent.category} /></span>
           </div>
 
           <button
             onClick={() => onViewChange('events')}
             className="bg-[#FF4D00] hover:bg-white text-black font-black italic py-5 px-12 rounded-sm flex items-center gap-3 transition-all self-start transform -skew-x-12 group shadow-[0_10px_30px_rgba(255,77,0,0.2)]"
           >
-            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration', 'İNDİ QOŞUL')}</span>
+            <span className="transform skew-x-12 uppercase text-lg">
+              <TranslatableText text={t('common.join_registration', 'İNDİ QOŞUL')} />
+            </span>
             <ChevronRight className="w-6 h-6 transform skew-x-12 group-hover:translate-x-2 transition-transform" />
           </button>
         </div>
