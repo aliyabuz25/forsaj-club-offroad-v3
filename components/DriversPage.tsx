@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Trophy, Zap } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
 import { useLanguage } from '../context/LanguageContext';
+import TranslatableText from './TranslatableText';
 
 interface Driver {
   id: number | string;
@@ -71,10 +72,10 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
             <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_20px_rgba(255,77,0,0.6)]"></div>
             <div>
               <h2 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">
-                <span className="text-white">{selectedCategory.name.split(' ')[0]}</span> <span className="text-[#FF4D00]">{t('drivers.rating', 'REYTİNQ')}</span>
+                <span className="text-white">{selectedCategory.name.split(' ')[0]}</span> <span className="text-[#FF4D00]">{t('drivers.rating')}</span>
               </h2>
               <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">
-                {t('drivers.standings_desc', 'BÜTÜN PİLOTLARIN RƏSMİ SIRALAMASI // 2024')}
+                {t('drivers.standings_desc')}
               </p>
             </div>
           </div>
@@ -84,7 +85,7 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
           >
             <div className="absolute inset-0 bg-[#FF4D00] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></div>
             <span className="relative z-10 transform skew-x-12 flex items-center gap-2 group-hover:text-black">
-              <ArrowLeft size={18} /> {t('common.back', 'GERİ')}
+              <ArrowLeft size={18} /> {t('common.back')}
             </span>
           </button>
         </div>
@@ -103,17 +104,15 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                   <img src={driver.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt={driver.name} />
                 </div>
                 <div>
-                  <h4 className="text-3xl font-black italic tracking-tighter uppercase group-hover:text-[#FF4D00] transition-colors leading-none mb-2">{driver.name}</h4>
+                  <TranslatableText text={driver.name} as="h4" className="text-3xl font-black italic tracking-tighter uppercase group-hover:text-[#FF4D00] transition-colors leading-none mb-2" />
                   <p className="text-[10px] font-black italic text-gray-500 uppercase tracking-widest">{driver.license}</p>
                 </div>
               </div>
               <div className="col-span-3 text-center">
-                <span className="text-white font-black italic text-sm uppercase tracking-widest">
-                  {driver.team}
-                </span>
+                <TranslatableText text={driver.team} as="span" className="text-white font-black italic text-sm uppercase tracking-widest" />
               </div>
               <div className="col-span-2 text-right">
-                <p className="text-gray-600 font-black italic text-[9px] uppercase tracking-widest mb-1">{t('drivers.pts', 'XAL')}</p>
+                <p className="text-gray-600 font-black italic text-[9px] uppercase tracking-widest mb-1">{t('drivers.pts')}</p>
                 <span className="text-5xl font-black italic text-[#FF4D00] tracking-tighter">
                   {driver.points}
                 </span>
@@ -133,10 +132,10 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
           <div>
             <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('nav.drivers', 'SÜRÜCÜLƏR')}
+              {t('nav.drivers')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">
-              {t('drivers.pilots_standings', 'OFFICIAL PILOT STANDINGS // SEASON 2024')}
+              {t('drivers.pilots_standings')}
             </p>
           </div>
         </div>
@@ -161,7 +160,7 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
 
             <div className="flex flex-col sm:flex-row gap-10 items-stretch relative z-10">
               <div className="sm:w-3/5 flex flex-col gap-5">
-                <p className="text-[#FF4D00] font-black italic text-[10px] uppercase tracking-[0.3em] mb-2">{t('drivers.podium_leaders', 'PODIUM LEADERS')}</p>
+                <p className="text-[#FF4D00] font-black italic text-[10px] uppercase tracking-[0.3em] mb-2">{t('drivers.podium_leaders')}</p>
                 {cat.leaders.map((driver) => (
                   <div
                     key={driver.id}
@@ -181,14 +180,11 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                     </div>
 
                     <div className="overflow-hidden">
-                      <h4 className={`text-xl md:text-2xl font-black italic leading-none uppercase tracking-tighter truncate mb-1 ${driver.rank === 1 ? 'text-white' : 'text-gray-400'
-                        }`}>
-                        {driver.name}
-                      </h4>
-                      <p className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-widest">{driver.team}</p>
+                      <TranslatableText text={driver.name} as="h4" className={`text-xl md:text-2xl font-black italic leading-none uppercase tracking-tighter truncate mb-1 ${driver.rank === 1 ? 'text-white' : 'text-gray-400'}`} />
+                      <TranslatableText text={driver.team} as="p" className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-widest" />
                       <div className="mt-3 flex items-baseline gap-2">
                         <span className="text-white text-3xl font-black italic leading-none">{driver.points}</span>
-                        <span className="text-gray-600 text-[9px] font-black italic uppercase">{t('drivers.pts_label', 'PTS')}</span>
+                        <span className="text-gray-600 text-[9px] font-black italic uppercase">{t('drivers.pts_label')}</span>
                       </div>
                     </div>
                   </div>
@@ -197,7 +193,7 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
 
               <div className="sm:w-2/5 flex flex-col bg-black/40 border border-white/5 p-6 rounded-sm relative group/blur shadow-inner min-h-[300px]">
                 <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-2">
-                  <span className="text-[10px] font-black italic text-gray-600 uppercase tracking-widest">{t('drivers.top_10', 'TOP 10 GRID')}</span>
+                  <span className="text-[10px] font-black italic text-gray-600 uppercase tracking-widest">{t('drivers.top_10')}</span>
                   <Zap size={14} className="text-[#FF4D00]" />
                 </div>
 
@@ -206,7 +202,7 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                     <div key={d.id} className="flex items-center justify-between text-[11px] font-black italic text-gray-500 uppercase blur-[0.6px] transition-all group-hover/blur:blur-none group-hover/blur:text-gray-400">
                       <div className="flex items-center gap-3">
                         <span className="w-5 text-gray-700">#{d.rank}</span>
-                        <span className="truncate max-w-[80px]">{d.name.split(' ')[0]}</span>
+                        <TranslatableText text={d.name.split(' ')[0]} as="span" className="truncate max-w-[80px]" />
                       </div>
                       <span className="text-gray-700">{d.points}</span>
                     </div>
@@ -216,10 +212,10 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center">
                   <div className="mb-8">
                     <p className="text-white font-black italic text-sm uppercase tracking-widest leading-none mb-2">
-                      {t('drivers.full_ranking', 'TAM SIRALAMA')}
+                      {t('drivers.full_ranking')}
                     </p>
                     <p className="text-[#FF4D00] font-black italic text-[9px] uppercase tracking-[0.2em] opacity-80">
-                      {t('drivers.all_pilots', 'BÜTÜN PİLOTLAR')}
+                      {t('drivers.all_pilots')}
                     </p>
                   </div>
 
@@ -229,7 +225,7 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                   >
                     <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500 skew-x-[-20deg]"></div>
                     <span className="relative z-10 flex items-center justify-center gap-3">
-                      {t('common.see_all', 'HAMISINA BAX')} <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
+                      {t('common.see_all')} <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                     </span>
                   </button>
                 </div>

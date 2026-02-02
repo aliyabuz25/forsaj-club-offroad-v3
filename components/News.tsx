@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
 import { useLanguage } from '../context/LanguageContext';
+import TranslatableText from './TranslatableText';
 
 interface NewsProps {
   onViewChange: (view: any) => void;
@@ -27,7 +28,7 @@ const News: React.FC<NewsProps> = ({ onViewChange }) => {
                 {t('nav.news')}
               </h2>
               <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-widest">
-                {t('news.subtitle') || 'Motorsport və Offroad dünyasından yeniliklər'}
+                {t('news.subtitle')}
               </p>
             </div>
           </div>
@@ -35,7 +36,7 @@ const News: React.FC<NewsProps> = ({ onViewChange }) => {
             onClick={() => onViewChange('news')}
             className="bg-[#FF4D00] text-black font-black italic text-xs px-10 py-4 rounded-sm transform -skew-x-12 flex items-center gap-3 hover:bg-white transition-all shadow-xl hover:scale-105 active:scale-95"
           >
-            <span className="transform skew-x-12 flex items-center gap-2">{t('common.all') || 'HAMISI'} <ArrowRight className="w-5 h-5" /></span>
+            <span className="transform skew-x-12 flex items-center gap-2">{t('common.all')} <ArrowRight className="w-5 h-5" /></span>
           </button>
         </div>
 
@@ -52,13 +53,21 @@ const News: React.FC<NewsProps> = ({ onViewChange }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
             <div className="relative z-10 w-full">
-              <span className="text-[#FF4D00] text-[10px] font-black italic uppercase mb-3 block tracking-[0.3em]">{mainNews.category}</span>
-              <h3 className="text-4xl md:text-7xl font-black italic text-white leading-none tracking-tighter mb-5 uppercase">
-                {mainNews.title}
-              </h3>
-              <p className="text-gray-400 font-bold italic text-xs md:text-base uppercase tracking-wide max-w-xl">
-                {mainNews.description}
-              </p>
+              <TranslatableText
+                text={mainNews.category || ''}
+                as="span"
+                className="text-[#FF4D00] text-[10px] font-black italic uppercase mb-3 block tracking-[0.3em]"
+              />
+              <TranslatableText
+                text={mainNews.title}
+                as="h3"
+                className="text-4xl md:text-7xl font-black italic text-white leading-none tracking-tighter mb-5 uppercase"
+              />
+              <TranslatableText
+                text={mainNews.description}
+                as="p"
+                className="text-gray-400 font-bold italic text-xs md:text-base uppercase tracking-wide max-w-xl"
+              />
             </div>
           </div>
 
@@ -80,12 +89,16 @@ const News: React.FC<NewsProps> = ({ onViewChange }) => {
                   <div className="flex items-center gap-2 text-[#FF4D00] text-[10px] font-black italic mb-2 uppercase tracking-widest">
                     <Calendar size={12} /> {item.date}
                   </div>
-                  <h4 className="text-3xl font-black italic text-white uppercase leading-tight mb-2 group-hover:text-[#FF4D00] transition-colors tracking-tighter">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-500 text-[10px] font-bold italic uppercase tracking-wider line-clamp-2">
-                    {item.description}
-                  </p>
+                  <TranslatableText
+                    text={item.title}
+                    as="h4"
+                    className="text-3xl font-black italic text-white uppercase leading-tight mb-2 group-hover:text-[#FF4D00] transition-colors tracking-tighter"
+                  />
+                  <TranslatableText
+                    text={item.description}
+                    as="p"
+                    className="text-gray-500 text-[10px] font-bold italic uppercase tracking-wider line-clamp-2"
+                  />
                 </div>
               </div>
             ))}

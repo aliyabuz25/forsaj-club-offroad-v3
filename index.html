@@ -30,40 +30,8 @@
             overflow-x: hidden;
             background-color: #0A0A0A;
             color: #FFFFFF;
-            top: 0 !important;
-        }
-
-        .notranslate {
-            /* Standard protection */
-        }
-
-        /* Hide GTranslate UI items */
-        #gt_float_wrapper,
-        .gt_container,
-        .goog-te-banner-frame,
-        .skiptranslate,
-        .goog-te-gadget {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-        body {
-            top: 0 !important;
-            position: static !important;
         }
     </style>
-
-    <!-- GTranslate.io Stable Integration (Alternative CDN to avoid 429) -->
-    <script>
-        window.gtranslateSettings = {
-            "default_language": "az",
-            "languages": ["az", "en", "ru", "tr"],
-            "wrapper_selector": ".gtranslate_wrapper",
-            "flag_style": "3d",
-            "alt_flags": { "en": "usa" }
-        };
-    </script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <script type="importmap">
     {

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect, useCallback } from 'react';
 
 export type Language = 'AZ' | 'EN' | 'RU' | 'TR';
 
@@ -15,6 +15,7 @@ interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
     t: (key: string, defaultValue?: string) => string;
+    translateText: (text: string) => Promise<string>;
     refreshContent: () => void;
 }
 
@@ -22,22 +23,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [language, setLangState] = useState<Language>(() => {
-        const getCookie = (name: string) => {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop()?.split(';').shift();
-            return null;
-        };
-        const googtrans = getCookie('googtrans');
-        if (googtrans) {
-            const langCode = googtrans.split('/').pop()?.toUpperCase();
-            if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) return langCode as Language;
-        }
+        const saved = localStorage.getItem('forsaj_lang');
+        if (saved && ['AZ', 'EN', 'RU', 'TR'].includes(saved)) return saved as Language;
         return 'AZ';
     });
 
     const [contentMap, setContentMap] = useState<{ [key: string]: string }>({});
     const [translations, setTranslations] = useState<TranslationItem[]>([]);
+    const [translationCache, setTranslationCache] = useState<{ [key: string]: string }>({});
 
     const refreshContent = async () => {
         const safeFetch = async (url: string) => {
@@ -70,97 +63,59 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         refreshContent();
     }, []);
 
-    const getCookie = (name: string) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop()?.split(';').shift();
-        return null;
-    };
-
-    const setCookie = (name: string, value: string) => {
-        const date = new Date();
-        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-        const expires = "; expires=" + date.toUTCString();
-
-        // Simple cookie setting for max compatibility
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-
-        // If not on localhost, try to set it for the base domain as well
-        const hostname = window.location.hostname;
-        if (hostname !== 'localhost' && !/^[0-9.]+$/.test(hostname)) {
-            const parts = hostname.split('.');
-            if (parts.length >= 2) {
-                const baseDomain = parts.slice(-2).join('.');
-                document.cookie = name + "=" + (value || "") + expires + "; path=/; domain=." + baseDomain;
-            }
-        }
-    };
-
-    const deleteCookie = (name: string) => {
-        const expires = "; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-        document.cookie = name + "=; path=/; " + expires;
-
-        const hostname = window.location.hostname;
-        if (hostname !== 'localhost' && !/^[0-9.]+$/.test(hostname)) {
-            const parts = hostname.split('.');
-            if (parts.length >= 2) {
-                const baseDomain = parts.slice(-2).join('.');
-                document.cookie = name + "=; path=/; domain=." + baseDomain + "; " + expires;
-            }
-        }
-    };
-
-    useEffect(() => {
-        const checkGTranslateStatus = () => {
-            const googtrans = getCookie('googtrans');
-            if (googtrans) {
-                const langCode = googtrans.split('/').pop()?.toUpperCase();
-                if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) {
-                    if (language !== langCode) setLangState(langCode as Language);
-                }
-            } else if (language !== 'AZ') {
-                setLangState('AZ');
-            }
-        };
-
-        const interval = setInterval(checkGTranslateStatus, 2000);
-        return () => clearInterval(interval);
-    }, [language]);
-
     const setLanguage = (lang: Language) => {
-        const target = lang.toLowerCase();
-        const pair = `az|${target}`;
-
-        // Use the standard GTranslate switcher
-        if (typeof (window as any).doGTranslate === 'function') {
-            (window as any).doGTranslate(pair);
-            setLangState(lang);
-        } else {
-            // Fallback via cookie + reload
-            if (lang === 'AZ') {
-                deleteCookie('googtrans');
-            } else {
-                setCookie('googtrans', `/az/${target}`);
-            }
-            setLangState(lang);
-            window.location.reload();
-        }
+        localStorage.setItem('forsaj_lang', lang);
+        setLangState(lang);
+        window.location.reload();
     };
+
+    // HIGH-QUALITY DYNAMIC TRANSLATOR (Using internal proxy - stable & unlimited)
+    const translateText = useCallback(async (text: string): Promise<string> => {
+        if (!text || language === 'AZ') return text;
+
+        const cacheKey = `${language}:${text}`;
+        if (translationCache[cacheKey]) return translationCache[cacheKey];
+
+        try {
+            const response = await fetch('/api/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    text,
+                    targetLang: language.toLowerCase()
+                })
+            });
+            const data = await response.json();
+
+            if (data && data.translatedText) {
+                setTranslationCache(prev => ({ ...prev, [cacheKey]: data.translatedText }));
+                return data.translatedText;
+            }
+            return text;
+        } catch (error) {
+            console.error('Translation error:', error);
+            return text;
+        }
+    }, [language, translationCache]);
 
     const t = (key: string, defaultValue?: string): string => {
-        if (language === 'AZ' && contentMap[key]) return contentMap[key];
-        const transItem = translations.find(t => t.key === key);
+        // 1. Static translations from JSON
+        const transItem = translations.find(item => item.key === key);
         if (transItem) {
             const val = transItem[language];
             if (val) return val;
             if (transItem.AZ) return transItem.AZ;
         }
+
+        // 2. Content overrides
+        if (language === 'AZ' && contentMap[key]) return contentMap[key];
+
+        // 3. Fallback
         return defaultValue || key.split('.').pop()?.toUpperCase() || key;
     };
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage, t, refreshContent }}>
-            <div className="gtranslate_wrapper" style={{ display: 'none' }}></div>
+        <LanguageContext.Provider value={{ language, setLanguage, t, translateText, refreshContent }}>
             {children}
         </LanguageContext.Provider>
     );

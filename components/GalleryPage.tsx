@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PlayCircle, Image as ImageIcon, Video, ArrowRight, Maximize2, Calendar, X } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
 import { useLanguage } from '../context/LanguageContext';
+import TranslatableText from './TranslatableText';
 
 interface GalleryPageProps {
   onViewChange: (view: any) => void;
@@ -20,7 +21,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
   if (!gallery || gallery.length === 0) {
     return (
       <div className="bg-[#0A0A0A] min-h-screen py-24 px-6 lg:px-20 text-white font-['Inter'] flex items-center justify-center">
-        <p className="text-gray-500 font-black italic uppercase tracking-widest">{t('common.loading', 'Qalereya məlumatı yüklənir...')}</p>
+        <p className="text-gray-500 font-black italic uppercase tracking-widest">{t('common.loading')}</p>
       </div>
     );
   }
@@ -64,7 +65,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
           <div>
             <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('nav.gallery', 'QALEREYA')}
+              {t('nav.gallery')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">
               XRONOLOJİ MOTORSPORT ARXİVİ // FORSAJ CLUB
@@ -79,7 +80,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
             className={`px-10 py-4 font-black italic text-sm uppercase tracking-widest transition-all flex items-center gap-3 ${activeType === 'photos' ? 'bg-[#FF4D00] text-black transform -skew-x-12 shadow-lg shadow-[#FF4D00]/20' : 'text-gray-500 hover:text-white'}`}
           >
             <span className={activeType === 'photos' ? 'transform skew-x-12 flex items-center gap-2' : 'flex items-center gap-2'}>
-              <ImageIcon size={18} /> {t('gallery.photos', 'FOTOLAR')}
+              <ImageIcon size={18} /> {t('gallery.photos')}
             </span>
           </button>
           <button
@@ -87,7 +88,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
             className={`px-10 py-4 font-black italic text-sm uppercase tracking-widest transition-all flex items-center gap-3 ${activeType === 'videos' ? 'bg-[#FF4D00] text-black transform -skew-x-12 shadow-lg shadow-[#FF4D00]/20' : 'text-gray-500 hover:text-white'}`}
           >
             <span className={activeType === 'videos' ? 'transform skew-x-12 flex items-center gap-2' : 'flex items-center gap-2'}>
-              <Video size={18} /> {t('gallery.videos', 'VİDEOLAR')}
+              <Video size={18} /> {t('gallery.videos')}
             </span>
           </button>
         </div>
@@ -108,14 +109,14 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
                     {(idx + 1).toString().padStart(2, '0')}
                   </div>
                   <div className="relative">
-                    <h3 className="text-3xl md:text-5xl font-black italic text-white uppercase tracking-tighter leading-none mb-2">{event.title}</h3>
+                    <TranslatableText text={event.title} as="h3" className="text-3xl md:text-5xl font-black italic text-white uppercase tracking-tighter leading-none mb-2" />
                     <div className="flex items-center gap-2 text-[#FF4D00] font-black italic text-[10px] uppercase tracking-[0.3em]">
                       <Calendar size={14} /> {event.date}
                     </div>
                   </div>
                 </div>
                 <p className="text-gray-600 font-black italic text-[10px] uppercase tracking-widest">
-                  {t('gallery.total', 'TOPLAM')} {items.length} {activeType === 'photos' ? t('gallery.photo', 'FOTO') : t('gallery.video', 'VİDEO')}
+                  {t('gallery.total')} {items.length} {activeType === 'photos' ? t('gallery.photo') : t('gallery.video')}
                 </p>
               </div>
 
@@ -163,7 +164,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onViewChange }) => {
                         </div>
                       </div>
                       <div className="p-4 border-t border-white/5">
-                        <h4 className="text-[11px] font-black italic text-gray-400 uppercase tracking-tight group-hover/video:text-[#FF4D00] transition-colors line-clamp-1">{video.title}</h4>
+                        <TranslatableText text={video.title} as="h4" className="text-[11px] font-black italic text-gray-400 uppercase tracking-tight group-hover/video:text-[#FF4D00] transition-colors line-clamp-1" />
                       </div>
                     </div>
                   ))}

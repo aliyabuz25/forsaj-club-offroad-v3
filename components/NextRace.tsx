@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
 import { useLanguage } from '../context/LanguageContext';
+import TranslatableText from './TranslatableText';
 
 interface NextRaceProps {
   onViewChange: (view: any) => void;
@@ -24,16 +25,16 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
           <div className="w-1.5 h-12 bg-[#FF4D00]"></div>
           <div>
             <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('events.next_race_title', 'NÖVBƏTİ YARIŞ')}
+              {t('events.next_race_title')}
             </h2>
-            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg', 'QEYDİYYAT DAVAM EDİR')}</p>
+            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg')}</p>
           </div>
         </div>
         <button
           onClick={() => onViewChange('events')}
           className="bg-white/5 text-white font-black italic text-[10px] px-8 py-3 rounded-sm transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all border border-white/5"
         >
-          <span className="transform skew-x-12">{t('events.full_calendar', 'TAM TƏQVİM')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
+          <span className="transform skew-x-12">{t('events.full_calendar')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
         </button>
       </div>
 
@@ -46,9 +47,11 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
           <div className="absolute inset-0 flex items-center justify-center p-12 overflow-hidden pointer-events-none">
-            <span className="text-[#FF4D00] text-9xl font-black italic opacity-5 uppercase select-none tracking-tighter whitespace-nowrap">
-              {nextEvent.location}
-            </span>
+            <TranslatableText
+              text={nextEvent.location}
+              as="span"
+              className="text-[#FF4D00] text-9xl font-black italic opacity-5 uppercase select-none tracking-tighter whitespace-nowrap"
+            />
           </div>
         </div>
         <div className="md:w-1/2 p-10 md:p-20 flex flex-col justify-center">
@@ -57,22 +60,18 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
             <span className="text-lg tracking-widest uppercase">{nextEvent.date}</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-black italic leading-[0.9] mb-6 tracking-tighter uppercase text-white">
-            {nextEvent.title.split(' ').map((word, i, arr) => (
-              <React.Fragment key={i}>
-                {i === 0 ? word : <><br /><span className="text-gray-500">{word}</span></>}
-              </React.Fragment>
-            ))}
+            <TranslatableText text={nextEvent.title} as="span" />
           </h2>
           <div className="flex items-center gap-2 text-gray-500 font-black italic mb-10 text-xs uppercase tracking-widest">
             <MapPin className="w-4 h-4 text-[#FF4D00]" />
-            <span>{nextEvent.location} // {nextEvent.category}</span>
+            <span><TranslatableText text={nextEvent.location} /> // {nextEvent.category}</span>
           </div>
 
           <button
             onClick={() => onViewChange('events')}
             className="bg-[#FF4D00] hover:bg-white text-black font-black italic py-5 px-12 rounded-sm flex items-center gap-3 transition-all self-start transform -skew-x-12 group shadow-[0_10px_30px_rgba(255,77,0,0.2)]"
           >
-            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration', 'İNDİ QOŞUL')}</span>
+            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration')}</span>
             <ChevronRight className="w-6 h-6 transform skew-x-12 group-hover:translate-x-2 transition-transform" />
           </button>
         </div>

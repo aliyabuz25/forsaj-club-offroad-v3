@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
 import { useLanguage } from '../context/LanguageContext';
+import TranslatableText from './TranslatableText';
 
 interface CategoryLeadersProps {
   onViewChange: (view: 'home' | 'about' | 'news' | 'events' | 'drivers' | 'rules' | 'contact', category?: string) => void;
@@ -18,10 +19,10 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
   };
 
   const categories = [
-    { id: 'UNLIMITED', title: 'UNLIMITED LİDER' },
-    { id: 'LEGEND', title: 'LEGEND LİDER' },
-    { id: 'SEMI STOCK', title: 'SEMI STOCK LİDER' },
-    { id: 'UTV', title: 'UTV LİDER' },
+    { id: 'UNLIMITED', title: 'leaders.unlimited' },
+    { id: 'LEGEND', title: 'leaders.legend' },
+    { id: 'SEMI STOCK', title: 'leaders.semi_stock' },
+    { id: 'UTV', title: 'leaders.utv' },
   ];
 
   const leaders = categories.map(cat => ({
@@ -36,10 +37,10 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.5)]"></div>
           <div>
             <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('leaders.title', 'KATEQORİYA LİDERLƏRİ')}
+              {t('leaders.title')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[10px] md:text-xs mt-2 uppercase tracking-widest">
-              {t('leaders.subtitle', 'HƏR SİNİF ÜZRƏ ƏN YÜKSƏK XAL TOPLAYAN PİLOTLAR')}
+              {t('leaders.subtitle')}
             </p>
           </div>
         </div>
@@ -48,16 +49,16 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
           className="bg-white/5 border border-white/10 text-white font-black italic text-[10px] px-8 py-4 transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all shadow-md active:scale-95 group"
         >
           <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">
-            {t('leaders.full_rating', 'TAM SIRALAMA')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {t('leaders.full_rating')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </span>
         </button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {leaders.map((item) => (
-          <div key={item.title} className="flex flex-col group">
+          <div key={item.id} className="flex flex-col group">
             <div className="text-center mb-6">
-              <h4 className="text-gray-500 font-black italic text-xs tracking-[0.2em] uppercase group-hover:text-[#FF4D00] transition-colors">{item.title}</h4>
+              <h4 className="text-gray-500 font-black italic text-xs tracking-[0.2em] uppercase group-hover:text-[#FF4D00] transition-colors">{t(item.title)}</h4>
             </div>
 
             <div
@@ -74,16 +75,12 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
 
               <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
                 <div className="flex flex-col">
-                  <h3 className="text-white text-2xl font-black italic leading-none tracking-tight uppercase mb-1">
-                    {item.leader.name}
-                  </h3>
-                  <p className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-wider">
-                    {item.leader.team}
-                  </p>
+                  <TranslatableText text={item.leader.name} as="h3" className="text-white text-2xl font-black italic leading-none tracking-tight uppercase mb-1" />
+                  <TranslatableText text={item.leader.team} as="p" className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-wider" />
                 </div>
 
                 <div className="text-right flex flex-col items-end">
-                  <span className="text-gray-400 font-black italic text-[8px] uppercase leading-none mb-1">{t('common.pts', 'XAL')}</span>
+                  <span className="text-gray-400 font-black italic text-[8px] uppercase leading-none mb-1">{t('common.pts')}</span>
                   <span className="text-white text-5xl font-black italic leading-none">
                     {item.leader.points}
                   </span>
