@@ -18,11 +18,15 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
     const checkSetupStatus = async () => {
         try {
-            const res = await fetch('/api/auth/setup-status');
+            // Add cache-buster to ensure we get fresh status
+            const res = await fetch(`/api/auth/setup-status?t=${Date.now()}`);
             if (res.ok) {
                 const data = await res.json();
+                console.log('Setup status:', data);
                 if (data.initialized === false) {
                     setNeedsSetup(true);
+                } else {
+                    setNeedsSetup(false);
                 }
             }
         } catch (error) {
