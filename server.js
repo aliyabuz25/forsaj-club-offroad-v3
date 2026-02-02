@@ -125,6 +125,39 @@ app.post('/api/login',
     }
 );
 
+// Check if any admin exists (for first-time setup)
+app.get('/api/auth/setup-status', (req, res) => {
+    const users = getFileData('users.json');
+    const hasAdmin = users.some(u => u.role === 'admin');
+    res.json({ initialized: hasAdmin });
+});
+
+// Setup first admin
+app.post('/api/auth/setup', async (req, res) => {
+    const users = getFileData('users.json');
+    if (users.some(u => u.role === 'admin')) {
+        return res.status(400).json({ message: 'System already initialized' });
+    }
+
+    const { username, password, name } = req.body;
+    if (!username || !password) return res.status(400).json({ message: 'Missing fields' });
+
+    const newUser = {
+        id: Date.now().toString(),
+        name: name || 'Admin',
+        username,
+        password: bcrypt.hashSync(password, 10),
+        role: 'admin'
+    };
+
+    users.push(newUser);
+    if (saveFileData('users.json', users)) {
+        res.json({ success: true, message: 'Admin created' });
+    } else {
+        res.status(500).json({ error: 'Failed to save admin' });
+    }
+});
+
 app.get('/api/me', authenticateToken, (req, res) => {
     res.json(req.user);
 });

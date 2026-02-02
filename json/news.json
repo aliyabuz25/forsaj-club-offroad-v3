@@ -25,5 +25,23 @@
         "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
         "category": "AKADEMİYA",
         "isMain": false
+    },
+    {
+        "id": "4",
+        "title": "Qış Kuboku 2024 Final Mərhələsi",
+        "description": "Şahdağ ətəklərində keçirilən Qış Kubokunun final mərhələsi böyük maraqla qarşılandı. Qaliblər xüsusi mükafatlarla təltif olundular.",
+        "date": "10.01.2024",
+        "image": "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?q=80&w=800",
+        "category": "YARIŞ",
+        "isMain": false
+    },
+    {
+        "id": "5",
+        "title": "Forsaj Club-dan Xeyriyyə Yürüşü",
+        "description": "Klub üzvləri bölgələrdəki ehtiyac sahibi ailələr üçün yardım kampaniyası çərçivəsində möhtəşəm bir offroad yürüşü həyata keçirdilər.",
+        "date": "05.01.2024",
+        "image": "https://images.unsplash.com/photo-1511994711687-03fd331d7182?q=80&w=800",
+        "category": "SOSİAL",
+        "isMain": false
     }
 ]
