@@ -67,8 +67,11 @@ const getFileData = (fileName) => {
     const filePath = path.join(__dirname, 'json', fileName);
     if (!fs.existsSync(filePath)) return [];
     try {
-        return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        const content = fs.readFileSync(filePath, 'utf8');
+        if (!content || content.trim() === '' || content === '[]') return [];
+        return JSON.parse(content);
     } catch (e) {
+        console.error(`Error reading ${fileName}:`, e);
         return [];
     }
 };
