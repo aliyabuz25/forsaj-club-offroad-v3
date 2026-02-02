@@ -41,8 +41,16 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
                 setLoading(false);
                 return;
             }
-            const data = await res.json();
-            setItems(Array.isArray(data) ? data : []);
+            if (res.ok) {
+                try {
+                    const data = await res.json();
+                    setItems(Array.isArray(data) ? data : []);
+                } catch (e) {
+                    setItems([]);
+                }
+            } else {
+                setItems([]);
+            }
         } catch (error) {
             toast.error('Məlumat yüklənərkən xəta baş verdi');
         } finally {

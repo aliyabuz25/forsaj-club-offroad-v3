@@ -36,9 +36,13 @@ const Settings: React.FC = () => {
             const res = await fetch('/api/settings', {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : {}
             });
-            const data = await res.json();
-            if (data && Object.keys(data).length > 0) {
-                setSettings(prev => ({ ...prev, ...data }));
+            if (res.ok) {
+                try {
+                    const data = await res.json();
+                    if (data && Object.keys(data).length > 0) {
+                        setSettings(prev => ({ ...prev, ...data }));
+                    }
+                } catch (e) { }
             }
         } catch (e) {
             toast.error('Ayarları yükləmək mümkün olmadı');

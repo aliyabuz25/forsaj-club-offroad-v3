@@ -19,9 +19,11 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     const checkSetupStatus = async () => {
         try {
             const res = await fetch('/api/auth/setup-status');
-            const data = await res.json();
-            if (data.initialized === false) {
-                setNeedsSetup(true);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.initialized === false) {
+                    setNeedsSetup(true);
+                }
             }
         } catch (error) {
             console.error('Failed to check setup status', error);
@@ -41,7 +43,12 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            const data = await res.json();
+            let data: any = {};
+            try {
+                data = await res.json();
+            } catch (e) {
+                data = { message: 'Server xətası' };
+            }
             if (res.ok) {
                 if (needsSetup) {
                     toast.success('Admin hesabı yaradıldı! İndi daxil olun.');

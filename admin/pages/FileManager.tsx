@@ -16,8 +16,12 @@ const FileManager: React.FC = () => {
             const res = await fetch('/api/files', {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : {}
             });
-            if (res.status === 401) return; // Silent fail or handle logout
-            const data = await res.json();
+            let data: any = null;
+            if (res.ok) {
+                try {
+                    data = await res.json();
+                } catch (e) { }
+            }
             setFiles(Array.isArray(data) ? data : []);
         } catch (e) {
             toast.error('Failed to load files');

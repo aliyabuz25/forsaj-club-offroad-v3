@@ -16,26 +16,33 @@ const Dashboard: React.FC<DashboardProps> = ({ onViewChange }) => {
 
     useEffect(() => {
         const fetchStats = async () => {
-            try {
-                const [d, e, n, g, p, t] = await Promise.all([
-                    fetch('/api/drivers').then(r => r.json()),
-                    fetch('/api/events').then(r => r.json()),
-                    fetch('/api/news').then(r => r.json()),
-                    fetch('/api/gallery').then(r => r.json()),
-                    fetch('/api/partners').then(r => r.json()),
-                    fetch('/api/translations').then(r => r.json()),
-                ]);
-                setStats({
-                    drivers: d.length || 0,
-                    events: e.length || 0,
-                    news: n.length || 0,
-                    gallery: g.length || 0,
-                    partners: p.length || 0,
-                    translations: t.length || 0
-                });
-            } catch (err) {
-                console.error('Stats fetch error:', err);
-            }
+            const safeFetch = async (url: string) => {
+                try {
+                    const res = await fetch(url);
+                    if (!res.ok) return [];
+                    const data = await res.json();
+                    return Array.isArray(data) ? data : [];
+                } catch (e) {
+                    return [];
+                }
+            };
+
+            const [d, e, n, g, p, t] = await Promise.all([
+                safeFetch('/api/drivers'),
+                safeFetch('/api/events'),
+                safeFetch('/api/news'),
+                safeFetch('/api/gallery'),
+                safeFetch('/api/partners'),
+                safeFetch('/api/translations'),
+            ]);
+            setStats({
+                drivers: d.length,
+                events: e.length,
+                news: n.length,
+                gallery: g.length,
+                partners: p.length,
+                translations: t.length
+            });
         };
         fetchStats();
     }, []);

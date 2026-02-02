@@ -34,7 +34,13 @@ const ContactPage: React.FC = () => {
         })
       });
 
-      const data = await res.json();
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch (e) {
+        data = { error: 'Server error' };
+      }
+
       if (res.ok) {
         toast.success(data.message || t('contact.success', 'Mesajınız uğurla göndərildi!'));
         setFormData({
@@ -44,7 +50,7 @@ const ContactPage: React.FC = () => {
           message: ''
         });
       } else {
-        toast.error(data.error || t('contact.error', 'Xəta baş verdi.'));
+        toast.error(data.error || data.message || t('contact.error', 'Xəta baş verdi.'));
       }
     } catch (error) {
       toast.error(t('contact.network_error', 'Şəbəkə xətası baş verdi.'));
