@@ -64,6 +64,46 @@
     "TR": "İLETİŞİM"
   },
   {
+    "id": "hero_badge",
+    "key": "hero_badge",
+    "AZ": "AZƏRBAYCAN OFFROAD MOTORSPORT HUB",
+    "EN": "AZERBAIJAN OFFROAD MOTORSPORT HUB",
+    "RU": "АЗЕРБАЙДЖАНСКИЙ ОФФРОУД МОТОРСПОРТ ХАБ",
+    "TR": "AZERBAYCAN OFFROAD MOTOR SPORLARI MERKEZİ"
+  },
+  {
+    "id": "hero_title_line1",
+    "key": "hero_title_line1",
+    "AZ": "SƏRHƏDSİZ",
+    "EN": "UNLIMITED",
+    "RU": "БЕЗГРАНИЧНЫЙ",
+    "TR": "SINIRSIZ"
+  },
+  {
+    "id": "hero_title_highlight",
+    "key": "hero_title_highlight",
+    "AZ": "OFFROAD",
+    "EN": "OFFROAD",
+    "RU": "ОФФРОУД",
+    "TR": "OFFROAD"
+  },
+  {
+    "id": "hero_title_line2",
+    "key": "hero_title_line2",
+    "AZ": "HƏYƏCANI",
+    "EN": "EXCITEMENT",
+    "RU": "АЖИОТАЖ",
+    "TR": "HEYECANI"
+  },
+  {
+    "id": "hero_subtitle",
+    "key": "hero_subtitle",
+    "AZ": "Azərbaycanın ən çətin yollarında peşəkar yarışlar və adrenalin dolu anlar.",
+    "EN": "Professional races and adrenaline-filled moments on the most difficult roads of Azerbaijan.",
+    "RU": "Профессиональные гонки и полные адреналина моменты на самых сложных трассах Азербайджана.",
+    "TR": "Azerbaycan'ın en zorlu yollarında profesyonel yarışlar ve adrenalin dolu anlar."
+  },
+  {
     "id": "hero.races",
     "key": "hero.races",
     "AZ": "YARIŞ TƏQVİMİ",
@@ -78,62 +118,6 @@
     "EN": "ABOUT US",
     "RU": "О НАС",
     "TR": "HAKKIMIZDA"
-  },
-  {
-    "id": "common.back",
-    "key": "common.back",
-    "AZ": "GERİ",
-    "EN": "BACK",
-    "RU": "НАЗАД",
-    "TR": "GERİ"
-  },
-  {
-    "id": "common.more",
-    "key": "common.more",
-    "AZ": "ƏTRAFLI",
-    "EN": "MORE",
-    "RU": "ПОДРОБНЕЕ",
-    "TR": "DETAYLI"
-  },
-  {
-    "id": "common.download",
-    "key": "common.download",
-    "AZ": "YÜKLƏ",
-    "EN": "DOWNLOAD",
-    "RU": "СКАЧАТЬ",
-    "TR": "İNDİR"
-  },
-  {
-    "id": "common.all",
-    "key": "common.all",
-    "AZ": "HAMISI",
-    "EN": "ALL",
-    "RU": "ВСЕ",
-    "TR": "HEPSİ"
-  },
-  {
-    "id": "leaders.title",
-    "key": "leaders.title",
-    "AZ": "KATEQORİYA LİDƏRLƏRİ",
-    "EN": "CATEGORY LEADERS",
-    "RU": "ЛИДЕРЫ КАТЕГОРИЙ",
-    "TR": "KATEGORİ LİDERLERİ"
-  },
-  {
-    "id": "leaders.subtitle",
-    "key": "leaders.subtitle",
-    "AZ": "HƏR KLASS ÜZRƏ MÖVSÜMÜN ƏN GÜCLÜ PİLOTLARI",
-    "EN": "SEASON'S STRONGEST PILOTS BY CLASS",
-    "RU": "СИЛЬНЕЙШИЕ ПИЛОТЫ СЕЗОНА ПО КЛАССАМ",
-    "TR": "HER SINIF İÇİN SEZONUN EN GÜÇLÜ PİLOTLARI"
-  },
-  {
-    "id": "leaders.full_rating",
-    "key": "leaders.full_rating",
-    "AZ": "TAM REYTİNQ",
-    "EN": "FULL RATING",
-    "RU": "ПОЛНЫЙ РЕЙТИНГ",
-    "TR": "TAM REYTİNG"
   },
   {
     "id": "aboutTitle",
@@ -155,16 +139,16 @@
     "id": "aboutHeroText",
     "key": "aboutHeroText",
     "AZ": "FORSAJ CLUB AZƏRBAYCANIN OFFROAD MƏDƏNİYYƏTİNİ TƏMSİL EDİR",
-    "EN": "FORSAJ CLUB REPRESENTS AZERBAIJAN'S OFFROAD CULTURE",
+    "EN": "FORSAJ CLUB REPRESENTS THE OFFROAD CULTURE OF AZERBAIJAN",
     "RU": "FORSAJ CLUB ПРЕДСТАВЛЯЕТ КУЛЬТУРУ ОФФРОУДА АЗЕРБАЙДЖАНА",
-    "TR": "FORSAJ CLUB AZERBAYCAN'IN OFFROAD KÜLTÜRÜNÜ TEMSİL EDER"
+    "TR": "FORSAJ CLUB AZERBAYCAN'IN OFFROAD KÜLTÜRÜNÜ TEMSİL EDİYOR"
   },
   {
     "id": "aboutDescription",
     "key": "aboutDescription",
     "AZ": "2018-ci ildən bəri biz Azərbaycanın ən çətin yollarında unudulmaz yarışlar təşkil edirik.",
-    "EN": "Since 2018, we have been organizing unforgettable races on the most challenging roads of Azerbaijan.",
-    "RU": "С 2018 года мы организуем незабываемые гонки на самых сложных дорогах Азербайджана.",
+    "EN": "Since 2018, we have been organizing unforgettable races on the most challenging roads in Azerbaijan.",
+    "RU": "С 2018 года мы организуем незабываемые гонки на самых сложных трассах Азербайджана.",
     "TR": "2018'den beri Azerbaycan'ın en zorlu yollarında unutulmaz yarışlar düzenliyoruz."
   },
   {
@@ -203,9 +187,17 @@
     "id": "missionDescription",
     "key": "missionDescription",
     "AZ": "Azərbaycanın hər bir guşəsində offroad idmanını təbliğ etmək və peşəkar pilotlar yetişdirmək.",
-    "EN": "Promoting offroad sports in every corner of Azerbaijan and developing professional pilots.",
-    "RU": "Продвижение оффроуд-спорта во всех уголках Азербайджана и подготовка профессиональных пилотов.",
+    "EN": "To promote offroad sports in every corner of Azerbaijan and train professional pilots.",
+    "RU": "Продвигать оффроуд-спорт в каждом уголке Азербайджана и готовить профессиональных пилотов.",
     "TR": "Azerbaycan'ın her köşesinde offroad sporunu tanıtmak ve profesyonel pilotlar yetiştirmek."
+  },
+  {
+    "id": "targetText",
+    "key": "targetText",
+    "AZ": "HƏDƏFİMİZ: DAKAR RALLİ 2026",
+    "EN": "OUR GOAL: DAKAR RALLY 2026",
+    "RU": "НАША ЦЕЛЬ: РАЛЛИ ДАКАР 2026",
+    "TR": "HEDEFİMİZ: DAKAR RALLİSİ 2026"
   },
   {
     "id": "visionTitle",
@@ -220,8 +212,16 @@
     "key": "visionDescription",
     "AZ": "Azərbaycanın offroad potensialını dünyaya tanıtmaq və beynəlxalq səviyyəli yarış mərkəzi olmaq.",
     "EN": "To introduce Azerbaijan's offroad potential to the world and become an international race center.",
-    "RU": "Представить миру оффроуд-потенциал Азербайджана и стать гоночным центром международного уровня.",
+    "RU": "Представить миру оффроуд-потенциал Азербайджана и стать гоночным центром мирового уровня.",
     "TR": "Azerbaycan'ın offroad potansiyelini dünyaya tanıtmak ve uluslararası düzeyde bir yarış merkezi olmak."
+  },
+  {
+    "id": "visionGoal",
+    "key": "visionGoal",
+    "AZ": "QAFQAZIN MOTORSPORT HUBI",
+    "EN": "MOTORSPORT HUB OF THE CAUCASUS",
+    "RU": "МОТОРСПОРТ ХАБ КАВКАЗА",
+    "TR": "KAFKASYA'NIN MOTOR SPORLARI MERKEZİ"
   },
   {
     "id": "valuesHeader",
@@ -251,9 +251,553 @@
     "id": "value1Desc",
     "key": "value1Desc",
     "AZ": "BİZİM ÜÇÜN HƏR ŞEYDƏN ÖNCƏ GƏLƏN İŞTİRAKÇILARIMIZIN TƏHLÜKƏSİZLİYİDİR.",
-    "EN": "THE SAFETY OF OUR PARTICIPANTS COMES BEFORE EVERYTHING ELSE FOR US.",
+    "EN": "STAYING SAFE FOR OUR PARTICIPANTS COMES BEFORE EVERYTHING ELSE.",
     "RU": "БЕЗОПАСНОСТЬ НАШИХ УЧАСТНИКОВ ДЛЯ НАС ПРЕЖДЕ ВСЕГО.",
     "TR": "KATILIMCILARIMIZIN GÜVENLİĞİ BİZİM İÇİN HER ŞEYDEN ÖNCE GELİR."
+  },
+  {
+    "id": "value2Title",
+    "key": "value2Title",
+    "AZ": "CƏMİYYƏT",
+    "EN": "COMMUNITY",
+    "RU": "СООБЩЕСТВО",
+    "TR": "TOPLULUK"
+  },
+  {
+    "id": "value2Desc",
+    "key": "value2Desc",
+    "AZ": "OFFROAD SEVƏNLƏRİ BİR ARAYA GƏTİRƏN ƏN BÖYÜK MOTORSPORT AİLƏSİ.",
+    "EN": "THE LARGEST MOTORSPORT FAMILY BRINGING OFFROAD LOVERS TOGETHER.",
+    "RU": "САМАЯ БОЛЬШАЯ МОТОРСПОРТИВНАЯ СЕМЬЯ, ОБЪЕДИНЯЮЩАЯ ЛЮБИТЕЛЕЙ ОФФРОУДА.",
+    "TR": "OFFROAD SEVERLERİ BİR ARAYA GETİREN EN BÜYÜK MOTOR SPORLARI AİLESİ."
+  },
+  {
+    "id": "value3Title",
+    "key": "value3Title",
+    "AZ": "EKOLOGİYA",
+    "EN": "ECOLOGY",
+    "RU": "ЭКОЛОГИЯ",
+    "TR": "EKOLOJİ"
+  },
+  {
+    "id": "value3Desc",
+    "key": "value3Desc",
+    "AZ": "TƏBİƏTİ QORUYUR VƏ EKOLOJİ MƏSULİYYƏTİMİZİ HƏMİŞƏ DİQQƏTDƏ SAXLAYIRIQ.",
+    "EN": "WE PROTECT NATURE AND ALWAYS KEEP OUR ECOLOGICAL RESPONSIBILITY IN MIND.",
+    "RU": "МЫ ЗАЩИЩАЕМ ПРИРОДУ И ВСЕГДА ПОМНИМ О НАШЕЙ ЭКОЛОГИЧЕСКОЙ ОТВЕТСТВЕННОСТИ.",
+    "TR": "DOĞAYI KORUYOR VE EKOLOJİK SORUMLULUĞUMUZU DAİMA GÖZ ÖNÜNDE BULUNDURUYORUZ."
+  },
+  {
+    "id": "value4Title",
+    "key": "value4Title",
+    "AZ": "ADRENALİN",
+    "EN": "ADRENALINE",
+    "RU": "АДРЕНАЛИН",
+    "TR": "ADRENALİN"
+  },
+  {
+    "id": "value4Desc",
+    "key": "value4Desc",
+    "AZ": "HƏR YARIŞDA YÜKSƏK SÜRƏT VƏ UNUDULMAZ ADRENALİN DOLU ANLAR VƏD EDİRİK.",
+    "EN": "WE PROMISE HIGH SPEED AND UNFORGETTABLE ADRENALINE-FILLED MOMENTS IN EVERY RACE.",
+    "RU": "МЫ ОБЕЩАЕМ ВЫСОКУЮ СКОРОСТЬ И НЕЗАБЫВАЕМЫЕ МОМЕНТЫ, ПОЛНЫЕ АДРЕНАЛИНА, В КАЖДОЙ ГОНКЕ.",
+    "TR": "HER YARIŞTA YÜKSEK HIZ VE UNUTULMAZ ADRENALİN DOLU ANLAR VAAT EDİYORUZ."
+  },
+  {
+    "id": "leaders.title",
+    "key": "leaders.title",
+    "AZ": "KATEQORİYA LİDƏRLƏRİ",
+    "EN": "CATEGORY LEADERS",
+    "RU": "ЛИДЕРЫ КАТЕГОРИЙ",
+    "TR": "KATEGORİ LİDERLERİ"
+  },
+  {
+    "id": "leaders.subtitle",
+    "key": "leaders.subtitle",
+    "AZ": "HƏR KLASS ÜZRƏ MÖVSÜMÜN ƏN GÜCLÜ PİLOTLARI",
+    "EN": "THE SEASON'S STRONGEST PILOTS IN EACH CLASS",
+    "RU": "СИЛЬНЕЙШИЕ ПИЛОТЫ СЕЗОНА В КАЖДОМ КЛАССЕ",
+    "TR": "HER SINIFTA SEZONUN EN GÜÇLÜ PİLOTLARI"
+  },
+  {
+    "id": "leaders.full_rating",
+    "key": "leaders.full_rating",
+    "AZ": "TAM REYTİNQ",
+    "EN": "FULL RATING",
+    "RU": "ПОЛНЫЙ РЕЙТИНГ",
+    "TR": "TAM REYTİNG"
+  },
+  {
+    "id": "news.subtitle",
+    "key": "news.subtitle",
+    "AZ": "Motorsport və Offroad dünyasından yeniliklər",
+    "EN": "News from the world of Motorsport and Offroad",
+    "RU": "Новости из мира моторспорта и оффроуда",
+    "TR": "Motor sporları ve Offroad dünyasından haberler"
+  },
+  {
+    "id": "common.all",
+    "key": "common.all",
+    "AZ": "HAMISI",
+    "EN": "ALL",
+    "RU": "ВСЕ",
+    "TR": "HEPSİ"
+  },
+  {
+    "id": "common.more",
+    "key": "common.more",
+    "AZ": "ƏTRAFLI BAX",
+    "EN": "SEE MORE",
+    "RU": "ПОСМОТРЕТЬ БОЛЬШЕ",
+    "TR": "DAHA FAZLASI"
+  },
+  {
+    "id": "common.loading",
+    "key": "common.loading",
+    "AZ": "Yüklənir...",
+    "EN": "Loading...",
+    "RU": "Загрузка...",
+    "TR": "Yükleniyor..."
+  },
+  {
+    "id": "news.related",
+    "key": "news.related",
+    "AZ": "ƏLAQƏLİ XƏBƏRLƏR",
+    "EN": "RELATED NEWS",
+    "RU": "ПОХОЖИЕ НОВОСТИ",
+    "TR": "İLGİLİ HABERLER"
+  },
+  {
+    "id": "events.next_race_title",
+    "key": "events.next_race_title",
+    "AZ": "NÖVBƏTİ YARIŞ",
+    "EN": "NEXT RACE",
+    "RU": "СЛЕДУЮЩАЯ ГОНКА",
+    "TR": "SONRAKİ YARIŞ"
+  },
+  {
+    "id": "events.live_reg",
+    "key": "events.live_reg",
+    "AZ": "QEYDİYYAT DAVAM EDİR",
+    "EN": "REGISTRATION IN PROGRESS",
+    "RU": "ИДЕТ РЕГИСТРАЦИЯ",
+    "TR": "KAYITLAR DEVAM EDİYOR"
+  },
+  {
+    "id": "events.full_calendar",
+    "key": "events.full_calendar",
+    "AZ": "TAM TƏQVİM",
+    "EN": "FULL CALENDAR",
+    "RU": "ПОЛНЫЙ КАЛЕНДАРЬ",
+    "TR": "TAM TAKVİM"
+  },
+  {
+    "id": "events.join",
+    "key": "events.join",
+    "AZ": "YARIŞA QATIL",
+    "EN": "JOIN THE RACE",
+    "RU": "УЧАСТВОВАТЬ В ГОНКЕ",
+    "TR": "YARIŞA KATIL"
+  },
+  {
+    "id": "events.join_pilot",
+    "key": "events.join_pilot",
+    "AZ": "PİLOT KİMİ QATIL",
+    "EN": "JOIN AS A PILOT",
+    "RU": "УЧАСТВОВАТЬ КАК ПИЛОТ",
+    "TR": "PİLOT OLARAK KATIL"
+  },
+  {
+    "id": "events.join_pilot_desc",
+    "key": "events.join_pilot_desc",
+    "AZ": "ÖZ AVTOMOBİLİNLƏ YARIŞDA İŞTİRAK ET",
+    "EN": "PARTICIPATE IN THE RACE WITH YOUR OWN CAR",
+    "RU": "УЧАСТВУЙТЕ В ГОНКЕ НА СВОЕМ АВТОМОБИЛЕ",
+    "TR": "KENDİ ARACINIZLA YARIŞA KATILIN"
+  },
+  {
+    "id": "events.join_spectator",
+    "key": "events.join_spectator",
+    "AZ": "İZLƏYİCİ KİMİ QATIL",
+    "EN": "JOIN AS A SPECTATOR",
+    "RU": "УЧАСТВОВАТЬ КАК ЗРИТЕЛЬ",
+    "TR": "İZLEYİCİ OLARAK KATIL"
+  },
+  {
+    "id": "events.join_spectator_desc",
+    "key": "events.join_spectator_desc",
+    "AZ": "YARIŞI TRİBUNADAN İZLƏ",
+    "EN": "WATCH THE RACE FROM THE STANDS",
+    "RU": "СМОТРИТЕ ГОНКУ С ТРИБУН",
+    "TR": "YARIŞI TRİBÜNDEN İZLEYİN"
+  },
+  {
+    "id": "events.pilot_reg",
+    "key": "events.pilot_reg",
+    "AZ": "PİLOT QEYDİYYATI",
+    "EN": "PILOT REGISTRATION",
+    "RU": "РЕГИСТРАЦИЯ ПИЛОТА",
+    "TR": "PİLOT KAYDI"
+  },
+  {
+    "id": "events.car_model",
+    "key": "events.car_model",
+    "AZ": "AVTOMOBİLİN MARKA/MODELİ",
+    "EN": "CAR MAKE/MODEL",
+    "RU": "МАРКА/МОДЕЛЬ АВТОМОБИЛЯ",
+    "TR": "ARACIN MARKA/MODELİ"
+  },
+  {
+    "id": "events.club",
+    "key": "events.club",
+    "AZ": "TƏMSİL ETDİYİ KLUB",
+    "EN": "REPRESENTED CLUB",
+    "RU": "ПРЕДСТАВЛЯЕМЫЙ КЛУБ",
+    "TR": "TEMSİL EDİLEN KULÜP"
+  },
+  {
+    "id": "events.complete_reg",
+    "key": "events.complete_reg",
+    "AZ": "QEYDİYYATI TAMAMLA",
+    "EN": "COMPLETE REGISTRATION",
+    "RU": "ЗАВЕРШИТЬ РЕГИСТРАЦИЮ",
+    "TR": "KAYDI TAMAMLA"
+  },
+  {
+    "id": "events.planned",
+    "key": "events.planned",
+    "AZ": "PLANLANAN",
+    "EN": "PLANNED",
+    "RU": "ЗАПЛАНИРОВАНО",
+    "TR": "PLANLANAN"
+  },
+  {
+    "id": "events.past",
+    "key": "events.past",
+    "AZ": "KEÇMİŞ",
+    "EN": "PAST",
+    "RU": "ПРОШЕДШИЕ",
+    "TR": "GEÇMİŞ"
+  },
+  {
+    "id": "events.description",
+    "key": "events.description",
+    "AZ": "TƏSVİR",
+    "EN": "DESCRIPTION",
+    "RU": "ОПИСАНИЕ",
+    "TR": "AÇIKLAMA"
+  },
+  {
+    "id": "events.download_manual",
+    "key": "events.download_manual",
+    "AZ": "TƏLİMATI YÜKLƏ",
+    "EN": "DOWNLOAD MANUAL",
+    "RU": "СКАЧАТЬ ИНСТРУКЦИЮ",
+    "TR": "TALİMATI İNDİR"
+  },
+  {
+    "id": "events.manual_desc",
+    "key": "events.manual_desc",
+    "AZ": "YARIŞA HAZIRLIQ VƏ TEXNİKİ REQLAMENT HAQQINDA BÜTÜN MƏLUMATLAR BU SƏNƏDDƏ QEYD OLUNUB.",
+    "EN": "ALL INFORMATION ABOUT RACE PREPARATION AND TECHNICAL REGULATIONS IS IN THIS DOCUMENT.",
+    "RU": "ВСЯ ИНФОРМАЦИЯ О ПОДГОТОВКЕ К ГОНКЕ И ТЕХНИЧЕСКИЙ РЕГЛАМЕНТ СОДЕРЖАТСЯ В ЭТОМ ДОКУМЕНТЕ.",
+    "TR": "YARIŞA HAZIRLIK VE TEKNİK YÖNETMELİK HAKKINDA TÜM BİLGİLER BU BELGEDE YER ALMAKTADIR."
+  },
+  {
+    "id": "events.rules_brifing",
+    "key": "events.rules_brifing",
+    "AZ": "Yarış qaydaları iştirakçılara brifinq zamanı elan ediləcək.",
+    "EN": "Race rules will be announced to participants during the briefing.",
+    "RU": "Правила гонки будут объявлены участникам во время брифинга.",
+    "TR": "Yarış kuralları iştirakçılara brifing sırasında ilan edilecektir."
+  },
+  {
+    "id": "events.contact_desc",
+    "key": "events.contact_desc",
+    "AZ": "YARIŞLA BAĞLI ƏLAVƏ SUALLARINIZ ÜÇÜN BİZİMLƏ ƏLAQƏ SAXLAYIN.",
+    "EN": "FOR ADDITIONAL QUESTIONS REGARDING THE RACE, PLEASE CONTACT US.",
+    "RU": "ПО ДОПОЛНИТЕЛЬНЫМ ВОПРОСАМ О ГОНКЕ, ПОЖАЛУЙСТА, СВЯЖИТЕСЬ С НАМИ.",
+    "TR": "YARIŞLA İLGİLİ EK SORULARINIZ İÇİN LÜTFEN BİZİMLE İLETİŞİME GEÇİN."
+  },
+  {
+    "id": "drivers.standings",
+    "key": "drivers.standings",
+    "AZ": "SÜRÜCÜ SIRALAMASI",
+    "EN": "DRIVER STANDINGS",
+    "RU": "РЕЙТИНГ ПИЛОТОВ",
+    "TR": "SÜRÜCÜ SIRALAMASI"
+  },
+  {
+    "id": "drivers.category_leaders",
+    "key": "drivers.category_leaders",
+    "AZ": "KATEQORİYA LİDERLƏRİ",
+    "EN": "CATEGORY LEADERS",
+    "RU": "ЛИДЕРЫ КАТЕГОРИЙ",
+    "TR": "KATEGORİ LİDERLERİ"
+  },
+  {
+    "id": "drivers.all_standings",
+    "key": "drivers.all_standings",
+    "AZ": "ÜMUMİ SIRALAMA",
+    "EN": "GENERAL STANDINGS",
+    "RU": "ОБЩИЙ РЕЙТИНГ",
+    "TR": "GENEL SIRALAMA"
+  },
+  {
+    "id": "drivers.points",
+    "key": "drivers.points",
+    "AZ": "XAL",
+    "EN": "POINTS",
+    "RU": "ОЧКИ",
+    "TR": "PUAN"
+  },
+  {
+    "id": "drivers.team",
+    "key": "drivers.team",
+    "AZ": "KOMANDA",
+    "EN": "TEAM",
+    "RU": "КОМАНДА",
+    "TR": "TAKIM"
+  },
+  {
+    "id": "gallery.chronological",
+    "key": "gallery.chronological",
+    "AZ": "XRONOLOJİ MOTORSPORT ARXİVİ // FORSAJ CLUB",
+    "EN": "CHRONOLOGICAL MOTORSPORT ARCHIVE // FORSAJ CLUB",
+    "RU": "ХРОНОЛОГИЧЕСКИЙ МОТОРСПОРТНЫЙ АРХИВ // FORSAJ CLUB",
+    "TR": "KRONOLOJİK MOTOR SPORLARI ARŞİVİ // FORSAJ CLUB"
+  },
+  {
+    "id": "gallery.photos",
+    "key": "gallery.photos",
+    "AZ": "FOTOLAR",
+    "EN": "PHOTOS",
+    "RU": "ФОТОГРАФИИ",
+    "TR": "FOTOĞRAFLAR"
+  },
+  {
+    "id": "gallery.videos",
+    "key": "gallery.videos",
+    "AZ": "VİDEOLAR",
+    "EN": "VIDEOS",
+    "RU": "ВИДЕО",
+    "TR": "VİDEOLAR"
+  },
+  {
+    "id": "gallery.total",
+    "key": "gallery.total",
+    "AZ": "TOPLAM",
+    "EN": "TOTAL",
+    "RU": "ВСЕГО",
+    "TR": "TOPLAM"
+  },
+  {
+    "id": "rules.download_pdf",
+    "key": "rules.download_pdf",
+    "AZ": "TAM QAYDALARI YÜKLƏ (PDF)",
+    "EN": "DOWNLOAD FULL RULES (PDF)",
+    "RU": "СКАЧАТЬ ПОЛНЫЕ ПРАВИЛА (PDF)",
+    "TR": "TÜM KURALLARI İNDİR (PDF)"
+  },
+  {
+    "id": "rules.pilot_protocol",
+    "key": "rules.pilot_protocol",
+    "AZ": "PİLOT PROTOKOLU",
+    "EN": "PILOT PROTOCOL",
+    "RU": "ПРОТОКОЛ ПИЛОТА",
+    "TR": "PİLOT PROTOKOLÜ"
+  },
+  {
+    "id": "rules.technical_norms",
+    "key": "rules.technical_norms",
+    "AZ": "TEXNİKİ NORMALAR",
+    "EN": "TECHNICAL NORMS",
+    "RU": "ТЕХНИЧЕСКИЕ НОРМЫ",
+    "TR": "TEKNİK NORMALLER"
+  },
+  {
+    "id": "rules.safety_rules",
+    "key": "rules.safety_rules",
+    "AZ": "TƏHLÜKƏSİZLİK QAYDALARI",
+    "EN": "SAFETY RULES",
+    "RU": "ПРАВИЛА БЕЗОПАСНОСТИ",
+    "TR": "GÜVENLİK KURALLARI"
+  },
+  {
+    "id": "rules.eco_responsibility",
+    "key": "rules.eco_responsibility",
+    "AZ": "EKOLOJİ MƏSULİYYƏT",
+    "EN": "ECO RESPONSIBILITY",
+    "RU": "ЭКОЛОГИЧЕСКАЯ ОТВЕТСТВЕННОСТЬ",
+    "TR": "EKOLOJİK SORUMLULUK"
+  },
+  {
+    "id": "rules.pilot_duties",
+    "key": "rules.pilot_duties",
+    "AZ": "PİLOTUN ÖHDƏLİKLƏRİ",
+    "EN": "PILOT DUTIES",
+    "RU": "ОБЯЗАННОСТИ ПИЛОТА",
+    "TR": "PİLOTUN YÜKÜMLÜLÜKLERİ"
+  },
+  {
+    "id": "rules.pilot_duties_desc",
+    "key": "rules.pilot_duties_desc",
+    "AZ": "Hər bir pilot yarış zamanı nizam-intizam qaydalarına və hakimlərin qərarlarına tabe olmalıdır.",
+    "EN": "Every pilot must follow the rules of discipline and the referees' decisions during the race.",
+    "RU": "Каждый пилот должен соблюдать правила дисциплины и решения судей во время гонки.",
+    "TR": "Her pilot yarış sırasında disiplin kurallarına ve hakemlerin kararlarına uymalıdır."
+  },
+  {
+    "id": "rules.disqualification",
+    "key": "rules.disqualification",
+    "AZ": "KƏNARLAŞDIRMA",
+    "EN": "DISQUALIFICATION",
+    "RU": "ДИСКВАЛИФИКАЦИЯ",
+    "TR": "DİSKALİFİYE"
+  },
+  {
+    "id": "rules.disqualification_desc",
+    "key": "rules.disqualification_desc",
+    "AZ": "Təhlükəsizlik kəmərini taxmayan və ya qeyri-etik davranış sərgiləyən pilotlar yarışdan kənarlaşdırılır.",
+    "EN": "Pilots who do not wear seatbelts or exhibit unethical behavior are disqualified from the race.",
+    "RU": "Пилоты, не пристегнутые ремнями безопасности или ведущие себя неэтично, дисквалифицируются с гонки.",
+    "TR": "Emniyet kemeri takmayan veya etik dışı davranış sergileyen pilotlar yarıştan diskalifiye edilir."
+  },
+  {
+    "id": "rules.tech_req",
+    "key": "rules.tech_req",
+    "AZ": "TEXNİKİ TƏLƏBLƏR",
+    "EN": "TECHNICAL REQUIREMENTS",
+    "RU": "ТЕХНИЧЕСКИЕ ТРЕБОВАНИЯ",
+    "TR": "TEKNİK GEREKSİNİMLER"
+  },
+  {
+    "id": "rules.tech_req_desc",
+    "key": "rules.tech_req_desc",
+    "AZ": "Avtomobilin bütün asqı və mühərrik sistemləri texniki baxışdan keçməlidir.",
+    "EN": "All suspension and engine systems of the car must pass a technical inspection.",
+    "RU": "Все подвески и системы двигателя автомобиля должны пройти техосмотр.",
+    "TR": "Aracın tüm süspansiyon ve motor sistemleri teknik incelemeden geçmelidir."
+  },
+  {
+    "id": "contact.offroad_center",
+    "key": "contact.offroad_center",
+    "AZ": "OFFROAD MOTORSPORT MƏRKƏZİ",
+    "EN": "OFFROAD MOTORSPORT CENTER",
+    "RU": "ОФФРОУД МОТОРСПОРТ ЦЕНТР",
+    "TR": "OFFROAD MOTOR SPORLARI MERKEZİ"
+  },
+  {
+    "id": "contact.hq",
+    "key": "contact.hq",
+    "AZ": "BAŞ OFİS",
+    "EN": "HEADQUARTERS",
+    "RU": "ГЛАВНЫЙ ОФИС",
+    "TR": "MERKEZ OFİS"
+  },
+  {
+    "id": "contact.phone",
+    "key": "contact.phone",
+    "AZ": "MOBİL NÖMRƏ",
+    "EN": "MOBILE NUMBER",
+    "RU": "МОБИЛЬНЫЙ НОМЕР",
+    "TR": "MOBİL NUMARA"
+  },
+  {
+    "id": "contact.email",
+    "key": "contact.email",
+    "AZ": "E-POÇT",
+    "EN": "EMAIL",
+    "RU": "ЭЛЕКТРОННАЯ ПОЧТА",
+    "TR": "E-POSTA"
+  },
+  {
+    "id": "contact.hours",
+    "key": "contact.hours",
+    "AZ": "İŞ SAATLARIMIZ",
+    "EN": "WORKING HOURS",
+    "RU": "РАБОЧИЕ ЧАСЫ",
+    "TR": "ÇALIŞMA SAATLERİMİZ"
+  },
+  {
+    "id": "contact.hours_desc",
+    "key": "contact.hours_desc",
+    "AZ": "Bazar ertəsi - Şənbə // 09:00 - 18:00",
+    "EN": "Monday - Saturday // 09:00 - 18:00",
+    "RU": "Понедельник - Суббота // 09:00 - 18:00",
+    "TR": "Pazartesi - Cumartesi // 09:00 - 18:00"
+  },
+  {
+    "id": "contact.dept_news",
+    "key": "contact.dept_news",
+    "AZ": "MƏTBUAT VƏ XƏBƏR",
+    "EN": "PRESS AND NEWS",
+    "RU": "ПРЕССА И НОВОСТИ",
+    "TR": "BASIN VE HABER"
+  },
+  {
+    "id": "contact.dept_events",
+    "key": "contact.dept_events",
+    "AZ": "YARIŞ VƏ TƏDBİRLƏR",
+    "EN": "RACES AND EVENTS",
+    "RU": "ГОНКИ И МЕРОПРИЯТИЯ",
+    "TR": "YARIŞ VE ETKİNLİKLER"
+  },
+  {
+    "id": "contact.dept_partners",
+    "key": "contact.dept_partners",
+    "AZ": "KORPORATİV ƏLAQƏLƏR",
+    "EN": "CORPORATE RELATIONS",
+    "RU": "КОРПОРАТИВНЫЕ ОТНОШЕНИЯ",
+    "TR": "KURUMSAL İLİŞKİLER"
+  },
+  {
+    "id": "contact.form_title",
+    "key": "contact.form_title",
+    "AZ": "MÜRACİƏT FORMU",
+    "EN": "APPLICATION FORM",
+    "RU": "ФОРМА ЗАЯВКИ",
+    "TR": "BAŞVURU FORMU"
+  },
+  {
+    "id": "contact.form_desc",
+    "key": "contact.form_desc",
+    "AZ": "Bütün suallarınız və rəyləriniz üçün bizə yaza bilərsiniz.",
+    "EN": "You can write to us for all your questions and feedback.",
+    "RU": "Вы можете написать нам по всем вопросам и отзывам.",
+    "TR": "Tüm sorularınız ve geri bildirimleriniz için bize yazabilirsiniz."
+  },
+  {
+    "id": "contact.name",
+    "key": "contact.name",
+    "AZ": "AD SOYAD",
+    "EN": "FULL NAME",
+    "RU": "ИМЯ ФАМИЛИЯ",
+    "TR": "AD SOYAD"
+  },
+  {
+    "id": "contact.message",
+    "key": "contact.message",
+    "AZ": "MESAJINIZ",
+    "EN": "YOUR MESSAGE",
+    "RU": "ВАШЕ СООБЩЕНИЕ",
+    "TR": "MESAJINIZ"
+  },
+  {
+    "id": "contact.send",
+    "key": "contact.send",
+    "AZ": "MESAJI GÖNDƏR",
+    "EN": "SEND MESSAGE",
+    "RU": "ОТПРАВИТЬ СООБЩЕНИЕ",
+    "TR": "MESAJ GÖNDER"
+  },
+  {
+    "id": "footer.desc",
+    "key": "footer.desc",
+    "AZ": "FORSAJ CLUB AZƏRBAYCANIN ƏN BÖYÜK OFFROAD MOTORSPORT HUB-DIR.",
+    "EN": "FORSAJ CLUB IS AZERBAIJAN'S LARGEST OFFROAD MOTORSPORT HUB.",
+    "RU": "FORSAJ CLUB — КРУПНЕЙШИЙ ОФФРОУД-МОТОРСПОРТНЫЙ ХАБ АЗЕРБАЙДЖАНА.",
+    "TR": "FORSAJ CLUB, AZERBAYCAN'IN EN BÜYÜK OFFROAD MOTOR SPORLARI MERKEZİDİR."
   },
   {
     "id": "footer.nav",
@@ -276,7 +820,7 @@
     "key": "footer.stay_updated",
     "AZ": "YENİLİKLƏRƏ QOŞULUN",
     "EN": "STAY UPDATED",
-    "RU": "БУДЬТЕ В КУРСЕ",
+    "RU": "ОСТАВАЙТЕСЬ В КУРСЕ",
     "TR": "HABERDAR OLUN"
   },
   {
@@ -288,51 +832,115 @@
     "TR": "EN SON YARIŞLAR VE ETKİNLİKLER HAKKINDA BİLGİ ALIN."
   },
   {
-    "id": "events.planned",
-    "key": "events.planned",
-    "AZ": "PLANLANAN",
-    "EN": "PLANNED",
-    "RU": "ЗАПЛАНИРОВАНО",
-    "TR": "PLANLANAN"
+    "id": "footer.email_placeholder",
+    "key": "footer.email_placeholder",
+    "AZ": "E-POÇT ÜNVANINIZ",
+    "EN": "YOUR EMAIL ADDRESS",
+    "RU": "ВАШ ЭЛЕКТРОННЫЙ АДРЕС",
+    "TR": "E-POSTA ADRESİNİZ"
   },
   {
-    "id": "events.past",
-    "key": "events.past",
-    "AZ": "KEÇMİŞ",
-    "EN": "PAST",
-    "RU": "ПРОШЕДШИЕ",
-    "TR": "GEÇMİŞ"
+    "id": "partners.title",
+    "key": "partners.title",
+    "AZ": "RƏSMİ TƏRƏFDAŞLARIMIZ",
+    "EN": "OUR OFFICIAL PARTNERS",
+    "RU": "НАШИ ОФИЦИАЛЬНЫЕ ПАРТНЕРЫ",
+    "TR": "RESMİ ORTAKLARIMIZ"
   },
   {
-    "id": "events.join_event",
-    "key": "events.join_event",
-    "AZ": "TƏDBİRƏ QOŞUL",
-    "EN": "JOIN EVENT",
-    "RU": "ПРИСОЕДИНИТЬСЯ",
-    "TR": "ETKİNLİĞE KATIL"
+    "id": "offroad.badge",
+    "key": "offroad.badge",
+    "AZ": "Offroad nədir?",
+    "EN": "What is Offroad?",
+    "RU": "Что такое оффроуд?",
+    "TR": "Offroad nedir?"
   },
   {
-    "id": "contact.title",
-    "key": "contact.title",
-    "AZ": "ƏLAQƏ",
-    "EN": "CONTACT",
-    "RU": "КОНТАКТЫ",
-    "TR": "İLETİŞİM"
+    "id": "offroad.title",
+    "key": "offroad.title",
+    "AZ": "ADRENALİN VƏ TEXNİKANIN SİMBİOZU",
+    "EN": "SYMBIOSIS OF ADRENALINE AND TECHNOLOGY",
+    "RU": "СИМБИОЗ АДРЕНАЛИНА И ТЕХНОЛОГИЙ",
+    "TR": "ADRENALİN VE TEKNOLOJİ SİMBİYOZU"
   },
   {
-    "id": "contact.subtitle",
-    "key": "contact.subtitle",
-    "AZ": "SİNİRALARINIZI BİZİMLƏ KEÇİN",
-    "EN": "CROSS YOUR LIMITS WITH US",
-    "RU": "ПЕРЕШАГНИТЕ СВОИ ГРАНИЦЫ С НАМИ",
-    "TR": "SINIRLARINIZI BİZİMLE AŞIN"
+    "id": "offroad.desc",
+    "key": "offroad.desc",
+    "AZ": "Offroad – yalnız yolsuzluq şəraitində hərəkət etmək deyil, həm də dözümlülük, strateji düşüncə və mühəndislik bacarığının sınağıdır. Azərbaycanın çətin dağlıq relyefi bu idman növü üçün dünyada ən maraqlı məkanlardan biri hesab olunur.",
+    "EN": "Offroad is not only traveling in off-road conditions, but also a test of endurance, strategic thinking and engineering skill. Azerbaijan's difficult mountainous terrain is considered one of the most interesting places in the world for this sport.",
+    "RU": "Оффроуд — это не только езда в условиях бездорожья, но и испытание на выносливость, стратегическое мышление и инженерное мастерство. Труднопроходимый горный рельеф Азербайджана считается одним из самых интересных в мире мест для этого вида спорта.",
+    "TR": "Offroad sadece yol dışı koşullarda seyahat etmek değil, aynı zamanda dayanıklılık, stratejik düşünme ve mühendislik becerisinin bir testidir. Azerbaycan'ın zorlu dağlık arazisi bu spor için dünyadaki en ilginç yerlerden biri olarak kabul edilmektedir."
   },
   {
-    "id": "contact.hq",
-    "key": "contact.hq",
-    "AZ": "BAŞ OFİS",
-    "EN": "HEADQUARTERS",
-    "RU": "ГЛАВНЫЙ ОФИС",
-    "TR": "MERKEZ OFİS"
+    "id": "offroad.tech_title",
+    "key": "offroad.tech_title",
+    "AZ": "TEXNİKİ TƏCHİZAT",
+    "EN": "TECHNICAL EQUIPMENT",
+    "RU": "ТЕХНИЧЕСКОЕ ОСНАЩЕНИЕ",
+    "TR": "TEKNİK EKİPMAN"
+  },
+  {
+    "id": "offroad.tech_desc",
+    "key": "offroad.tech_desc",
+    "AZ": "Hər bir maşın xüsusi asqı sistemi və gücləndirilmiş mühərriklə təmin olunur.",
+    "EN": "Each machine is equipped with a special suspension system and a reinforced engine.",
+    "RU": "Машина каждой гонки оснащена специальной системой подвески и усиленным двигателем.",
+    "TR": "Her araç özel bir süspansiyon sistemi ve takviyeli bir motorla donatılmıştır."
+  },
+  {
+    "id": "offroad.safety_title",
+    "key": "offroad.safety_title",
+    "AZ": "TƏHLÜKƏSİZLİK",
+    "EN": "SAFETY",
+    "RU": "БЕЗОПАСНОСТЬ",
+    "TR": "GÜVENLİK"
+  },
+  {
+    "id": "offroad.safety_desc",
+    "key": "offroad.safety_desc",
+    "AZ": "Pilotların təhlükəsizliyi bizim üçün prioritetdir. Karkas və kəmərlər məcburidir.",
+    "EN": "The safety of pilots is our priority. Carcass and belts are mandatory.",
+    "RU": "Безопасность пилотов является для нас приоритетом. Каркас и ремни обязательны.",
+    "TR": "Pilotların güvenliği önceliğimizdir. Karkas ve kemerler zorunludur."
+  },
+  {
+    "id": "offroad.nav_title",
+    "key": "offroad.nav_title",
+    "AZ": "NAVİQASİYA",
+    "EN": "NAVIGATION",
+    "RU": "НАВИГАЦИЯ",
+    "TR": "NAVİGASYON"
+  },
+  {
+    "id": "offroad.nav_desc",
+    "key": "offroad.nav_desc",
+    "AZ": "GPS və xəritə oxuma bacarığı offroad yarışlarında qalibiyyətin yarısıdır.",
+    "EN": "GPS and map reading skills are half of the victory in offroad races.",
+    "RU": "Навыки GPS и чтения карт — это половина успеха в оффроуд-гонках.",
+    "TR": "GPS ve harita okuma becerileri offroad yarışlarında zaferin yarısıdır."
+  },
+  {
+    "id": "offroad.power_title",
+    "key": "offroad.power_title",
+    "AZ": "EKSTREMAL GÜC",
+    "EN": "EXTREME POWER",
+    "RU": "ЭКСТРЕМАЛЬНАЯ МОЩНОСТЬ",
+    "TR": "EKSTREM GÜÇ"
+  },
+  {
+    "id": "offroad.power_desc",
+    "key": "offroad.power_desc",
+    "AZ": "Sürücünün fiziki hazırlığı ən az avtomobilin gücü qədər əhəmiyyətlidir.",
+    "EN": "The driver's physical preparation is at least as important as the car's power.",
+    "RU": "Физическая подготовка водителя не менее важна, чем мощность автомобиля.",
+    "TR": "Sürücünün fiziksel hazırlığı en az aracın gücü kadar önemlidir."
+  },
+  {
+    "id": "video.archive_desc",
+    "key": "video.archive_desc",
+    "AZ": "FORSAJ CLUB // RƏSMİ KANAL",
+    "EN": "FORSAJ CLUB // OFFICIAL CHANNEL",
+    "RU": "FORSAJ CLUB // ОФИЦИАЛЬНЫЙ КАНАЛ",
+    "TR": "FORSAJ CLUB // RESMİ KANAL"
   }
 ]
