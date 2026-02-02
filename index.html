@@ -37,29 +37,38 @@
             /* Standard protection */
         }
 
-        /* Hide GTranslate UI */
-        #gt_float_wrapper,
-        .gt_container,
+        /* Essential Google Translate UI Hiding */
         .goog-te-banner-frame,
-        .skiptranslate {
+        .goog-te-gadget,
+        .skiptranslate,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .goog-tooltip {
             display: none !important;
+            visibility: hidden !important;
         }
 
         body {
             top: 0 !important;
+            position: static !important;
+        }
+
+        .goog-text-highlight {
+            background: transparent !important;
+            box-shadow: none !important;
         }
     </style>
 
-    <!-- GTranslate.io Integration (Unlimited Free) -->
-    <script>
-        window.gtranslateSettings = {
-            "default_language": "az",
-            "languages": ["az", "en", "ru", "tr"],
-            "wrapper_selector": ".gtranslate_wrapper",
-            "flag_style": "3d"
-        };
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'az',
+                includedLanguages: 'az,en,ru,tr',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
     </script>
-    <script src="https://scripts.gtranslate.io/widgets/latest/float.js" defer></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script type="importmap">
     {

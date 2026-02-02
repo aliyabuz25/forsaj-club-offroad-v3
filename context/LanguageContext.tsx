@@ -28,15 +28,17 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
             if (parts.length === 2) return parts.pop()?.split(';').shift();
             return null;
         };
-        // GTranslate follows its own cookie pattern
-        const currentLang = getCookie('googtrans')?.split('/').pop()?.toUpperCase();
-        if (currentLang && ['AZ', 'EN', 'RU', 'TR'].includes(currentLang)) return currentLang as Language;
+        const googtrans = getCookie('googtrans');
+        if (googtrans) {
+            const langCode = googtrans.split('/').pop()?.toUpperCase();
+            if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) return langCode as Language;
+        }
         return 'AZ';
     });
+
     const [contentMap, setContentMap] = useState<{ [key: string]: string }>({});
     const [translations, setTranslations] = useState<TranslationItem[]>([]);
 
-    // Fetch initial content mapping to allow dynamic AZ text editing
     const refreshContent = async () => {
         const safeFetch = async (url: string) => {
             try {
@@ -68,14 +70,6 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         refreshContent();
     }, []);
 
-    // Helper to get cookie value
-    const getCookie = (name: string) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop()?.split(';').shift();
-        return null;
-    };
-
     const setCookie = (name: string, value: string) => {
         const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
         document.cookie = `${name}=${value}; expires=${expires}; path=/`;
@@ -100,69 +94,53 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     };
 
     useEffect(() => {
-        const checkGTranslateStatus = () => {
+        const checkGTranslate = () => {
             const getCookie = (name: string) => {
                 const value = `; ${document.cookie}`;
                 const parts = value.split(`; ${name}=`);
                 if (parts.length === 2) return parts.pop()?.split(';').shift();
                 return null;
             };
-            const current = getCookie('googtrans')?.split('/').pop()?.toUpperCase();
-            if (current && ['AZ', 'EN', 'RU', 'TR'].includes(current) && current !== language) {
-                setLangState(current as Language);
+            const googtrans = getCookie('googtrans');
+            if (googtrans) {
+                const langCode = googtrans.split('/').pop()?.toUpperCase();
+                if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) {
+                    if (language !== langCode) setLangState(langCode as Language);
+                }
+            } else if (language !== 'AZ') {
+                setLangState('AZ');
             }
         };
 
-        const interval = setInterval(checkGTranslateStatus, 1500);
+        const interval = setInterval(checkGTranslate, 1500);
         return () => clearInterval(interval);
     }, [language]);
 
     const setLanguage = (lang: Language) => {
         const target = lang.toLowerCase();
-
-        // GTranslate standard function
-        const doGTranslate = (lang_pair: string) => {
-            if (typeof (window as any).doGTranslate === 'function') {
-                (window as any).doGTranslate(lang_pair);
-            } else {
-                // Fallback via cookies
-                if (lang === 'AZ') {
-                    deleteCookie('googtrans');
-                } else {
-                    setCookie('googtrans', `/az/${target}`);
-                }
-                window.location.reload();
-            }
-        };
-
+        if (lang === 'AZ') {
+            deleteCookie('googtrans');
+        } else {
+            setCookie('googtrans', `/az/${target}`);
+        }
         setLangState(lang);
-        doGTranslate(`az|${target}`);
+        window.location.reload();
     };
 
     const t = (key: string, defaultValue?: string): string => {
-        // 1. Check if user has customized this text in content.json (highest priority for current lang)
-        // Usually contentMap is used for AZ text.
         if (language === 'AZ' && contentMap[key]) return contentMap[key];
-
-        // 2. Lookup in translations.json
         const transItem = translations.find(t => t.key === key);
         if (transItem) {
             const val = transItem[language];
             if (val) return val;
-            // Fallback to AZ if current lang translation is missing
             if (transItem.AZ) return transItem.AZ;
         }
-
-        // 3. Fallback to default value
-        if (defaultValue) return defaultValue;
-
-        // 4. Last resort
-        return key.split('.').pop()?.toUpperCase() || key;
+        return defaultValue || key.split('.').pop()?.toUpperCase() || key;
     };
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage, t, refreshContent }}>
-            <div className="gtranslate_wrapper" style={{ display: 'none' }}></div>
+            <div id="google_translate_element" style={{ display: 'none' }}></div>
             {children}
         </LanguageContext.Provider>
     );
