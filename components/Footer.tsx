@@ -115,7 +115,7 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
       </div>
 
       <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-gray-600 font-black italic text-[9px] uppercase tracking-widest">
+        <p className="text-gray-600 font-black italic text-[9px] uppercase tracking-widest notranslate">
           © 2024 FORSAJ CLUB. ALL RIGHTS RESERVED.
         </p>
         <div className="flex gap-10">

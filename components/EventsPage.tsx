@@ -67,8 +67,8 @@ const EventsPage: React.FC<EventsPageProps> = ({ onViewChange }) => {
                 <div className="space-y-4">
                   <label className="text-gray-600 font-black italic text-[10px] uppercase tracking-widest">{t('events.club', 'TƏMSİL ETDİYİ KLUB')}</label>
                   <div className="relative">
-                    <select className="w-full bg-black border border-white/5 text-white p-5 font-black italic text-sm focus:ring-1 focus:ring-[#FF4D00] outline-none uppercase appearance-none cursor-pointer">
-                      {clubs.map((club) => <option key={club} value={club.toLowerCase()}>{club.toUpperCase()}</option>)}
+                    <select className="w-full bg-black border border-white/5 text-white p-5 font-black italic text-sm focus:ring-1 focus:ring-[#FF4D00] outline-none uppercase appearance-none cursor-pointer notranslate">
+                      {clubs.map((club) => <option key={club} value={club.toLowerCase()} className="notranslate">{club.toUpperCase()}</option>)}
                     </select>
                     <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 text-[#FF4D00] pointer-events-none" size={20} />
                   </div>
@@ -134,7 +134,7 @@ const EventsPage: React.FC<EventsPageProps> = ({ onViewChange }) => {
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-20">
         <div className="flex items-start gap-4">
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
-          <div><h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">{t('nav.events', 'YARIŞLAR')}</h2><p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">OFFICIAL EVENT CALENDAR // FORSAJ CLUB</p></div>
+          <div><h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">{t('nav.events', 'YARIŞLAR')}</h2><p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em] notranslate">OFFICIAL EVENT CALENDAR // FORSAJ CLUB</p></div>
         </div>
         <div className="bg-white/5 p-1 rounded-sm flex items-center border border-white/10">
           <button onClick={() => setActiveTab('planned')} className={`px-8 py-3 font-black italic text-xs uppercase tracking-widest transition-all ${activeTab === 'planned' ? 'bg-[#FF4D00] text-black transform -skew-x-12' : 'text-gray-500'}`}><span className={activeTab === 'planned' ? 'transform skew-x-12 block' : ''}>{t('events.planned', 'PLANLANAN')}</span></button>

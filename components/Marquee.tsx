@@ -12,7 +12,7 @@ const Marquee: React.FC = () => {
     <div className="inline-flex items-center gap-8 mx-8 py-2">
       <span className="w-2 h-2 bg-black/30 rounded-full"></span>
       <Activity size={18} className="text-black/60" />
-      <span className="text-black font-black italic text-sm tracking-[0.15em] uppercase whitespace-nowrap">
+      <span className="text-black font-black italic text-sm tracking-[0.15em] uppercase whitespace-nowrap notranslate">
         {text}
       </span>
     </div>

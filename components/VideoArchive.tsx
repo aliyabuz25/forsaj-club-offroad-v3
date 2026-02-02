@@ -62,7 +62,7 @@ const VideoArchive: React.FC<VideoArchiveProps> = ({ onViewChange }) => {
             <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">
               {t('nav.video_archive', 'VİDEO ARXİV')}
             </h2>
-            <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">{t('video.archive_desc', 'FORSAJ CLUB // RƏSMİ KANAL')}</p>
+            <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em] notranslate">{t('video.archive_desc', 'FORSAJ CLUB // RƏSMİ KANAL')}</p>
           </div>
         </div>
         <button

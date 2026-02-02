@@ -24,7 +24,7 @@ const AdminSidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) => 
 
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="#" className="brand-link">
+            <a href="#" className="brand-link notranslate">
                 <span className="brand-text font-weight-light pl-3">Forsaj Admin</span>
             </a>
 

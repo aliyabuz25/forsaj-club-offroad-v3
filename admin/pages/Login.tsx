@@ -73,7 +73,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     return (
         <div className="hold-transition login-page bg-light">
             <div className="login-box">
-                <div className="login-logo">
+                <div className="login-logo notranslate">
                     <a href="/"><b>Forsaj</b> Club</a>
                 </div>
                 <div className="card shadow-lg">

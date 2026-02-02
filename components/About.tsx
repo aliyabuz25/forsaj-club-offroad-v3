@@ -29,7 +29,7 @@ const About: React.FC = () => {
               <h4 className="text-[#FF4D00] font-black italic text-2xl mb-4 tracking-tight">
                 EST. 2018 // MOTORSPORT MƏRKƏZİ
               </h4>
-              <h2 className="text-3xl md:text-5xl font-black italic leading-tight mb-8 uppercase max-w-2xl text-white tracking-tighter">
+              <h2 className="text-3xl md:text-5xl font-black italic leading-tight mb-8 uppercase max-w-2xl text-white tracking-tighter notranslate">
                 {t('aboutHeroText', 'FORSAJ CLUB AZƏRBAYCANIN OFFROAD MƏDƏNİYYƏTİNİ TƏMSİL EDİR')}
               </h2>
               <p className="text-gray-400 font-bold italic text-sm md:text-base leading-relaxed mb-12 max-w-xl uppercase tracking-wide">

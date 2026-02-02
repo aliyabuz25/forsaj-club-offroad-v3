@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
             <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
           </svg>
         </div>
-        <h1 className="text-2xl font-black italic tracking-tighter flex items-center">
+        <h1 className="text-2xl font-black italic tracking-tighter flex items-center notranslate">
           <span className="text-white">{settings.siteTitle?.split(' ')[0] || 'FORSAJ'}</span>
           <span className="text-[#FF4D00] ml-1">{settings.siteTitle?.split(' ')[1] || 'CLUB'}</span>
         </h1>
