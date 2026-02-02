@@ -12,6 +12,7 @@ import ContactPage from './components/ContactPage';
 import GalleryPage from './components/GalleryPage';
 import Footer from './components/Footer';
 import AdminDashboard from './components/AdminDashboard';
+import SEO from './components/SEO';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'about' | 'news' | 'events' | 'drivers' | 'rules' | 'contact' | 'gallery' | 'admin'>('home');
@@ -42,8 +43,26 @@ const App: React.FC = () => {
     return <AdminDashboard />;
   }
 
+
+  const getPageTitle = () => {
+    switch (currentView) {
+      case 'about': return 'Haqqımızda';
+      case 'news': return 'Xəbərlər';
+      case 'events': return 'Yarışlar & Tədbirlər';
+      case 'drivers': return 'Sürücülər & Reytinqlər';
+      case 'rules': return 'Qaydalar';
+      case 'contact': return 'Əlaqə';
+      case 'gallery': return 'Qalereya & Media';
+      default: return 'Offroad & Motorsport Azerbaijan';
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title={getPageTitle()}
+        url={`https://forsaj.az/${currentView !== 'home' ? currentView : ''}`}
+      />
       <Marquee />
       <Navbar currentView={currentView} onViewChange={(view) => handleViewChange(view, null)} />
       <main className="flex-grow">
