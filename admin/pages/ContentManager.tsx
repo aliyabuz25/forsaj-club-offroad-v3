@@ -150,6 +150,77 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
                     <button className="btn btn-primary btn-sm" onClick={handleAddNew}>
                         <i className="fas fa-plus mr-1"></i> Yeni Əlavə Et
                     </button>
+                    {(entity === 'content' || entity === 'translations') && (
+                        <button
+                            className="btn btn-warning btn-sm ml-2 font-weight-bold"
+                            onClick={async () => {
+                                if (!window.confirm(`DİQQƏT: Bu əməliyyat bütün (${items.length}) elementləri yoxlayacaq və tərcüməsi OLMAYAN sahələri avtomatik dolduracaq. Bu proses bir neçə dəqiqə çəkə bilər. Davam edilsin?`)) return;
+
+                                const toastId = toast.loading('Kütləvi tərcümə başladı... Zəhmət olmasa səhifəni bağlamayın.');
+                                let updatedCount = 0;
+
+                                try {
+                                    const token = localStorage.getItem('token');
+
+                                    // Process items sequentially to avoid rate limits
+                                    for (let i = 0; i < items.length; i++) {
+                                        const item = items[i];
+                                        const sourceText = item.value || item.AZ; // Use value or AZ as source
+
+                                        if (!sourceText) continue;
+
+                                        let needsUpdate = false;
+                                        const newItem = { ...item };
+                                        const langs = ['EN', 'RU', 'TR', 'AZ'];
+
+                                        for (const lang of langs) {
+                                            if (lang === 'AZ' && item.AZ) continue; // Skip if source exists
+
+                                            // Only translate if field is missing or empty
+                                            if (!newItem[lang]) {
+                                                try {
+                                                    const res = await fetch('/api/translate', {
+                                                        method: 'POST',
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        body: JSON.stringify({ text: sourceText, targetLang: lang.toLowerCase() })
+                                                    });
+                                                    const data = await res.json();
+                                                    if (data.translatedText) {
+                                                        newItem[lang] = data.translatedText;
+                                                        needsUpdate = true;
+                                                    }
+                                                } catch (e) {
+                                                    console.warn(`Translation failed for ${item.key} -> ${lang}`);
+                                                }
+                                            }
+                                        }
+
+                                        if (needsUpdate) {
+                                            // Save each item individually
+                                            const formData = new FormData();
+                                            formData.append('data', JSON.stringify(newItem));
+
+                                            await fetch(apiPath, {
+                                                method: 'POST',
+                                                headers: { 'Authorization': `Bearer ${token}` },
+                                                body: formData
+                                            });
+                                            updatedCount++;
+                                            toast.loading(`Tərcümə edilir: ${i + 1}/${items.length} (Yeniləndi: ${updatedCount})`, { id: toastId });
+                                        }
+                                    }
+
+                                    toast.success(`Əməliyyat bitdi! Cəmi ${updatedCount} element yeniləndi.`, { id: toastId });
+                                    fetchItems(); // Refresh list
+
+                                } catch (e) {
+                                    toast.error('Gözlənilməz xəta baş verdi', { id: toastId });
+                                }
+                            }}
+                        >
+                            <i className="fas fa-magic mr-1"></i> Kütləvi Tərcümə
+                        </button>
+                    )}
                 </div>
             </div>
             <div className="card-body p-0">
