@@ -111,13 +111,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     };
 
     useEffect(() => {
-        const checkGTranslate = () => {
-            const getCookie = (name: string) => {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop()?.split(';').shift();
-                return null;
-            };
+        const checkGTranslateStatus = () => {
             const googtrans = getCookie('googtrans');
             if (googtrans) {
                 const langCode = googtrans.split('/').pop()?.toUpperCase();
@@ -129,19 +123,28 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
             }
         };
 
-        const interval = setInterval(checkGTranslate, 1500);
+        const interval = setInterval(checkGTranslateStatus, 2000);
         return () => clearInterval(interval);
     }, [language]);
 
     const setLanguage = (lang: Language) => {
         const target = lang.toLowerCase();
-        if (lang === 'AZ') {
-            deleteCookie('googtrans');
+        const pair = `az|${target}`;
+
+        // Use the standard GTranslate switcher
+        if (typeof (window as any).doGTranslate === 'function') {
+            (window as any).doGTranslate(pair);
+            setLangState(lang);
         } else {
-            setCookie('googtrans', `/az/${target}`);
+            // Fallback via cookie + reload
+            if (lang === 'AZ') {
+                deleteCookie('googtrans');
+            } else {
+                setCookie('googtrans', `/az/${target}`);
+            }
+            setLangState(lang);
+            window.location.reload();
         }
-        setLangState(lang);
-        window.location.reload();
     };
 
     const t = (key: string, defaultValue?: string): string => {
@@ -157,7 +160,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage, t, refreshContent }}>
-            <div id="google_translate_element" style={{ display: 'none' }}></div>
+            <div className="gtranslate_wrapper" style={{ display: 'none' }}></div>
             {children}
         </LanguageContext.Provider>
     );
