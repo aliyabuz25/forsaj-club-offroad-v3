@@ -23,18 +23,18 @@ const Hero: React.FC<HeroProps> = ({ onViewChange }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-black/40"></div>
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl">
+      <div className="relative z-10 text-center px-6 max-w-5xl">
         <div className="flex items-center justify-center gap-2 mb-6">
-          <div className="w-10 h-0.5 bg-[#FF4D00]"></div>
+          <div className="w-8 h-0.5 bg-[#FF4D00]"></div>
           <TranslatableText
             text={getContent('hero_badge', 'AZERBAIJAN OFFROAD MOTORSPORT HUB')}
             as="h3"
-            className="text-[#FF4D00] font-black italic tracking-[0.3em] text-[10px] uppercase"
+            className="text-[#FF4D00] font-black italic tracking-[0.3em] text-[9px] md:text-[10px] uppercase"
           />
-          <div className="w-10 h-0.5 bg-[#FF4D00]"></div>
+          <div className="w-8 h-0.5 bg-[#FF4D00]"></div>
         </div>
 
-        <h2 className="text-6xl md:text-9xl font-black italic tracking-tighter leading-[0.85] mb-8 text-white uppercase">
+        <h2 className="text-5xl md:text-7xl lg:text-[100px] font-black italic tracking-tighter leading-[0.9] mb-10 text-white uppercase">
           <TranslatableText text={getContent('hero_title_line1', 'SƏRHƏDSİZ')} as="span" />{' '}
           <TranslatableText
             text={getContent('hero_title_highlight', 'OFFROAD')}
@@ -47,21 +47,22 @@ const Hero: React.FC<HeroProps> = ({ onViewChange }) => {
         <TranslatableText
           text={getContent('hero_subtitle', 'Azərbaycanın ən çətin yollarında peşəkar yarışlar və adrenalin dolu anlar.')}
           as="p"
-          className="text-gray-400 font-bold italic max-w-xl mx-auto mb-10 text-sm md:text-base leading-relaxed uppercase tracking-wide"
+          className="text-gray-400 font-bold italic max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed uppercase tracking-wide px-4"
         />
 
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
           <button
             onClick={() => onViewChange('events')}
-            className="bg-[#FF4D00] hover:bg-white hover:text-black text-black font-black italic py-5 px-12 rounded-sm flex items-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_rgba(255,77,0,0.3)]"
+            className="w-full sm:w-auto min-w-[220px] bg-[#FF4D00] hover:bg-white hover:text-black text-black font-black italic py-5 px-10 rounded-sm flex items-center justify-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_rgba(255,77,0,0.3)]"
           >
-            {t('hero.races', 'YARIŞ TƏQVİMİ')} <ChevronRight className="w-6 h-6" />
+            <span className="uppercase text-sm tracking-widest">{t('hero.races', 'YARIŞ TƏQVİMİ')}</span>
+            <ChevronRight className="w-5 h-5" />
           </button>
           <button
             onClick={() => onViewChange('about')}
-            className="border-2 border-white/20 text-white hover:border-[#FF4D00] hover:text-[#FF4D00] font-black italic py-5 px-12 rounded-sm transition-all bg-white/5 backdrop-blur-sm"
+            className="w-full sm:w-auto min-w-[220px] border-2 border-white/10 text-white hover:border-[#FF4D00] hover:text-[#FF4D00] font-black italic py-5 px-10 rounded-sm transition-all bg-white/5 backdrop-blur-sm"
           >
-            {t('hero.about', 'HAQQIMIZDA')}
+            <span className="uppercase text-sm tracking-widest">{t('hero.about', 'HAQQIMIZDA')}</span>
           </button>
         </div>
       </div>
