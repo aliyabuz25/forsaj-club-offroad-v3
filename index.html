@@ -31,15 +31,21 @@
 
         /* Brand Protection */
         .notranslate {
-            translate: no !important;
+            /* Standard class for Google Translate */
         }
 
         /* Hide GTranslate default UI */
         #gt-wrapper,
         .gtranslate_wrapper,
         .skiptranslate,
-        .goog-te-gadget {
+        .goog-te-gadget,
+        .goog-te-banner-frame {
             display: none !important;
+            visibility: hidden !important;
+        }
+
+        body {
+            top: 0 !important;
         }
     </style>
 

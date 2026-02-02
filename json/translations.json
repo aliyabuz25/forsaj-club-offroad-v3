@@ -4,56 +4,64 @@
     "key": "nav.home",
     "AZ": "ANA SƏHİFƏ",
     "EN": "HOME",
-    "RU": "ГЛАВНАЯ"
+    "RU": "ГЛАВНАЯ",
+    "TR": "ANA SAYFA"
   },
   {
     "id": "nav.about",
     "key": "nav.about",
     "AZ": "HAQQIMIZDA",
     "EN": "ABOUT",
-    "RU": "О НАС"
+    "RU": "О НАС",
+    "TR": "HAKKIMIZDA"
   },
   {
     "id": "nav.news",
     "key": "nav.news",
     "AZ": "XƏBƏRLƏR",
     "EN": "NEWS",
-    "RU": "НОВОСТИ"
+    "RU": "НОВОСТИ",
+    "TR": "HABERLER"
   },
   {
     "id": "nav.events",
     "key": "nav.events",
     "AZ": "YARIŞLAR",
     "EN": "EVENTS",
-    "RU": "ГОНКИ"
+    "RU": "ГОНКИ",
+    "TR": "YARIŞLAR"
   },
   {
     "id": "nav.drivers",
     "key": "nav.drivers",
     "AZ": "SÜRÜCÜLƏR",
     "EN": "DRIVERS",
-    "RU": "ПИЛОТЫ"
+    "RU": "ПИЛОТЫ",
+    "TR": "SÜRÜCÜLER"
   },
   {
     "id": "nav.gallery",
     "key": "nav.gallery",
     "AZ": "QALEREYA",
     "EN": "GALLERY",
-    "RU": "ГАЛЕРЕЯ"
+    "RU": "ГАЛЕРЕЯ",
+    "TR": "GALERİ"
   },
   {
     "id": "nav.rules",
     "key": "nav.rules",
     "AZ": "QAYDALAR",
     "EN": "RULES",
-    "RU": "ПРАВИЛА"
+    "RU": "ПРАВИЛА",
+    "TR": "KURALLAR"
   },
   {
     "id": "nav.contact",
     "key": "nav.contact",
     "AZ": "ƏLAQƏ",
     "EN": "CONTACT",
-    "RU": "КОНТАКТЫ"
+    "RU": "КОНТАКТЫ",
+    "TR": "İLETİŞİM"
   },
   {
     "id": "hero.races",
