@@ -1,1 +1,75 @@
-[]
+[
+  {
+    "id": "1",
+    "title": "FORSAJ WINTER CHALLENGE 2024",
+    "date": "15.01.2024",
+    "category": "Yarış",
+    "image": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=600",
+    "photos": [
+      {
+        "id": "p1",
+        "title": "Start line",
+        "url": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=600"
+      },
+      {
+        "id": "p2",
+        "title": "Mud crossing",
+        "url": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=600"
+      },
+      {
+        "id": "p3",
+        "title": "Forest section",
+        "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600"
+      },
+      {
+        "id": "p4",
+        "title": "Hill climb",
+        "url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=600"
+      }
+    ],
+    "videos": [
+      {
+        "id": "v1",
+        "title": "Final Stage Highlights",
+        "videoId": "dQw4w9WgXcQ",
+        "duration": "04:20",
+        "url": "https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg"
+      },
+      {
+        "id": "v2",
+        "title": "Interview with Winners",
+        "videoId": "dQw4w9WgXcQ",
+        "duration": "02:15",
+        "url": "https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "OFFROAD EXPEDITION: QAFQAZ 2023",
+    "date": "20.10.2023",
+    "category": "Ekspedisiya",
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600",
+    "photos": [
+      {
+        "id": "p5",
+        "title": "Mountain View",
+        "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600"
+      },
+      {
+        "id": "p6",
+        "title": "Camp Site",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600"
+      }
+    ],
+    "videos": [
+      {
+        "id": "v3",
+        "title": "Expedition Diary",
+        "videoId": "dQw4w9WgXcQ",
+        "duration": "10:00",
+        "url": "https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg"
+      }
+    ]
+  }
+]

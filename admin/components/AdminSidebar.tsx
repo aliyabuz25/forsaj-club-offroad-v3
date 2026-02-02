@@ -31,10 +31,10 @@ const AdminSidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) => 
             <div className="sidebar">
                 <div className="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div className="image">
-                        <img src="https://ui-avatars.com/api/?name=Admin&background=random" className="img-circle elevation-2" alt="User Image" />
+                        <img src={`https://ui-avatars.com/api/?name=${user.name || 'Admin'}&background=random`} className="img-circle elevation-2" alt="User Image" />
                     </div>
                     <div className="info">
-                        <a href="#" className="d-block">{user.name || 'Forsaj Admin'}</a>
+                        <a href="#" className="d-block">{user.name || 'Admin'}</a>
                     </div>
                 </div>
 

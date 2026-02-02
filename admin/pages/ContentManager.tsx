@@ -19,6 +19,7 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
     const [showModal, setShowModal] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [currentItem, setCurrentItem] = useState<any>({});
+    const [searchTerm, setSearchTerm] = useState('');
 
     const [file, setFile] = useState<File | null>(null);
 
@@ -105,7 +106,8 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
                 setShowModal(false);
                 fetchItems();
             } else {
-                toast.error('Əməliyyat uğursuz oldu');
+                const data = await res.json().catch(() => ({}));
+                toast.error(data.error || 'Əməliyyat uğursuz oldu');
             }
         } catch (e) {
             toast.error('Şəbəkə xətası');
@@ -118,9 +120,25 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
 
     return (
         <div className="card">
-            <div className="card-header">
-                <h3 className="card-title">{title} - Siyahısı</h3>
-                <div className="card-tools">
+            <div className="card-header d-flex align-items-center">
+                <h3 className="card-title mr-auto">{title}</h3>
+
+                <div className="card-tools d-flex align-items-center gap-2">
+                    <div className="input-group input-group-sm mr-3" style={{ width: 250 }}>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Axtarış..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <div className="input-group-append">
+                            <span className="input-group-text">
+                                <i className="fas fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+
                     <button className="btn btn-primary btn-sm" onClick={handleAddNew}>
                         <i className="fas fa-plus mr-1"></i> Yeni Əlavə Et
                     </button>
@@ -138,12 +156,31 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
                             </tr>
                         </thead>
                         <tbody>
-                            {items.map((item) => (
+                            {items.filter(item => {
+                                if (!searchTerm) return true;
+                                const lowerSearch = searchTerm.toLowerCase();
+                                return fields.some(f =>
+                                    item[f.name]?.toString().toLowerCase().includes(lowerSearch)
+                                );
+                            }).map((item) => (
                                 <tr key={item.id}>
                                     {fields.slice(0, 3).map(f => (
                                         <td key={f.name}>
                                             {f.type === 'image' ? (
-                                                <img src={item[f.name]} alt="img" style={{ height: 40 }} />
+                                                <div style={{ width: 40, height: 40, backgroundColor: '#f0f0f0', borderRadius: 4, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                    {(item[f.name] || item['img']) ? (
+                                                        <img
+                                                            src={item[f.name] || item['img']}
+                                                            alt=""
+                                                            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+                                                            onError={(e) => {
+                                                                (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=?&background=ddd&color=999';
+                                                            }}
+                                                        />
+                                                    ) : (
+                                                        <i className="fas fa-image text-muted"></i>
+                                                    )}
+                                                </div>
                                             ) : (
                                                 item[f.name]?.toString().substring(0, 50)
                                             )}

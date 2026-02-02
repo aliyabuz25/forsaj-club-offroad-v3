@@ -23,17 +23,17 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
         <div className="flex items-start gap-3">
           <div className="w-1.5 h-12 bg-[#FF4D00]"></div>
           <div>
-            <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('events.next_race_title')}
+            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
+              {t('events.next_race_title', 'NÖVBƏTİ YARIŞ')}
             </h2>
-            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg')}</p>
+            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg', 'QEYDİYYAT DAVAM EDİR')}</p>
           </div>
         </div>
         <button
           onClick={() => onViewChange('events')}
           className="bg-white/5 text-white font-black italic text-[10px] px-8 py-3 rounded-sm transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all border border-white/5"
         >
-          <span className="transform skew-x-12">{t('events.full_calendar')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
+          <span className="transform skew-x-12">{t('events.full_calendar', 'TAM TƏQVİM')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
         </button>
       </div>
 
@@ -45,8 +45,10 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
             className="w-full h-full object-cover opacity-40 grayscale group-hover:scale-105 transition-transform duration-1000"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
-          <div className="absolute inset-0 flex items-center justify-center p-12">
-            <span className="text-[#FF4D00] text-7xl font-black italic opacity-5 uppercase select-none tracking-tighter">{nextEvent.location}</span>
+          <div className="absolute inset-0 flex items-center justify-center p-12 overflow-hidden pointer-events-none">
+            <span className="text-[#FF4D00] text-9xl font-black italic opacity-5 uppercase select-none tracking-tighter whitespace-nowrap">
+              {nextEvent.location}
+            </span>
           </div>
         </div>
         <div className="md:w-1/2 p-10 md:p-20 flex flex-col justify-center">
@@ -54,8 +56,8 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
             <Calendar className="w-5 h-5" />
             <span className="text-lg tracking-widest uppercase">{nextEvent.date}</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black italic leading-[0.9] mb-6 tracking-tighter uppercase text-white">
-            {nextEvent.title.split(' ').map((word, i) => (
+          <h2 className="text-5xl md:text-7xl font-black italic leading-[0.9] mb-6 tracking-tighter uppercase text-white">
+            {nextEvent.title.split(' ').map((word, i, arr) => (
               <React.Fragment key={i}>
                 {i === 0 ? word : <><br /><span className="text-gray-500">{word}</span></>}
               </React.Fragment>
@@ -70,7 +72,7 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
             onClick={() => onViewChange('events')}
             className="bg-[#FF4D00] hover:bg-white text-black font-black italic py-5 px-12 rounded-sm flex items-center gap-3 transition-all self-start transform -skew-x-12 group shadow-[0_10px_30px_rgba(255,77,0,0.2)]"
           >
-            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration')}</span>
+            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration', 'İNDİ QOŞUL')}</span>
             <ChevronRight className="w-6 h-6 transform skew-x-12 group-hover:translate-x-2 transition-transform" />
           </button>
         </div>

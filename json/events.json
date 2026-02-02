@@ -1,1 +1,35 @@
-[]
+[
+    {
+        "id": "1",
+        "title": "SPRING MUD FEST 2024",
+        "date": "25.04.2024",
+        "location": "Xızı, Azərbaycan",
+        "category": "EXTREME",
+        "image": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=800",
+        "description": "Bahar mövsümünün ən gözlənilən yarışı! Şiddətli palçıq və çətin maneələrlə dolu bir tras sizi gözləyir.",
+        "rules": "Bütün iştirakçılar karkas və kəmər tələblərinə əməl etməlidir. Yarış səhər saat 9:00-da başlayır.",
+        "status": "planned"
+    },
+    {
+        "id": "2",
+        "title": "DESERT STORM 2024",
+        "date": "15.06.2024",
+        "location": "Qobustan, Azərbaycan",
+        "category": "SPEED",
+        "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800",
+        "description": "Qobustanın qumlu dərələrində sürət və dözümlülük yarışı.",
+        "rules": "Hər bir avtomobildə mütləq yanğınsöndürən və tibbi yardım çantası olmalıdır.",
+        "status": "planned"
+    },
+    {
+        "id": "3",
+        "title": "WINTER CUP 2023",
+        "date": "20.12.2023",
+        "location": "Şahdağ, Azərbaycan",
+        "category": "WINTER",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800",
+        "description": "Qarlı və buzlu trasda unudulmaz yarış təcrübəsi.",
+        "rules": "Yarış başa çatıb. Nəticələrlə sürücülər bölməsində tanış ola bilərsiniz.",
+        "status": "past"
+    }
+]

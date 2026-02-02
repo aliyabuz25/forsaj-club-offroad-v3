@@ -14,22 +14,22 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
   const [isLangOpen, setIsLangOpen] = useState(false);
 
   const navItems = [
-    { name: t('nav.home'), id: 'home' as const },
-    { name: t('nav.about'), id: 'about' as const },
-    { name: t('nav.news'), id: 'news' as const },
-    { name: t('nav.events'), id: 'events' as const },
-    { name: t('nav.drivers'), id: 'drivers' as const },
-    { name: t('nav.gallery'), id: 'gallery' as const },
-    { name: t('nav.rules'), id: 'rules' as const },
-    { name: t('nav.contact'), id: 'contact' as const },
+    { name: t('nav.home', 'ANA SƏHİFƏ'), id: 'home' as const },
+    { name: t('nav.about', 'HAQQIMIZDA'), id: 'about' as const },
+    { name: t('nav.news', 'XƏBƏRLƏR'), id: 'news' as const },
+    { name: t('nav.events', 'YARIŞLAR'), id: 'events' as const },
+    { name: t('nav.drivers', 'SÜRÜCÜLƏR'), id: 'drivers' as const },
+    { name: t('nav.gallery', 'QALEREYA'), id: 'gallery' as const },
+    { name: t('nav.rules', 'QAYDALAR'), id: 'rules' as const },
+    { name: t('nav.contact', 'ƏLAQƏ'), id: 'contact' as const },
   ];
 
-  const languages: Language[] = ['AZ', 'EN', 'RU'];
+  const languages: Language[] = ['AZ', 'EN', 'RU', 'TR'];
 
   return (
     <nav className="sticky top-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/5 px-6 lg:px-20 py-4 flex items-center justify-between shadow-2xl">
       <div
-        className="flex items-center gap-3 cursor-pointer group"
+        className="flex items-center gap-3 cursor-pointer group notranslate"
         onClick={() => onViewChange('home')}
       >
         <div className="bg-[#FF4D00] w-10 h-10 rounded-sm flex items-center justify-center relative shadow-[0_0_20px_rgba(255,77,0,0.4)] group-hover:scale-110 transition-transform">

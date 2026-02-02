@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forsaj Club Offroad | Azerbaijan Motorsport Hub</title>
+    <title>FORSAJ // OFFROAD MOTORSPORT</title>
     <meta name="description"
         content="Forsaj Club Offroad - Azərbaycanın ən böyük offroad motorsport platforması. Yarışlar, xəbərlər, sürücü reytinqləri və unudulmaz anlar.">
     <meta name="keywords" content="offroad, azerbaijan, motorsport, forsaj club, racing, 4x4, mud, trail">
@@ -29,32 +29,31 @@
             color: #FFFFFF;
         }
 
-        /* Prevent AdminLTE from breaking the main site layout */
-        .admin-page {
-            background-color: #f4f6f9 !important;
-            color: #212529 !important;
-            font-family: 'Source Sans Pro', sans-serif !important;
+        /* Brand Protection */
+        .notranslate {
+            translate: no !important;
         }
 
-        .italic-extra-bold {
-            font-weight: 900;
-            font-style: italic;
-        }
-
-        /* Custom scrollbar for racing feel */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0A0A0A;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #FF4D00;
-            border-radius: 4px;
+        /* Hide GTranslate default UI */
+        #gt-wrapper,
+        .gtranslate_wrapper,
+        .skiptranslate,
+        .goog-te-gadget {
+            display: none !important;
         }
     </style>
+
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "az",
+            "languages": ["az", "en", "ru", "tr"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "flag_size": 24,
+            "alt_flags": { "en": "usa", "az": "azerbaijan" }
+        }
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/lc.js" defer></script>
+
     <script type="importmap">
 {
   "imports": {

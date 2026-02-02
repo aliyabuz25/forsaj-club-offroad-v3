@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "id": "1",
+        "title": "Azərbaycan Offroad Federasiyası Yeni Reqlamenti Elan Etdi",
+        "description": "2024-cü il mövsümü üçün bütün yarışlarda tətbiq olunacaq yeni texniki reqlament artıq qüvvədədir. Bu reqlament pilotların təhlükəsizliyini daha da artırmağa xidmət edir.",
+        "date": "01.02.2024",
+        "image": "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?q=80&w=800",
+        "category": "FEDERASİYA",
+        "isMain": true
+    },
+    {
+        "id": "2",
+        "title": "Forsaj Club Beynəlxalq Yarışda Təmsil Olunacaq",
+        "description": "Klubumuzun pilotları aprel ayında Türkiyədə keçiriləcək TransAnatolia ralisində iştirak etmək üçün dəvət alıblar.",
+        "date": "28.01.2024",
+        "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800",
+        "category": "KLUB",
+        "isMain": false
+    },
+    {
+        "id": "3",
+        "title": "Yeni Offroad Akademiyası Açıldı",
+        "description": "Gənc pilotlar üçün nəzərdə tutulmuş Forsaj Offroad Academy artıq qeydiyyata başlayıb. Təlimlər peşəkar instruktorlar tərəfindən idarə olunacaq.",
+        "date": "15.01.2024",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
+        "category": "AKADEMİYA",
+        "isMain": false
+    }
+]

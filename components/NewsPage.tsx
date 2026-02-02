@@ -15,7 +15,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onViewChange }) => {
   if (!news || news.length === 0) {
     return (
       <div className="bg-[#0A0A0A] min-h-screen flex items-center justify-center text-white">
-        <p className="text-gray-500 font-black italic uppercase tracking-widest">Xəbərlər yüklənir...</p>
+        <p className="text-gray-500 font-black italic uppercase tracking-widest">{t('news.loading', 'Xəbərlər yüklənir...')}</p>
       </div>
     );
   }
@@ -27,7 +27,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onViewChange }) => {
       <div className="bg-[#0A0A0A] min-h-screen text-white animate-in fade-in duration-500">
         <div className="px-6 lg:px-20 py-10">
           <button onClick={() => setSelectedNews(null)} className="flex items-center gap-2 text-[#FF4D00] font-black italic text-xs uppercase tracking-widest hover:translate-x-[-4px] transition-transform">
-            <ArrowLeft size={16} /> GERİ QAYIT
+            <ArrowLeft size={16} /> {t('common.back_to_news', 'GERİ QAYIT')}
           </button>
         </div>
 
@@ -49,7 +49,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onViewChange }) => {
             </div>
             <div className="lg:w-4/12">
               <div className="bg-[#111] p-10 border border-white/5 sticky top-32">
-                <h4 className="text-xl font-black italic uppercase mb-6 tracking-widest border-b border-white/5 pb-4">DİGƏR XƏBƏRLƏR</h4>
+                <h4 className="text-xl font-black italic uppercase mb-6 tracking-widest border-b border-white/5 pb-4">{t('news.other', 'DİGƏR XƏBƏRLƏR')}</h4>
                 <div className="space-y-6">
                   {news.filter(n => n.id !== selectedNews.id).slice(0, 5).map(n => (
                     <div key={n.id} onClick={() => setSelectedNews(n)} className="cursor-pointer group border-b border-white/5 pb-4">
@@ -72,8 +72,8 @@ const NewsPage: React.FC<NewsPageProps> = ({ onViewChange }) => {
         <div className="flex items-start gap-4 mb-20">
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.3)]"></div>
           <div>
-            <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">XƏBƏRLƏR</h2>
-            <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-widest">MOTORSPORT ARXİVİ VƏ YENİLİKLƏR</p>
+            <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">{t('nav.news', 'XƏBƏRLƏR')}</h2>
+            <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-widest">{t('news.archive', 'MOTORSPORT ARXİVİ VƏ YENİLİKLƏR')}</p>
           </div>
         </div>
 
@@ -84,10 +84,10 @@ const NewsPage: React.FC<NewsPageProps> = ({ onViewChange }) => {
           <img src={mainNews.image} className="w-full h-full object-cover grayscale brightness-50 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0" alt="" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent"></div>
           <div className="absolute bottom-16 left-16 right-16">
-            <span className="bg-[#FF4D00] text-black px-4 py-1 font-black italic text-[10px] uppercase mb-6 inline-block transform -skew-x-12 tracking-widest">ƏSAS XƏBƏR</span>
+            <span className="bg-[#FF4D00] text-black px-4 py-1 font-black italic text-[10px] uppercase mb-6 inline-block transform -skew-x-12 tracking-widest">{t('news.main', 'ƏSAS XƏBƏR')}</span>
             <h3 className="text-5xl md:text-[100px] font-black italic leading-[0.8] uppercase tracking-tighter mb-8">{mainNews.title}</h3>
             <button className="flex items-center gap-4 text-white font-black italic text-2xl group-hover:translate-x-4 transition-transform uppercase">
-              OXU <ChevronRight size={32} className="text-[#FF4D00]" />
+              {t('common.read_more', 'OXU')} <ChevronRight size={32} className="text-[#FF4D00]" />
             </button>
           </div>
         </div>

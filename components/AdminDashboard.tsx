@@ -20,15 +20,15 @@ const AdminDashboard: React.FC = () => {
 
     const renderContent = () => {
         switch (currentView) {
-            case 'dashboard': return <Dashboard />;
+            case 'dashboard': return <Dashboard onViewChange={setCurrentView} />;
             case 'content': return <ContentManager
-                entity="translations"
-                title="Sayt Məzmunu (Tərcümələr)"
+                entity="content"
+                title="Bütün Sayt Məzmunu"
                 fields={[
-                    { name: 'key', label: 'Məzmun Açar Sözü', type: 'text' },
-                    { name: 'AZ', label: 'Azərbaycanca (AZ)', type: 'textarea' },
-                    { name: 'EN', label: 'İngiliscə (EN)', type: 'textarea' },
-                    { name: 'RU', label: 'Rusca (RU)', type: 'textarea' }
+                    { name: 'section', label: 'Bölmə', type: 'text' },
+                    { name: 'key', label: 'Açar Söz (Kod üçün)', type: 'text' },
+                    { name: 'value', label: 'Mətn (Azərbaycanca)', type: 'textarea' },
+                    { name: 'image', label: 'Şəkil URL', type: 'image' }
                 ]}
             />;
             case 'users': return <ContentManager
@@ -54,10 +54,12 @@ const AdminDashboard: React.FC = () => {
                 entity="drivers"
                 title="Sürücülər"
                 fields={[
-                    { name: 'name', label: 'Ad', type: 'text' },
-                    { name: 'car', label: 'Maşın Modeli', type: 'text' },
-                    { name: 'image', label: 'Şəkil', type: 'image' },
-                    { name: 'description', label: 'Təsvir', type: 'textarea' }
+                    { name: 'name', label: 'Tam Ad', type: 'text' },
+                    { name: 'category', label: 'Kateqoriya (UNLIMITED/LEGEND/SEMI STOCK/UTV)', type: 'text' },
+                    { name: 'points', label: 'Xal', type: 'text' },
+                    { name: 'car', label: 'Avtomobil', type: 'text' },
+                    { name: 'team', label: 'Komanda', type: 'text' },
+                    { name: 'image', label: 'Şəkil', type: 'image' }
                 ]}
             />;
             case 'news': return <ContentManager
@@ -66,8 +68,10 @@ const AdminDashboard: React.FC = () => {
                 fields={[
                     { name: 'title', label: 'Başlıq', type: 'text' },
                     { name: 'date', label: 'Tarix', type: 'date' },
+                    { name: 'category', label: 'Kateqoriya', type: 'text' },
                     { name: 'image', label: 'Şəkil', type: 'image' },
-                    { name: 'content', label: 'Məzmun', type: 'textarea' }
+                    { name: 'description', label: 'Məzmun', type: 'textarea' },
+                    { name: 'isMain', label: 'Əsas Xəbər (true/false)', type: 'text' }
                 ]}
             />;
             case 'events': return <ContentManager

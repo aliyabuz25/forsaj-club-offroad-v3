@@ -1,8 +1,10 @@
 import React from 'react';
 import { useAdmin } from '../context/AdminContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const Partners: React.FC = () => {
   const { partners } = useAdmin();
+  const { t } = useLanguage();
 
   if (!partners || partners.length === 0) return null;
 
@@ -16,7 +18,7 @@ const Partners: React.FC = () => {
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
         <div className="flex flex-col items-center mb-20">
           <h4 className="text-[#FF4D00] font-black italic text-[11px] uppercase tracking-[0.5em] mb-4">
-            RƏSMİ TƏRƏFDAŞLARIMIZ
+            {t('partners.title', 'RƏSMİ TƏRƏFDAŞLARIMIZ')}
           </h4>
           <div className="w-20 h-1 bg-white/10"></div>
         </div>
@@ -38,6 +40,10 @@ const Partners: React.FC = () => {
                 </span>
                 <div className={`absolute -bottom-2 left-0 w-0 h-1 transition-all duration-300 group-hover:w-full bg-[#FF4D00] shadow-[0_0_10px_rgba(255,77,0,0.5)]`}></div>
               </div>
+
+              <p className="mt-6 text-[9px] font-black italic text-[#FF4D00] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                OFFICIAL PARTNER
+              </p>
             </div>
           ))}
         </div>

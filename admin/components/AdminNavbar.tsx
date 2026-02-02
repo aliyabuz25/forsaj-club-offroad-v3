@@ -1,6 +1,10 @@
 import React from 'react';
 
-const AdminNavbar: React.FC = () => {
+interface AdminNavbarProps {
+    onToggleSidebar: () => void;
+}
+
+const AdminNavbar: React.FC<AdminNavbarProps> = ({ onToggleSidebar }) => {
     const handleLogout = () => {
         localStorage.removeItem('token');
         window.location.hash = ''; // Return to home
@@ -11,7 +15,7 @@ const AdminNavbar: React.FC = () => {
         <nav className="main-header navbar navbar-expand navbar-white navbar-light">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
+                    <button className="nav-link border-0 bg-transparent" onClick={(e) => { e.preventDefault(); onToggleSidebar(); }} role="button"><i className="fas fa-bars"></i></button>
                 </li>
             </ul>
 

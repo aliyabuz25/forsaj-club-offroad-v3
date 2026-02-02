@@ -9,7 +9,7 @@
   {
     "id": "nav.about",
     "key": "nav.about",
-    "AZ": "HAKKIMIZDA",
+    "AZ": "HAQQIMIZDA",
     "EN": "ABOUT",
     "RU": "О НАС"
   },
@@ -56,46 +56,18 @@
     "RU": "КОНТАКТЫ"
   },
   {
-    "id": "hero.hub",
-    "key": "hero.hub",
-    "AZ": "AZƏRBAYCAN MOTORSPORT MƏRKƏZİ",
-    "EN": "AZERBAIJAN MOTORSPORT HUB",
-    "RU": "ЦЕНТР МОТОСПОРТА АЗЕРБАЙДЖАНА"
-  },
-  {
     "id": "hero.races",
     "key": "hero.races",
-    "AZ": "YARIŞ TƏQVİMİ",
-    "EN": "RACE CALENDAR",
-    "RU": "КАЛЕНДАРЬ ГОНОК"
+    "AZ": "YARIŞLARA BAX",
+    "EN": "VIEW RACES",
+    "RU": "СМОТРЕТЬ ГОНКИ"
   },
   {
-    "id": "hero.drivers",
-    "key": "hero.drivers",
-    "AZ": "SÜRÜCÜLƏR",
-    "EN": "DRIVERS",
-    "RU": "ПИЛОТЫ"
-  },
-  {
-    "id": "hero.desc",
-    "key": "hero.desc",
-    "AZ": "Adrenalin, Güc və Təbiətin Vəhdəti",
-    "EN": "Adrenaline, Unity of Power and Nature",
-    "RU": "Адреналин, Сила и Единение с Природой"
-  },
-  {
-    "id": "hero.title_1",
-    "key": "hero.title_1",
-    "AZ": "AZƏRBAYCAN",
-    "EN": "AZERBAIJAN",
-    "RU": "АЗЕРБАЙДЖАН"
-  },
-  {
-    "id": "hero.title_2",
-    "key": "hero.title_2",
-    "AZ": "MƏDƏNİYYƏTİ",
-    "EN": "CULTURE",
-    "RU": "КУЛЬТУРА"
+    "id": "hero.about",
+    "key": "hero.about",
+    "AZ": "HAQQIMIZDA",
+    "EN": "ABOUT US",
+    "RU": "О НАС"
   },
   {
     "id": "common.back",
@@ -105,123 +77,39 @@
     "RU": "НАЗАД"
   },
   {
-    "id": "common.read_more",
-    "key": "common.read_more",
-    "AZ": "DAHA ƏTRAFLI",
-    "EN": "READ MORE",
-    "RU": "ЧИТАТЬ ДАЛЕЕ"
+    "id": "common.more",
+    "key": "common.more",
+    "AZ": "ƏTRAFLI",
+    "EN": "MORE",
+    "RU": "ПОДРОБНЕЕ"
   },
   {
-    "id": "common.view_all",
-    "key": "common.view_all",
-    "AZ": "HAMISINA BAX",
-    "EN": "VIEW ALL",
-    "RU": "ПОСМОТРЕТЬ ВСЕ"
+    "id": "common.download",
+    "key": "common.download",
+    "AZ": "YÜKLƏ",
+    "EN": "DOWNLOAD",
+    "RU": "СКАЧАТЬ"
   },
   {
-    "id": "common.join_registration",
-    "key": "common.join_registration",
-    "AZ": "QATILMAQ ÜÇÜN QEYDİYYAT",
-    "EN": "REGISTER TO JOIN",
-    "RU": "РЕГИСТРАЦИЯ ДЛЯ УЧАСТИЯ"
+    "id": "common.loading",
+    "key": "common.loading",
+    "AZ": "YÜKLƏNİR...",
+    "EN": "LOADING...",
+    "RU": "ЗАГРУЗКА..."
   },
   {
-    "id": "events.join",
-    "key": "events.join",
-    "AZ": "YARIŞDA İŞTİRAK",
-    "EN": "JOIN THE RACE",
-    "RU": "УЧАСТИЕ В ГОНКЕ"
+    "id": "gallery.photos",
+    "key": "gallery.photos",
+    "AZ": "FOTOLAR",
+    "EN": "PHOTOS",
+    "RU": "ФОТО"
   },
   {
-    "id": "events.join_pilot",
-    "key": "events.join_pilot",
-    "AZ": "PİLOT KİMİ QATIL",
-    "EN": "JOIN AS PILOT",
-    "RU": "УЧАСТИЕ КАК ПИЛОТ"
-  },
-  {
-    "id": "events.join_pilot_desc",
-    "key": "events.join_pilot_desc",
-    "AZ": "TEXNİKİ REQLAMENTƏ UYĞUN OLARAQ",
-    "EN": "ACCORDING TO TECHNICAL REGULATIONS",
-    "RU": "СОГЛАСНО ТЕХНИЧЕСКОМУ РЕГЛАМЕНТУ"
-  },
-  {
-    "id": "events.join_spectator",
-    "key": "events.join_spectator",
-    "AZ": "İZLƏYİCİ KİMİ QATIL",
-    "EN": "JOIN AS SPECTATOR",
-    "RU": "УЧАСТИЕ КАК ЗРИТЕЛЬ"
-  },
-  {
-    "id": "events.join_spectator_desc",
-    "key": "events.join_spectator_desc",
-    "AZ": "YARIŞI TRİBUNADAN İZLƏ",
-    "EN": "WATCH FROM TRIBUNE",
-    "RU": "СМОТРЕТЬ С ТРИБУНЫ"
-  },
-  {
-    "id": "events.planned",
-    "key": "events.planned",
-    "AZ": "PLANLANAN",
-    "EN": "PLANNED",
-    "RU": "ПЛАНИРУЕМЫЕ"
-  },
-  {
-    "id": "events.past",
-    "key": "events.past",
-    "AZ": "KEÇMİŞ",
-    "EN": "PAST",
-    "RU": "ПРОШЕДШИЕ"
-  },
-  {
-    "id": "events.upcoming",
-    "key": "events.upcoming",
-    "AZ": "GƏLƏCƏK YARIŞ",
-    "EN": "UPCOMING RACE",
-    "RU": "ПРЕДСТОЯЩАЯ ГОНКА"
-  },
-  {
-    "id": "events.next_race_title",
-    "key": "events.next_race_title",
-    "AZ": "NÖVBƏTİ YARIŞ",
-    "EN": "NEXT RACE",
-    "RU": "СЛЕДУЮЩАЯ ГОНКА"
-  },
-  {
-    "id": "events.completed",
-    "key": "events.completed",
-    "AZ": "BAŞA ÇATIB",
-    "EN": "COMPLETED",
-    "RU": "ЗАВЕРШЕНО"
-  },
-  {
-    "id": "events.download",
-    "key": "events.download",
-    "AZ": "PDF YÜKLƏ",
-    "EN": "DOWNLOAD PDF",
-    "RU": "СКАЧАТЬ PDF"
-  },
-  {
-    "id": "events.desc_title",
-    "key": "events.desc_title",
-    "AZ": "TƏSVİR",
-    "EN": "DESCRIPTION",
-    "RU": "ОПИСАНИЕ"
-  },
-  {
-    "id": "events.full_calendar",
-    "key": "events.full_calendar",
-    "AZ": "TAM TƏQVİM",
-    "EN": "FULL CALENDAR",
-    "RU": "ПОЛНЫЙ КАЛЕНДАРЬ"
-  },
-  {
-    "id": "events.live_reg",
-    "key": "events.live_reg",
-    "AZ": "CANLI QEYDİYYAT AÇIQDIR",
-    "EN": "LIVE REGISTRATION OPEN",
-    "RU": "ОТКРЫТА ЖИВАЯ РЕГИСТРАЦИЯ"
+    "id": "gallery.videos",
+    "key": "gallery.videos",
+    "AZ": "VİDEOLAR",
+    "EN": "VIDEOS",
+    "RU": "ВИДЕО"
   },
   {
     "id": "leaders.title",
@@ -240,148 +128,141 @@
   {
     "id": "leaders.full_rating",
     "key": "leaders.full_rating",
-    "AZ": "BÜTÜN REYTİNG",
+    "AZ": "TAM REYTİNQ",
     "EN": "FULL RATING",
     "RU": "ПОЛНЫЙ РЕЙТИНГ"
   },
   {
-    "id": "drivers.title",
-    "key": "drivers.title",
-    "AZ": "SÜRÜCÜLƏR",
-    "EN": "DRIVERS",
+    "id": "aboutTitle",
+    "key": "aboutTitle",
+    "AZ": "HAQQIMIZDA",
+    "EN": "ABOUT US",
+    "RU": "О НАС"
+  },
+  {
+    "id": "aboutSubtitle",
+    "key": "aboutSubtitle",
+    "AZ": "BİZİM HEKAYƏMİZ // MİSSİYAMIZ",
+    "EN": "OUR STORY // MISSION",
+    "RU": "НАША ИСТОРИЯ // МИССИЯ"
+  },
+  {
+    "id": "aboutHeroText",
+    "key": "aboutHeroText",
+    "AZ": "FORSAJ CLUB AZƏRBAYCANIN OFFROAD MƏDƏNİYYƏTİNİ TƏMSİL EDİR",
+    "EN": "FORSAJ CLUB REPRESENTS AZERBAIJAN OFFROAD CULTURE",
+    "RU": "FORSAJ CLUB ПРЕДСТАВЛЯЕТ КУЛЬТУРУ ОФФРОУДА АЗЕРБАЙДЖАНА"
+  },
+  {
+    "id": "aboutDescription",
+    "key": "aboutDescription",
+    "AZ": "2018-ci ildən bəri biz Azərbaycanın ən çətin yollarında unudulmaz yarışlar təşkil edirik.",
+    "EN": "Since 2018, we have been organizing unforgettable races on the most difficult roads of Azerbaijan.",
+    "RU": "С 2018 года мы организуем незабываемые гонки на самых сложных дорогах Азербайджана."
+  },
+  {
+    "id": "pilotsLabel",
+    "key": "pilotsLabel",
+    "AZ": "PİLOTLAR",
+    "EN": "PILOTS",
     "RU": "ПИЛОТЫ"
   },
   {
-    "id": "drivers.subtitle",
-    "key": "drivers.subtitle",
-    "AZ": "HƏR KLASS ÜZRƏ MÖVSÜMÜN ƏN GÜCLÜ PİLOTLARI",
-    "EN": "STRONGEST PILOTS OF THE SEASON BY CLASS",
-    "RU": "СИЛЬНЕЙШИЕ ПИЛОТЫ СЕЗОНА ПО КЛАССАМ"
+    "id": "racesLabel",
+    "key": "racesLabel",
+    "AZ": "YARIŞLAR",
+    "EN": "RACES",
+    "RU": "ГОНКИ"
   },
   {
-    "id": "drivers.rank",
-    "key": "drivers.rank",
-    "AZ": "REYTİNQİ",
-    "EN": "RANKING",
-    "RU": "РЕЙТИНГ"
+    "id": "youthLabel",
+    "key": "youthLabel",
+    "AZ": "GƏNCLƏR",
+    "EN": "YOUTH",
+    "RU": "МОЛОДЕЖЬ"
   },
   {
-    "id": "drivers.license",
-    "key": "drivers.license",
-    "AZ": "LİSENZİYA",
-    "EN": "LICENSE",
-    "RU": "ЛИЦЕНЗИЯ"
+    "id": "missionTitle",
+    "key": "missionTitle",
+    "AZ": "BİZİM MİSSİYAMIZ",
+    "EN": "OUR MISSION",
+    "RU": "НАША МИССИЯ"
   },
   {
-    "id": "drivers.podium",
-    "key": "drivers.podium",
-    "AZ": "PODİUM",
-    "EN": "PODIUM",
-    "RU": "ПОДИУМ"
+    "id": "missionDescription",
+    "key": "missionDescription",
+    "AZ": "Azərbaycanın hər bir guşəsində offroad idmanını təbliğ etmək və peşəkar pilotlar yetişdirmək.",
+    "EN": "Promoting offroad sports in every corner of Azerbaijan and training professional pilots.",
+    "RU": "Продвижение оффроуд спорта в каждом уголке Азербайджана и подготовка профессиональных пилотов."
   },
   {
-    "id": "drivers.pts",
-    "key": "drivers.pts",
-    "AZ": "XAL",
-    "EN": "PTS",
-    "RU": "ОЧК"
+    "id": "targetText",
+    "key": "targetText",
+    "AZ": "HƏDƏFİMİZ: DAKAR RALLİ 2026",
+    "EN": "GOAL: DAKAR RALLY 2026",
+    "RU": "ЦЕЛЬ: РАЛЛИ ДАКАР 2026"
   },
   {
-    "id": "drivers.full_standing",
-    "key": "drivers.full_standing",
-    "AZ": "BÜTÜN PİLOTLAR",
-    "EN": "FULL STANDINGS",
-    "RU": "ВСЕ ПИЛОТЫ"
+    "id": "rules.pilot_protocol",
+    "key": "rules.pilot_protocol",
+    "AZ": "PİLOT PROTOKOLU",
+    "EN": "PILOT PROTOCOL",
+    "RU": "ПРОТОКОЛ ПИЛОТА"
   },
   {
-    "id": "drivers.view_all",
-    "key": "drivers.view_all",
-    "AZ": "HAMISINA BAX",
-    "EN": "VIEW ALL",
-    "RU": "СМОТРЕТЬ ВСЕ"
+    "id": "rules.technical_norms",
+    "key": "rules.technical_norms",
+    "AZ": "TEXNİKİ NORMALAR",
+    "EN": "TECHNICAL NORMS",
+    "RU": "ТЕХНИЧЕСКИЕ НОРМЫ"
   },
   {
-    "id": "news.title",
-    "key": "news.title",
-    "AZ": "XƏBƏRLƏR",
-    "EN": "NEWS",
-    "RU": "НОВОСТИ"
+    "id": "rules.safety_rules",
+    "key": "rules.safety_rules",
+    "AZ": "TƏHLÜKƏSİZLİK QAYDALARI",
+    "EN": "SAFETY RULES",
+    "RU": "ПРАВИЛА БЕЗОПАСНОСТИ"
   },
   {
-    "id": "news.subtitle",
-    "key": "news.subtitle",
-    "AZ": "MOTORSPORT ARXİVİ VƏ YENİLİKLƏR",
-    "EN": "MOTORSPORT ARCHIVE AND UPDATES",
-    "RU": "АРХИВ МОТОСПОРТА И ОБНОВЛЕНИЯ"
+    "id": "rules.eco_responsibility",
+    "key": "rules.eco_responsibility",
+    "AZ": "EKOLOJİ MƏSULİYYƏT",
+    "EN": "ECO RESPONSIBILITY",
+    "RU": "ЭКОЛОГИЧЕСКАЯ ОТВЕТСТВЕННОСТЬ"
   },
   {
-    "id": "news.read",
-    "key": "news.read",
-    "AZ": "OXU",
-    "EN": "READ",
-    "RU": "ЧИТАТЬ"
+    "id": "rules.pilot_duties",
+    "key": "rules.pilot_duties",
+    "AZ": "PİLOTUN ÖHDƏLİKLƏRİ",
+    "EN": "PILOT DUTIES",
+    "RU": "ОБЯЗАННОСТИ ПИЛОТА"
   },
   {
-    "id": "archive.title",
-    "key": "archive.title",
-    "AZ": "VİDEO ARXİVİ",
-    "EN": "VIDEO ARCHIVE",
-    "RU": "ВИДЕОАРХИВ"
+    "id": "rules.pilot_duties_desc",
+    "key": "rules.pilot_duties_desc",
+    "AZ": "Hər bir pilot yarış zamanı nizam-intizam qaydalarına və hakimlərin qərarlarına tabe olmalıdır.",
+    "EN": "Every pilot must follow discipline rules and referees' decisions during the race.",
+    "RU": "Каждый пилот должен соблюдать правила дисциплины и решения судей во время гонки."
   },
   {
-    "id": "archive.subtitle",
-    "key": "archive.subtitle",
-    "AZ": "Tarixi yarışların unudulmaz anları",
-    "EN": "Unforgettable moments of historic races",
-    "RU": "Незабываемые моменты исторических гонок"
+    "id": "contact.hq",
+    "key": "contact.hq",
+    "AZ": "BAŞ OFİS",
+    "EN": "HEADQUARTERS",
+    "RU": "ГЛАВНЫЙ ОФИС"
   },
   {
-    "id": "archive.all",
-    "key": "archive.all",
-    "AZ": "BÜTÜN QALEREYA",
-    "EN": "FULL GALLERY",
-    "RU": "ВСЯ ГАЛЕРЕЯ"
+    "id": "contact.phone",
+    "key": "contact.phone",
+    "AZ": "ƏLAQƏ NÖMRƏSİ",
+    "EN": "CONTACT NUMBER",
+    "RU": "КОНТАКТНЫЙ НОМЕР"
   },
   {
-    "id": "footer.desc",
-    "key": "footer.desc",
-    "AZ": "Azərbaycanın ən böyük offroad klubu",
-    "EN": "Azerbaijan's largest offroad club",
-    "RU": "Крупнейший оффроад клуб Азербайджана"
-  },
-  {
-    "id": "footer.nav",
-    "key": "footer.nav",
-    "AZ": "NAVİQASİYA",
-    "EN": "NAVIGATION",
-    "RU": "НАВИГАЦИЯ"
-  },
-  {
-    "id": "footer.motorsport",
-    "key": "footer.motorsport",
-    "AZ": "MOTORSPORT QAYDALARI",
-    "EN": "MOTORSPORT RULES",
-    "RU": "ПРАВИЛА МОТОСПОРТА"
-  },
-  {
-    "id": "footer.stay_updated",
-    "key": "footer.stay_updated",
-    "AZ": "YENİLİKLƏRDƏN XƏBƏRDAR OL",
-    "EN": "STAY UPDATED",
-    "RU": "БУДЬТЕ В КУРСЕ"
-  },
-  {
-    "id": "footer.newsletter_desc",
-    "key": "footer.newsletter_desc",
-    "AZ": "ƏN SON YARIŞ XƏBƏRLƏRİ VƏ TƏDBİRLƏR HAQQINDA MƏLUMAT ALMAQ ÜÇÜN ABUNƏ OLUN.",
-    "EN": "SUBSCRIBE TO GET THE LATEST RACE NEWS AND EVENT INFO.",
-    "RU": "ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ПОСЛЕДНИЕ НОВОСТИ ГОНОК И ИНФОРМАЦИЮ О СОБЫТИЯХ."
-  },
-  {
-    "id": "footer.email_placeholder",
-    "key": "footer.email_placeholder",
-    "AZ": "E-POÇT ÜNVANINIZ...",
-    "EN": "YOUR EMAIL ADDRESS...",
-    "RU": "ВАШ E-MAIL..."
+    "id": "contact.email",
+    "key": "contact.email",
+    "AZ": "E-POÇT ÜNVANI",
+    "EN": "EMAIL ADDRESS",
+    "RU": "ЭЛЕКТРОННАЯ ПОЧТА"
   }
 ]

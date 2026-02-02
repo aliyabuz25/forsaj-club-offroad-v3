@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Trophy, Zap } from 'lucide-react';
-import { useAdmin, Driver as ContextDriver } from '../context/AdminContext';
+import { useAdmin } from '../context/AdminContext';
 import { useLanguage } from '../context/LanguageContext';
 
-interface DisplayDriver extends ContextDriver {
+interface Driver {
+  id: number | string;
   rank: number;
+  name: string;
   license: string;
+  team: string;
   wins: number;
+  points: number;
   img: string;
 }
 
 interface Category {
   id: string;
   name: string;
-  leaders: DisplayDriver[];
-  fullStandings: DisplayDriver[];
+  leaders: Driver[];
+  fullStandings: Driver[];
 }
 
 interface DriversPageProps {
@@ -26,40 +30,38 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
-  // Helper to process drivers for a category
-  const getCategoryData = (catId: string, catName: string, contextCat: 'UNLIMITED' | 'LEGEND' | 'SEMI STOCK' | 'UTV'): Category => {
-    const categoryDrivers = drivers
-      .filter(d => d.category === contextCat)
+  // Group drivers by category
+  const categories: Category[] = [
+    { id: 'Unlimited', name: 'UNLIMITED CLASS', leaders: [], fullStandings: [] },
+    { id: 'Legend', name: 'LEGEND CLASS', leaders: [], fullStandings: [] },
+    { id: 'SemiStock', name: 'SEMI STOCK CLASS', leaders: [], fullStandings: [] },
+    { id: 'Utv', name: 'UTV CLASS', leaders: [], fullStandings: [] },
+  ];
+
+  categories.forEach(cat => {
+    const catDrivers = drivers
+      .filter(d => d.category.toLowerCase() === cat.id.toLowerCase())
       .sort((a, b) => b.points - a.points)
       .map((d, index) => ({
-        ...d,
+        id: d.id,
         rank: index + 1,
-        license: `${t('drivers.license')} // ${contextCat}`,
-        wins: 0, // Placeholder as we don't track wins yet
-        img: d.image || 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&fit=crop'
+        name: d.name,
+        license: `LICENSE // ${d.category.toUpperCase()}`,
+        team: d.team,
+        wins: d.wins || 0,
+        points: d.points,
+        img: d.image || d.img
       }));
-
-    return {
-      id: catId,
-      name: catName,
-      leaders: categoryDrivers.slice(0, 3),
-      fullStandings: categoryDrivers
-    };
-  };
-
-  const categories: Category[] = [
-    getCategoryData('unlimited', 'UNLIMITED CLASS', 'UNLIMITED'),
-    getCategoryData('legend', 'LEGEND CLASS', 'LEGEND'),
-    getCategoryData('semistock', 'SEMI STOCK CLASS', 'SEMI STOCK'),
-    getCategoryData('utv', 'UTV CLASS', 'UTV'),
-  ];
+    cat.fullStandings = catDrivers;
+    cat.leaders = catDrivers.slice(0, 3);
+  });
 
   useEffect(() => {
     if (initialCategoryId) {
-      const cat = categories.find(c => c.id === initialCategoryId);
+      const cat = categories.find(c => c.id.toLowerCase() === initialCategoryId.toLowerCase());
       if (cat) setSelectedCategory(cat);
     }
-  }, [initialCategoryId, drivers]); // Re-run when drivers change
+  }, [initialCategoryId]);
 
   if (selectedCategory) {
     return (
@@ -69,10 +71,10 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
             <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_20px_rgba(255,77,0,0.6)]"></div>
             <div>
               <h2 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase leading-none">
-                <span className="text-white">{selectedCategory.name.split(' ')[0]}</span> <span className="text-[#FF4D00]">{t('drivers.rank')}</span>
+                <span className="text-white">{selectedCategory.name.split(' ')[0]}</span> <span className="text-[#FF4D00]">{t('drivers.rating', 'REYTİNQ')}</span>
               </h2>
               <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">
-                {t('drivers.subtitle')}
+                {t('drivers.standings_desc', 'BÜTÜN PİLOTLARIN RƏSMİ SIRALAMASI // 2024')}
               </p>
             </div>
           </div>
@@ -82,7 +84,7 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
           >
             <div className="absolute inset-0 bg-[#FF4D00] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></div>
             <span className="relative z-10 transform skew-x-12 flex items-center gap-2 group-hover:text-black">
-              <ArrowLeft size={18} /> {t('common.back')}
+              <ArrowLeft size={18} /> {t('common.back', 'GERİ')}
             </span>
           </button>
         </div>
@@ -107,11 +109,11 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
               </div>
               <div className="col-span-3 text-center">
                 <span className="text-white font-black italic text-sm uppercase tracking-widest">
-                  {driver.team || 'NO TEAM'}
+                  {driver.team}
                 </span>
               </div>
               <div className="col-span-2 text-right">
-                <p className="text-gray-600 font-black italic text-[9px] uppercase tracking-widest mb-1">{t('drivers.pts')}</p>
+                <p className="text-gray-600 font-black italic text-[9px] uppercase tracking-widest mb-1">{t('drivers.pts', 'XAL')}</p>
                 <span className="text-5xl font-black italic text-[#FF4D00] tracking-tighter">
                   {driver.points}
                 </span>
@@ -131,25 +133,22 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
           <div>
             <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('drivers.title')}
+              {t('nav.drivers', 'SÜRÜCÜLƏR')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">
-              {t('drivers.subtitle')}
+              {t('drivers.pilots_standings', 'OFFICIAL PILOT STANDINGS // SEASON 2024')}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Grid: 2 categories per row */}
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-20 xl:gap-24">
         {categories.map((cat) => (
           <div key={cat.id} className="flex flex-col gap-10 relative bg-[#111]/40 border border-white/5 p-8 md:p-12 rounded-sm shadow-2xl overflow-hidden">
-            {/* Background Accent */}
             <div className="absolute -top-10 -right-10 text-[200px] font-black italic text-white/[0.02] select-none pointer-events-none uppercase tracking-tighter leading-none">
-              {cat.id.slice(0, 2).toUpperCase()}
+              {cat.id.slice(0, 2)}
             </div>
 
-            {/* Category Header */}
             <div className="flex items-center justify-between relative z-10 border-b border-white/5 pb-6">
               <div className="flex items-center gap-4">
                 <div className="w-2 h-10 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
@@ -161,10 +160,9 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-10 items-stretch relative z-10">
-              {/* LEFT: TOP 3 PODIUM LIST */}
               <div className="sm:w-3/5 flex flex-col gap-5">
-                <p className="text-[#FF4D00] font-black italic text-[10px] uppercase tracking-[0.3em] mb-2">{t('drivers.podium')}</p>
-                {cat.leaders.map((driver, idx) => (
+                <p className="text-[#FF4D00] font-black italic text-[10px] uppercase tracking-[0.3em] mb-2">{t('drivers.podium_leaders', 'PODIUM LEADERS')}</p>
+                {cat.leaders.map((driver) => (
                   <div
                     key={driver.id}
                     className={`relative flex items-center gap-5 p-5 transition-all duration-300 group border rounded-sm overflow-hidden ${driver.rank === 1
@@ -172,7 +170,6 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                       : 'bg-black/40 border-white/10 hover:border-white/20'
                       }`}
                   >
-                    {/* Rank Badge */}
                     <div className={`absolute top-0 right-0 px-4 py-1 text-2xl font-black italic skew-x-[-12deg] ${driver.rank === 1 ? 'bg-[#FF4D00] text-black' : 'bg-white/10 text-white/40'
                       }`}>
                       #{driver.rank}
@@ -188,25 +185,22 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                         }`}>
                         {driver.name}
                       </h4>
-                      <p className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-widest">{driver.team || 'NO TEAM'}</p>
+                      <p className="text-[#FF4D00] text-[9px] font-black italic uppercase tracking-widest">{driver.team}</p>
                       <div className="mt-3 flex items-baseline gap-2">
                         <span className="text-white text-3xl font-black italic leading-none">{driver.points}</span>
-                        <span className="text-gray-600 text-[9px] font-black italic uppercase">PTS</span>
+                        <span className="text-gray-600 text-[9px] font-black italic uppercase">{t('drivers.pts_label', 'PTS')}</span>
                       </div>
                     </div>
                   </div>
                 ))}
-                {cat.leaders.length === 0 && <p className="text-gray-500 italic">No drivers yet</p>}
               </div>
 
-              {/* RIGHT: BLURRED STANDINGS PREVIEW */}
-              <div className="sm:w-2/5 flex flex-col bg-black/40 border border-white/5 p-6 rounded-sm relative group/blur shadow-inner">
+              <div className="sm:w-2/5 flex flex-col bg-black/40 border border-white/5 p-6 rounded-sm relative group/blur shadow-inner min-h-[300px]">
                 <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-2">
-                  <span className="text-[10px] font-black italic text-gray-600 uppercase tracking-widest">TOP 10 GRID</span>
+                  <span className="text-[10px] font-black italic text-gray-600 uppercase tracking-widest">{t('drivers.top_10', 'TOP 10 GRID')}</span>
                   <Zap size={14} className="text-[#FF4D00]" />
                 </div>
 
-                {/* Lighter, readable but restricted list */}
                 <div className="space-y-4">
                   {cat.fullStandings.slice(3, 10).map((d) => (
                     <div key={d.id} className="flex items-center justify-between text-[11px] font-black italic text-gray-500 uppercase blur-[0.6px] transition-all group-hover/blur:blur-none group-hover/blur:text-gray-400">
@@ -219,14 +213,13 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                   ))}
                 </div>
 
-                {/* Light Blur Overlay with Action */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent backdrop-blur-[4px] flex flex-col items-center justify-center p-6 text-center">
                   <div className="mb-8">
                     <p className="text-white font-black italic text-sm uppercase tracking-widest leading-none mb-2">
-                      {t('drivers.full_standing')}
+                      {t('drivers.full_ranking', 'TAM SIRALAMA')}
                     </p>
                     <p className="text-[#FF4D00] font-black italic text-[9px] uppercase tracking-[0.2em] opacity-80">
-                      BÜTÜN PİLOTLAR
+                      {t('drivers.all_pilots', 'BÜTÜN PİLOTLAR')}
                     </p>
                   </div>
 
@@ -234,11 +227,9 @@ const DriversPage: React.FC<DriversPageProps> = ({ initialCategoryId }) => {
                     onClick={() => setSelectedCategory(cat)}
                     className="group/btn relative w-full h-16 bg-[#FF4D00] text-black font-black italic text-sm uppercase transition-all duration-300 shadow-[0_15px_30px_rgba(255,77,0,0.3)] hover:shadow-[0_20px_50px_rgba(255,77,0,0.6)] hover:bg-white active:scale-95 overflow-hidden"
                   >
-                    {/* Button Animated Background */}
                     <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500 skew-x-[-20deg]"></div>
-
                     <span className="relative z-10 flex items-center justify-center gap-3">
-                      {t('drivers.view_all')} <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
+                      {t('common.see_all', 'HAMISINA BAX')} <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                     </span>
                   </button>
                 </div>

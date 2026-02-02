@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "id": "1",
+        "name": "AZMF",
+        "url": "https://azmf.az",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Azerbaijan.svg/320px-Flag_of_Azerbaijan.svg.png"
+    },
+    {
+        "id": "2",
+        "name": "OFFROAD AZ",
+        "url": "https://offroad.az",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Azerbaijan.svg/320px-Flag_of_Azerbaijan.svg.png"
+    },
+    {
+        "id": "3",
+        "name": "GLOBAL 4X4",
+        "url": "https://global4x4.com",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Azerbaijan.svg/320px-Flag_of_Azerbaijan.svg.png"
+    },
+    {
+        "id": "4",
+        "name": "RACE TECH",
+        "url": "#",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Azerbaijan.svg/320px-Flag_of_Azerbaijan.svg.png"
+    }
+]

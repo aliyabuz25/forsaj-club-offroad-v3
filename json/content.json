@@ -1,23 +1,692 @@
 [
-    {
-        "id": "hero_title",
-        "section": "Home",
-        "key": "hero_title",
-        "value": "AZƏRBAYCAN OFFROAD MƏDƏNİYYƏTİ",
-        "image": ""
-    },
-    {
-        "id": "hero_subtitle",
-        "section": "Home",
-        "key": "hero_subtitle",
-        "value": "Adrenalin, Güc və Təbiətin Vəhdəti",
-        "image": ""
-    },
-    {
-        "id": "about_title",
-        "section": "About",
-        "key": "intro_title",
-        "value": "BİZ KİMİK?",
-        "image": ""
-    }
+  {
+    "id": "nav_home",
+    "section": "Navigasiya",
+    "key": "nav.home",
+    "value": "ANA SƏHİFƏ"
+  },
+  {
+    "id": "nav_about",
+    "section": "Navigasiya",
+    "key": "nav.about",
+    "value": "HAQQIMIZDA"
+  },
+  {
+    "id": "nav_news",
+    "section": "Navigasiya",
+    "key": "nav.news",
+    "value": "XƏBƏRLƏR"
+  },
+  {
+    "id": "nav_events",
+    "section": "Navigasiya",
+    "key": "nav.events",
+    "value": "YARIŞLAR"
+  },
+  {
+    "id": "nav_drivers",
+    "section": "Navigasiya",
+    "key": "nav.drivers",
+    "value": "SÜRÜCÜLƏR"
+  },
+  {
+    "id": "nav_gallery",
+    "section": "Navigasiya",
+    "key": "nav.gallery",
+    "value": "QALEREYA"
+  },
+  {
+    "id": "nav_rules",
+    "section": "Navigasiya",
+    "key": "nav.rules",
+    "value": "QAYDALAR"
+  },
+  {
+    "id": "nav_contact",
+    "section": "Navigasiya",
+    "key": "nav.contact",
+    "value": "ƏLAQƏ"
+  },
+  {
+    "id": "hero_badge",
+    "section": "Hero",
+    "key": "hero_badge",
+    "value": "AZƏRBAYCAN OFFROAD MOTORSPORT HUB"
+  },
+  {
+    "id": "hero_title_line1",
+    "section": "Hero",
+    "key": "hero_title_line1",
+    "value": "SƏRHƏDSİZs"
+  },
+  {
+    "id": "hero_title_highlight",
+    "section": "Hero",
+    "key": "hero_title_highlight",
+    "value": "OFFROAD"
+  },
+  {
+    "id": "hero_title_line2",
+    "section": "Hero",
+    "key": "hero_title_line2",
+    "value": "HƏYƏCANI"
+  },
+  {
+    "id": "hero_subtitle",
+    "section": "Hero",
+    "key": "hero_subtitle",
+    "value": "Azərbaycanın ən çətin yollarında peşəkar yarışlar və adrenalin dolu anlar."
+  },
+  {
+    "id": "hero_races",
+    "section": "Hero",
+    "key": "hero.races",
+    "value": "YARIŞ TƏQVİMİ"
+  },
+  {
+    "id": "hero_about",
+    "section": "Hero",
+    "key": "hero.about",
+    "value": "HAQQIMIZDA"
+  },
+  {
+    "id": "about_title",
+    "section": "Haqqımızda",
+    "key": "aboutTitle",
+    "value": "HAQQIMIZDA"
+  },
+  {
+    "id": "about_subtitle",
+    "section": "Haqqımızda",
+    "key": "aboutSubtitle",
+    "value": "BİZİM HEKAYƏMİZ // MİSSİYAMIZ"
+  },
+  {
+    "id": "about_hero_text",
+    "section": "Haqqımızda",
+    "key": "aboutHeroText",
+    "value": "FORSAJ CLUB AZƏRBAYCANIN OFFROAD MƏDƏNİYYƏTİNİ TƏMSİL EDİR"
+  },
+  {
+    "id": "about_description",
+    "section": "Haqqımızda",
+    "key": "aboutDescription",
+    "value": "2018-ci ildən bəri biz Azərbaycanın ən çətin yollarında unudulmaz yarışlar təşkil edirik."
+  },
+  {
+    "id": "pilots_label",
+    "section": "Haqqımızda",
+    "key": "pilotsLabel",
+    "value": "PİLOTLAR"
+  },
+  {
+    "id": "races_label",
+    "section": "Haqqımızda",
+    "key": "racesLabel",
+    "value": "YARIŞLAR"
+  },
+  {
+    "id": "youth_label",
+    "section": "Haqqımızda",
+    "key": "youthLabel",
+    "value": "GƏNCLƏR"
+  },
+  {
+    "id": "mission_title",
+    "section": "Haqqımızda",
+    "key": "missionTitle",
+    "value": "BİZİM MİSSİYAMIZ"
+  },
+  {
+    "id": "mission_desc",
+    "section": "Haqqımızda",
+    "key": "missionDescription",
+    "value": "Azərbaycanın hər bir guşəsində offroad idmanını təbliğ etmək və peşəkar pilotlar yetişdirmək."
+  },
+  {
+    "id": "target_text",
+    "section": "Haqqımızda",
+    "key": "targetText",
+    "value": "HƏDƏFİMİZ: DAKAR RALLİ 2026"
+  },
+  {
+    "id": "vision_title",
+    "section": "Haqqımızda",
+    "key": "visionTitle",
+    "value": "BİZİM VİZYONUMUZ"
+  },
+  {
+    "id": "vision_desc",
+    "section": "Haqqımızda",
+    "key": "visionDescription",
+    "value": "Azərbaycanın offroad potensialını dünyaya tanıtmaq və beynəlxalq səviyyəli yarış mərkəzi olmaq."
+  },
+  {
+    "id": "vision_goal",
+    "section": "Haqqımızda",
+    "key": "visionGoal",
+    "value": "QAFQAZIN MOTORSPORT HUBI"
+  },
+  {
+    "id": "values_header",
+    "section": "Haqqımızda",
+    "key": "valuesHeader",
+    "value": "BİZİM DƏYƏRLƏRİMİZ"
+  },
+  {
+    "id": "values_title",
+    "section": "Haqqımızda",
+    "key": "valuesTitle",
+    "value": "NİYƏ FORSAJ CLUB?"
+  },
+  {
+    "id": "value1_title",
+    "section": "Haqqımızda",
+    "key": "value1Title",
+    "value": "TƏHLÜKƏSİZLİK"
+  },
+  {
+    "id": "value1_desc",
+    "section": "Haqqımızda",
+    "key": "value1Desc",
+    "value": "BİZİM ÜÇÜN HƏR ŞEYDƏN ÖNCƏ GƏLƏN İŞTİRAKÇILARIMIZIN TƏHLÜKƏSİZLİYİDİR."
+  },
+  {
+    "id": "value2_title",
+    "section": "Haqqımızda",
+    "key": "value2Title",
+    "value": "CƏMİYYƏT"
+  },
+  {
+    "id": "value2_desc",
+    "section": "Haqqımızda",
+    "key": "value2Desc",
+    "value": "OFFROAD SEVƏNLƏRİ BİR ARAYA GƏTİRƏN ƏN BÖYÜK MOTORSPORT AİLƏSİ."
+  },
+  {
+    "id": "value3_title",
+    "section": "Haqqımızda",
+    "key": "value3Title",
+    "value": "EKOLOGİYA"
+  },
+  {
+    "id": "value3_desc",
+    "section": "Haqqımızda",
+    "key": "value3Desc",
+    "value": "TƏBİƏTİ QORUYUR VƏ EKOLOJİ MƏSULİYYƏTİMİZİ HƏMİŞƏ DİQQƏTDƏ SAXLAYIRIQ."
+  },
+  {
+    "id": "value4_title",
+    "section": "Haqqımızda",
+    "key": "value4Title",
+    "value": "ADRENALİN"
+  },
+  {
+    "id": "value4_desc",
+    "section": "Haqqımızda",
+    "key": "value4Desc",
+    "value": "HƏR YARIŞDA YÜKSƏK SÜRƏT VƏ UNUDULMAZ ADRENALİN DOLU ANLAR VƏD EDİRİK."
+  },
+  {
+    "id": "news_subtitle",
+    "section": "Xəbərlər",
+    "key": "news.subtitle",
+    "value": "Motorsport və Offroad dünyasından yeniliklər"
+  },
+  {
+    "id": "news_all",
+    "section": "Xəbərlər",
+    "key": "common.all",
+    "value": "HAMISI"
+  },
+  {
+    "id": "news_read_more",
+    "section": "Xəbərlər",
+    "key": "common.more",
+    "value": "ƏTRAFLI BAX"
+  },
+  {
+    "id": "news_loading",
+    "section": "Xəbərlər",
+    "key": "common.loading",
+    "value": "Yüklənir..."
+  },
+  {
+    "id": "news_related",
+    "section": "Xəbərlər",
+    "key": "news.related",
+    "value": "ƏLAQƏLİ XƏBƏRLƏR"
+  },
+  {
+    "id": "next_race_title",
+    "section": "Yarışlar",
+    "key": "events.next_race_title",
+    "value": "NÖVBƏTİ YARIŞ"
+  },
+  {
+    "id": "events_live_reg",
+    "section": "Yarışlar",
+    "key": "events.live_reg",
+    "value": "QEYDİYYAT DAVAM EDİR"
+  },
+  {
+    "id": "events_full_calendar",
+    "section": "Yarışlar",
+    "key": "events.full_calendar",
+    "value": "TAM TƏQVİM"
+  },
+  {
+    "id": "events_join",
+    "section": "Yarışlar",
+    "key": "events.join",
+    "value": "YARIŞA QATIL"
+  },
+  {
+    "id": "events_join_pilot",
+    "section": "Yarışlar",
+    "key": "events.join_pilot",
+    "value": "PİLOT KİMİ QATIL"
+  },
+  {
+    "id": "events_join_pilot_desc",
+    "section": "Yarışlar",
+    "key": "events.join_pilot_desc",
+    "value": "ÖZ AVTOMOBİLİNLƏ YARIŞDA İŞTİRAK ET"
+  },
+  {
+    "id": "events_join_spectator",
+    "section": "Yarışlar",
+    "key": "events.join_spectator",
+    "value": "İZLƏYİCİ KİMİ QATIL"
+  },
+  {
+    "id": "events_join_spectator_desc",
+    "section": "Yarışlar",
+    "key": "events.join_spectator_desc",
+    "value": "YARIŞI TRİBUNADAN İZLƏ"
+  },
+  {
+    "id": "events_pilot_reg",
+    "section": "Yarışlar",
+    "key": "events.pilot_reg",
+    "value": "PİLOT QEYDİYYATI"
+  },
+  {
+    "id": "events_car_model",
+    "section": "Yarışlar",
+    "key": "events.car_model",
+    "value": "AVTOMOBİLİN MARKA/MODELİ"
+  },
+  {
+    "id": "events_club",
+    "section": "Yarışlar",
+    "key": "events.club",
+    "value": "TƏMSİL ETDİYİ KLUB"
+  },
+  {
+    "id": "events_complete_reg",
+    "section": "Yarışlar",
+    "key": "events.complete_reg",
+    "value": "QEYDİYYATI TAMAMLA"
+  },
+  {
+    "id": "events_planned",
+    "section": "Yarışlar",
+    "key": "events.planned",
+    "value": "PLANLANAN"
+  },
+  {
+    "id": "events_past",
+    "section": "Yarışlar",
+    "key": "events.past",
+    "value": "KEÇMİŞ"
+  },
+  {
+    "id": "events_description",
+    "section": "Yarışlar",
+    "key": "events.description",
+    "value": "TƏSVİR"
+  },
+  {
+    "id": "events_download_manual",
+    "section": "Yarışlar",
+    "key": "events.download_manual",
+    "value": "TƏLİMATI YÜKLƏ"
+  },
+  {
+    "id": "events_manual_desc",
+    "section": "Yarışlar",
+    "key": "events.manual_desc",
+    "value": "YARIŞA HAZIRLIQ VƏ TEXNİKİ REQLAMENT HAQQINDA BÜTÜN MƏLUMATLAR BU SƏNƏDDƏ QEYD OLUNUB."
+  },
+  {
+    "id": "events_rules_brifing",
+    "section": "Yarışlar",
+    "key": "events.rules_brifing",
+    "value": "Yarış qaydaları iştirakçılara brifinq zamanı elan ediləcək."
+  },
+  {
+    "id": "events_contact_desc",
+    "section": "Yarışlar",
+    "key": "events.contact_desc",
+    "value": "YARIŞLA BAĞLI ƏLAVƏ SUALLARINIZ ÜÇÜN BİZİMLƏ ƏLAQƏ SAXLAYIN."
+  },
+  {
+    "id": "drivers_standings",
+    "section": "Sürücülər",
+    "key": "drivers.standings",
+    "value": "SÜRÜCÜ SIRALAMASI"
+  },
+  {
+    "id": "drivers_category_leaders",
+    "section": "Sürücülər",
+    "key": "drivers.category_leaders",
+    "value": "KATEQORİYA LİDERLƏRİ"
+  },
+  {
+    "id": "drivers_all_standings",
+    "section": "Sürücülər",
+    "key": "drivers.all_standings",
+    "value": "ÜMUMİ SIRALAMA"
+  },
+  {
+    "id": "drivers_points",
+    "section": "Sürücülər",
+    "key": "drivers.points",
+    "value": "XAL"
+  },
+  {
+    "id": "drivers_team",
+    "section": "Sürücülər",
+    "key": "drivers.team",
+    "value": "KOMANDA"
+  },
+  {
+    "id": "gallery_chronological",
+    "section": "Qalereya",
+    "key": "gallery.chronological",
+    "value": "XRONOLOJİ MOTORSPORT ARXİVİ // FORSAJ CLUB"
+  },
+  {
+    "id": "gallery_photos",
+    "section": "Qalereya",
+    "key": "gallery.photos",
+    "value": "FOTOLAR"
+  },
+  {
+    "id": "gallery_videos",
+    "section": "Qalereya",
+    "key": "gallery.videos",
+    "value": "VİDEOLAR"
+  },
+  {
+    "id": "gallery_total",
+    "section": "Qalereya",
+    "key": "gallery.total",
+    "value": "TOPLAM"
+  },
+  {
+    "id": "gallery_photo",
+    "section": "Qalereya",
+    "key": "gallery.photo",
+    "value": "FOTO"
+  },
+  {
+    "id": "gallery_video",
+    "section": "Qalereya",
+    "key": "gallery.video",
+    "value": "VİDEO"
+  },
+  {
+    "id": "rules_download_pdf",
+    "section": "Qaydalar",
+    "key": "rules.download_pdf",
+    "value": "TAM QAYDALARI YÜKLƏ (PDF)"
+  },
+  {
+    "id": "rules_pilot_duties",
+    "section": "Qaydalar",
+    "key": "rules.pilot_duties",
+    "value": "PİLOTUN ÖHDƏLİKLƏRİ"
+  },
+  {
+    "id": "rules_pilot_duties_desc",
+    "section": "Qaydalar",
+    "key": "rules.pilot_duties_desc",
+    "value": "Hər bir pilot yarış zamanı nizam-intizam qaydalarına və hakimlərin qərarlarına tabe olmalıdır."
+  },
+  {
+    "id": "rules_disqualification",
+    "section": "Qaydalar",
+    "key": "rules.disqualification",
+    "value": "KƏNARLAŞDIRMA"
+  },
+  {
+    "id": "rules_disqualification_desc",
+    "section": "Qaydalar",
+    "key": "rules.disqualification_desc",
+    "value": "Təhlükəsizlik kəmərini taxmayan və ya qeyri-etik davranış sərgiləyən pilotlar yarışdan kənarlaşdırılır."
+  },
+  {
+    "id": "rules_tech_req",
+    "section": "Qaydalar",
+    "key": "rules.tech_req",
+    "value": "TEXNİKİ TƏLƏBLƏR"
+  },
+  {
+    "id": "rules_tech_req_desc",
+    "section": "Qaydalar",
+    "key": "rules.tech_req_desc",
+    "value": "Avtomobilin bütün asqı və mühərrik sistemləri texniki baxışdan keçməlidir."
+  },
+  {
+    "id": "contact_offroad_center",
+    "section": "Əlaqə",
+    "key": "contact.offroad_center",
+    "value": "OFFROAD MOTORSPORT MƏRKƏZİ"
+  },
+  {
+    "id": "contact_hq",
+    "section": "Əlaqə",
+    "key": "contact.hq",
+    "value": "BAŞ OFİS"
+  },
+  {
+    "id": "contact_phone",
+    "section": "Əlaqə",
+    "key": "contact.phone",
+    "value": "MOBİL NÖMRƏ"
+  },
+  {
+    "id": "contact_email",
+    "section": "Əlaqə",
+    "key": "contact.email",
+    "value": "E-POÇT"
+  },
+  {
+    "id": "contact_hours",
+    "section": "Əlaqə",
+    "key": "contact.hours",
+    "value": "İŞ SAATLARIMIZ"
+  },
+  {
+    "id": "contact_hours_desc",
+    "section": "Əlaqə",
+    "key": "contact.hours_desc",
+    "value": "Bazar ertəsi - Şənbə // 09:00 - 18:00"
+  },
+  {
+    "id": "contact_dept_news",
+    "section": "Əlaqə",
+    "key": "contact.dept_news",
+    "value": "MƏTBUAT VƏ XƏBƏR"
+  },
+  {
+    "id": "contact_dept_events",
+    "section": "Əlaqə",
+    "key": "contact.dept_events",
+    "value": "YARIŞ VƏ TƏDBİRLƏR"
+  },
+  {
+    "id": "contact_dept_partners",
+    "section": "Əlaqə",
+    "key": "contact.dept_partners",
+    "value": "KORPORATİV ƏLAQƏLƏR"
+  },
+  {
+    "id": "contact_form_title",
+    "section": "Əlaqə",
+    "key": "contact.form_title",
+    "value": "MÜRACİƏT FORMU"
+  },
+  {
+    "id": "contact_form_desc",
+    "section": "Əlaqə",
+    "key": "contact.form_desc",
+    "value": "Bütün suallarınız və rəyləriniz üçün bizə yaza bilərsiniz."
+  },
+  {
+    "id": "contact_name",
+    "section": "Əlaqə",
+    "key": "contact.name",
+    "value": "AD SOYAD"
+  },
+  {
+    "id": "contact_message",
+    "section": "Əlaqə",
+    "key": "contact.message",
+    "value": "MESAJINIZ"
+  },
+  {
+    "id": "contact_send",
+    "section": "Əlaqə",
+    "key": "contact.send",
+    "value": "MESAJI GÖNDƏR"
+  },
+  {
+    "id": "footer_desc",
+    "section": "Footer",
+    "key": "footer.desc",
+    "value": "FORSAJ CLUB AZƏRBAYCANIN ƏN BÖYÜK OFFROAD MOTORSPORT HUB-DIR."
+  },
+  {
+    "id": "footer_nav",
+    "section": "Footer",
+    "key": "footer.nav",
+    "value": "NAVİQASİYA"
+  },
+  {
+    "id": "footer_motorsport",
+    "section": "Footer",
+    "key": "footer.motorsport",
+    "value": "MOTORSPORT"
+  },
+  {
+    "id": "footer_stay_updated",
+    "section": "Footer",
+    "key": "footer.stay_updated",
+    "value": "YENİLİKLƏRƏ QOŞULUN"
+  },
+  {
+    "id": "footer_newsletter_desc",
+    "section": "Footer",
+    "key": "footer.newsletter_desc",
+    "value": "ƏN SON YARIŞLAR VƏ TƏDBİRLƏR HAQQINDA MƏLUMAT ALIN."
+  },
+  {
+    "id": "footer_email_placeholder",
+    "section": "Footer",
+    "key": "footer.email_placeholder",
+    "value": "E-POÇT ÜNVANINIZ"
+  },
+  {
+    "id": "partners_title",
+    "section": "Tərəfdaşlar",
+    "key": "partners.title",
+    "value": "RƏSMİ TƏRƏFDAŞLARIMIZ"
+  },
+  {
+    "id": "offroad_badge",
+    "section": "Offroad Nədir",
+    "key": "offroad.badge",
+    "value": "Offroad nədir?"
+  },
+  {
+    "id": "offroad_title",
+    "section": "Offroad Nədir",
+    "key": "offroad.title",
+    "value": "ADRENALİN VƏ TEXNİKANIN SİMBİOZU"
+  },
+  {
+    "id": "offroad_desc",
+    "section": "Offroad Nədir",
+    "key": "offroad.desc",
+    "value": "Offroad – yalnız yolsuzluq şəraitində hərəkət etmək deyil, həm də dözümlülük, strateji düşüncə və mühəndislik bacarığının sınağıdır. Azərbaycanın çətin dağlıq relyefi bu idman növü üçün dünyada ən maraqlı məkanlardan biri hesab olunur."
+  },
+  {
+    "id": "offroad_tech_title",
+    "section": "Offroad Nədir",
+    "key": "offroad.tech_title",
+    "value": "TEXNİKİ TƏCHİZAT"
+  },
+  {
+    "id": "offroad_tech_desc",
+    "section": "Offroad Nədir",
+    "key": "offroad.tech_desc",
+    "value": "Hər bir maşın xüsusi asqı sistemi və gücləndirilmiş mühərriklə təmin olunur."
+  },
+  {
+    "id": "offroad_safety_title",
+    "section": "Offroad Nədir",
+    "key": "offroad.safety_title",
+    "value": "TƏHLÜKƏSİZLİK"
+  },
+  {
+    "id": "offroad_safety_desc",
+    "section": "Offroad Nədir",
+    "key": "offroad.safety_desc",
+    "value": "Pilotların təhlükəsizliyi bizim üçün prioritetdir. Karkas və kəmərlər məcburidir."
+  },
+  {
+    "id": "offroad_nav_title",
+    "section": "Offroad Nədir",
+    "key": "offroad.nav_title",
+    "value": "NAVİQASİYA"
+  },
+  {
+    "id": "offroad_nav_desc",
+    "section": "Offroad Nədir",
+    "key": "offroad.nav_desc",
+    "value": "GPS və xəritə oxuma bacarığı offroad yarışlarında qalibiyyətin yarısıdır."
+  },
+  {
+    "id": "offroad_power_title",
+    "section": "Offroad Nədir",
+    "key": "offroad.power_title",
+    "value": "EKSTREMAL GÜC"
+  },
+  {
+    "id": "offroad_power_desc",
+    "section": "Offroad Nədir",
+    "key": "offroad.power_desc",
+    "value": "Sürücünün fiziki hazırlığı ən az avtomobilin gücü qədər əhəmiyyətlidir."
+  },
+  {
+    "id": "offroad_experience",
+    "section": "Offroad Nədir",
+    "key": "offroad.experience",
+    "value": "YARIŞ İLLİK"
+  },
+  {
+    "id": "video_archive_title",
+    "section": "Video Arxiv",
+    "key": "nav.video_archive",
+    "value": "VİDEO ARXİV"
+  },
+  {
+    "id": "video_archive_desc",
+    "section": "Video Arxiv",
+    "key": "video.archive_desc",
+    "value": "FORSAJ CLUB // RƏSMİ KANAL"
+  }
 ]

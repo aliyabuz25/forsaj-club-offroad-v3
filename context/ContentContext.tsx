@@ -31,38 +31,15 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
             .catch(err => console.error('Failed to load content', err));
     }, []);
 
-    // Effect to translate content when language changes
+    // We no longer need to manually translate content in React as the CDN handles it.
     useEffect(() => {
-        if (language === 'AZ') return;
-
-        content.forEach(item => {
-            const cacheKey = `${item.key}_${language}`;
-            if (translatedContent[cacheKey]) return;
-
-            // Simple debounce/queue could be better but for now direct fetch
-            fetch('/api/translate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: item.value, targetLang: language.toLowerCase() })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.translatedText) {
-                        setTranslatedContent(prev => ({ ...prev, [cacheKey]: data.translatedText }));
-                    }
-                })
-                .catch(() => { });
-        });
+        // Just sync if needed or keep empty
     }, [language, content]);
 
     const getContent = (key: string, defaultText: string = '') => {
-        const item = content.find(c => c.key === key);
-        const text = item ? item.value : defaultText;
-
-        if (language === 'AZ') return text;
-
-        // Return translated version if available, otherwise return original (while it loads)
-        return translatedContent[`${key}_${language}`] || text;
+        // Look for the item by 'key' or 'id'
+        const item = content.find(c => c.key === key || c.id === key);
+        return item ? item.value : defaultText;
     };
 
     const getImage = (key: string, defaultImage: string = '') => {

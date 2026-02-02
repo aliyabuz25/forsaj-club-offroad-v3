@@ -1,4 +1,5 @@
 import express from 'express';
+import nodemailer from 'nodemailer';
 import multer from 'multer';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -20,6 +21,7 @@ const PUBLIC_BASE_URL = process.env.PUBLIC_BASE_URL || '';
 
 // --- MIDDLEWARE ---
 app.use(helmet({
+    contentSecurityPolicy: false,
     crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 app.use(cors());
@@ -56,8 +58,14 @@ const getFileData = (fileName) => {
 };
 
 const saveFileData = (fileName, data) => {
-    const filePath = path.join(__dirname, 'json', fileName);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+    try {
+        const filePath = path.join(__dirname, 'json', fileName);
+        fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+        return true;
+    } catch (e) {
+        console.error(`Error saving file ${fileName}:`, e);
+        return false;
+    }
 };
 
 // --- AUTH MIDDLEWARE ---
@@ -65,10 +73,16 @@ const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
-    if (!token) return res.sendStatus(401);
+    if (!token) {
+        console.warn('Auth failed: No token provided');
+        return res.status(401).json({ message: 'Token required' });
+    }
 
     jwt.verify(token, SECRET_KEY, (err, user) => {
-        if (err) return res.sendStatus(403);
+        if (err) {
+            console.error('Auth failed: JWT verify error', err.message);
+            return res.status(403).json({ message: 'Invalid or expired token' });
+        }
         req.user = user;
         next();
     });
@@ -120,45 +134,56 @@ const setupCrud = (entityName, fileName) => {
 
     // PROTECTED WRITE
     app.post(`/api/${entityName}`, authenticateToken, upload.single('image'), (req, res) => {
-        const items = getFileData(fileName);
-        let itemData = {};
         try {
-            itemData = JSON.parse(req.body.data || '{}');
-        } catch (e) {
-            return res.status(400).json({ error: 'Invalid JSON in data field' });
-        }
+            const items = getFileData(fileName);
+            let itemData = {};
 
-        if (req.file) {
-            const baseUrl = process.env.PUBLIC_BASE_URL || '';
-            // If local dev, we might want http://localhost:PORT, but for production relative is better or CDN
-            // We will stick to the relative path strategy or full URL from env
-            if (baseUrl) {
-                itemData.image = `${baseUrl}/uploads/${req.file.filename}`;
+            if (typeof req.body.data === 'string') {
+                try {
+                    itemData = JSON.parse(req.body.data);
+                } catch (e) {
+                    return res.status(400).json({ error: 'Məlumat formatı yanlışdır (Invalid JSON)' });
+                }
             } else {
-                itemData.image = `/uploads/${req.file.filename}`; // Relative path for frontend proxy
+                itemData = req.body.data || {};
             }
-            itemData.img = itemData.image;
-        }
 
-        if (itemData.id) {
-            const index = items.findIndex(i => i.id === itemData.id);
-            if (index !== -1) {
-                items[index] = { ...items[index], ...itemData };
+            if (req.file) {
+                const baseUrl = process.env.PUBLIC_BASE_URL || '';
+                if (baseUrl) {
+                    itemData.image = `${baseUrl}/uploads/${req.file.filename}`;
+                } else {
+                    itemData.image = `/uploads/${req.file.filename}`;
+                }
+                itemData.img = itemData.image;
+            }
+
+            if (itemData.id) {
+                const index = items.findIndex(i => String(i.id) === String(itemData.id));
+                if (index !== -1) {
+                    items[index] = { ...items[index], ...itemData };
+                } else {
+                    items.push(itemData);
+                }
             } else {
+                itemData.id = Date.now().toString();
                 items.push(itemData);
             }
-        } else {
-            itemData.id = Date.now().toString();
-            items.push(itemData);
-        }
 
-        saveFileData(fileName, items);
-        res.json({ success: true, item: itemData });
+            if (saveFileData(fileName, items)) {
+                res.json({ success: true, item: itemData });
+            } else {
+                res.status(500).json({ error: 'Məlumatı yadda saxlamaq mümkün olmadı' });
+            }
+        } catch (error) {
+            console.error(`Error in POST /api/${entityName}:`, error);
+            res.status(500).json({ error: 'Server xətası baş verdi' });
+        }
     });
 
     app.delete(`/api/${entityName}/:id`, authenticateToken, (req, res) => {
         let items = getFileData(fileName);
-        items = items.filter(i => i.id !== req.params.id);
+        items = items.filter(i => String(i.id) !== String(req.params.id));
         saveFileData(fileName, items);
         res.json({ success: true });
     });
@@ -174,40 +199,50 @@ app.get('/api/users', authenticateToken, (req, res) => {
     res.json(users);
 });
 
-app.post('/api/users', authenticateToken, (req, res) => {
-    if (req.user.role !== 'admin') return res.sendStatus(403);
+app.post('/api/users', authenticateToken, upload.none(), (req, res) => {
+    try {
+        if (req.user.role !== 'admin') return res.sendStatus(403);
 
-    const items = getFileData('users.json');
-    let itemData = JSON.parse(req.body.data || '{}');
+        const items = getFileData('users.json');
+        let itemData = {};
 
-    // Handle Password
-    if (itemData.password && itemData.password.trim() !== '') {
-        // In real app, hash password here. For now we accept it but ideally it should be:
-        // itemData.password = bcrypt.hashSync(itemData.password, 10);
-        // Since we already have bcrypt imported:
-        itemData.password = bcrypt.hashSync(itemData.password, 10);
-    } else {
-        if (itemData.id) {
-            // Keep existing password
-            const existing = items.find(i => i.id === itemData.id);
-            if (existing) itemData.password = existing.password;
-        }
-    }
-
-    if (itemData.id) {
-        const index = items.findIndex(i => i.id === itemData.id);
-        if (index !== -1) {
-            items[index] = { ...items[index], ...itemData };
+        if (typeof req.body.data === 'string') {
+            itemData = JSON.parse(req.body.data);
         } else {
+            itemData = req.body.data || {};
+        }
+
+        // Handle Password
+        if (itemData.password && itemData.password.trim() !== '') {
+            itemData.password = bcrypt.hashSync(itemData.password, 10);
+        } else {
+            if (itemData.id) {
+                const existing = items.find(i => String(i.id) === String(itemData.id));
+                if (existing) itemData.password = existing.password;
+            }
+        }
+
+        if (itemData.id) {
+            const index = items.findIndex(i => String(i.id) === String(itemData.id));
+            if (index !== -1) {
+                items[index] = { ...items[index], ...itemData };
+            } else {
+                items.push(itemData);
+            }
+        } else {
+            itemData.id = Date.now().toString();
             items.push(itemData);
         }
-    } else {
-        itemData.id = Date.now().toString();
-        items.push(itemData);
-    }
 
-    saveFileData('users.json', items);
-    res.json({ success: true });
+        if (saveFileData('users.json', items)) {
+            res.json({ success: true });
+        } else {
+            res.status(500).json({ error: 'Error saving users' });
+        }
+    } catch (e) {
+        console.error('Error in POST /api/users:', e);
+        res.status(500).json({ error: 'Server error' });
+    }
 });
 
 // Settings
@@ -278,21 +313,72 @@ app.delete('/api/files/:filename', authenticateToken, (req, res) => {
     }
 });
 
-// --- TRANSLATION API (Free/No-Key) ---
+// --- CONTACT / SMTP API ---
+app.post('/api/contact', async (req, res) => {
+    const { name, email, phone, message, subject } = req.body;
+
+    // 1. Get SMTP settings
+    const settings = getFileData('settings.json');
+    const smtp = Array.isArray(settings) ? settings[0] : settings;
+
+    if (!smtp.smtpHost || !smtp.smtpUser || !smtp.smtpPass) {
+        console.error('SMTP settings missing');
+        return res.status(500).json({ error: 'Mail serveri tənzimlənməyib' });
+    }
+
+    // 2. Create Transporter
+    const transporter = nodemailer.createTransport({
+        host: smtp.smtpHost,
+        port: parseInt(smtp.smtpPort) || 465,
+        secure: smtp.smtpSecure !== false, // default to true if not specified
+        auth: {
+            user: smtp.smtpUser,
+            pass: smtp.smtpPass
+        }
+    });
+
+    // 3. Setup Email Data
+    const mailOptions = {
+        from: `"${name}" <${smtp.smtpFromEmail || smtp.smtpUser}>`,
+        to: smtp.contactEmail || smtp.smtpUser,
+        replyTo: email,
+        subject: subject || `Yeni Əlaqə Formu: ${name}`,
+        text: `Ad: ${name}\nEmail: ${email}\nTelefon: ${phone}\n\nMesaj:\n${message}`,
+        html: `
+            <h3>Yeni Əlaqə Mesajı</h3>
+            <p><b>Ad:</b> ${name}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Telefon:</b> ${phone}</p>
+            <br/>
+            <p><b>Mesaj:</b></p>
+            <p>${message.replace(/\n/g, '<br>')}</p>
+        `
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({ success: true, message: 'Mesajınız uğurla göndərildi' });
+    } catch (error) {
+        console.error('SMTP Error:', error);
+        res.status(500).json({ error: 'Mesaj göndərilərkən xəta baş verdi: ' + error.message });
+    }
+});
+
+// --- TRANSLATION API (Pure Proxy) ---
 app.post('/api/translate', async (req, res) => {
     const { text, targetLang } = req.body;
     if (!text || !targetLang) return res.status(400).json({ error: 'Missing parameters' });
 
     try {
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang.toLowerCase()}&dt=t&q=${encodeURIComponent(text)}`;
         const response = await fetch(url);
         const data = await response.json();
 
-        // Google returns nested arrays: [[["Translated Text", "Original", ...], ...], ...]
         if (data && data[0] && data[0][0] && data[0][0][0]) {
-            res.json({ translatedText: data[0].map(s => s[0]).join('') });
+            const translatedText = data[0].map(s => s[0]).join('');
+            res.json({ translatedText });
         } else {
-            res.status(500).json({ error: 'Translation failed format' });
+            res.status(500).json({ error: 'Translation failed' });
         }
     } catch (e) {
         console.error('Translation error:', e);

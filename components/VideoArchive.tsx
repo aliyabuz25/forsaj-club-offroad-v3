@@ -52,46 +52,48 @@ const VideoArchive: React.FC<VideoArchiveProps> = ({ onViewChange }) => {
   };
 
   return (
-    <section className="py-24 px-6 lg:px-20 bg-[#0A0A0A]">
+    <section className="py-24 px-6 lg:px-20 bg-[#050505]">
       <VideoModal />
 
-      <div className="flex justify-between items-end mb-12">
+      <div className="flex justify-between items-end mb-16">
         <div className="flex items-start gap-4">
-          <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.5)]"></div>
+          <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
           <div>
-            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('archive.title')}
+            <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">
+              {t('nav.video_archive', 'VİDEO ARXİV')}
             </h2>
-            <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-[0.3em]">{t('archive.subtitle')}</p>
+            <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">{t('video.archive_desc', 'FORSAJ CLUB // RƏSMİ KANAL')}</p>
           </div>
         </div>
         <button
           onClick={() => onViewChange('gallery')}
-          className="bg-white/5 border border-white/10 text-white font-black italic text-xs px-10 py-4 rounded-sm transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all shadow-md active:scale-95 group"
+          className="bg-white/5 text-white font-black italic text-xs px-10 py-4 rounded-sm transform -skew-x-12 flex items-center gap-3 hover:bg-[#FF4D00] hover:text-black transition-all border border-white/10 shadow-xl"
         >
-          <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">
-            {t('archive.all')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </span>
+          <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">{t('common.all', 'HAMISI')} <ArrowRight className="w-5 h-5" /></span>
         </button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {allVideos.map((video, idx) => (
           <div
             key={idx}
             onClick={() => setPlayingVideoId(video.videoId)}
-            className="group relative aspect-[3/4] overflow-hidden bg-[#111] cursor-pointer shadow-2xl rounded-sm border border-white/5"
+            className="group cursor-pointer relative flex flex-col bg-[#111] overflow-hidden border border-white/5 hover:border-[#FF4D00]/50 transition-all duration-500 shadow-2xl"
           >
-            <img
-              src={video.url}
-              alt={video.title}
-              className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40 group-hover:opacity-80 grayscale`}
-            />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-[#FF4D00]/10 transition-colors flex items-center justify-center">
-              <PlayCircle className="w-16 h-16 text-white opacity-40 group-hover:opacity-100 group-hover:text-[#FF4D00] transition-all transform group-hover:scale-110" strokeWidth={1} />
+            <div className="aspect-video relative overflow-hidden">
+              <img
+                src={video.url}
+                alt={video.title}
+                className="w-full h-full object-cover grayscale opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-[#FF4D00] p-4 rounded-full transform -skew-x-12 group-hover:scale-110 group-hover:bg-white transition-all shadow-xl">
+                  <PlayCircle size={40} className="text-black transform skew-x-12" />
+                </div>
+              </div>
             </div>
-            <div className="absolute bottom-8 left-6 right-6 text-center">
-              <h3 className="text-white font-black italic uppercase tracking-tighter text-lg md:text-2xl drop-shadow-2xl group-hover:text-[#FF4D00] transition-colors line-clamp-2">
+            <div className="p-6 border-t border-white/5 flex-grow">
+              <h3 className="text-xl font-black italic text-white uppercase leading-tight group-hover:text-[#FF4D00] transition-colors tracking-tighter">
                 {video.title}
               </h3>
             </div>

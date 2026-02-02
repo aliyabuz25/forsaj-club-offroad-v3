@@ -49,12 +49,12 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {currentView === 'home' && <Home onViewChange={(view, cat) => handleViewChange(view, cat || null)} />}
         {currentView === 'about' && <About />}
-        {currentView === 'news' && <NewsPage />}
+        {currentView === 'news' && <NewsPage onViewChange={(view) => handleViewChange(view, null)} />}
         {currentView === 'events' && <EventsPage onViewChange={(view) => handleViewChange(view, null)} />}
         {currentView === 'drivers' && <DriversPage initialCategoryId={activeCategory} />}
         {currentView === 'rules' && <RulesPage />}
         {currentView === 'contact' && <ContactPage />}
-        {currentView === 'gallery' && <GalleryPage />}
+        {currentView === 'gallery' && <GalleryPage onViewChange={(view) => handleViewChange(view, null)} />}
       </main>
       <Footer onViewChange={(view) => handleViewChange(view, null)} />
     </div>

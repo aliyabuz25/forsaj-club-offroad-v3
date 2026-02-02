@@ -7,107 +7,72 @@ interface RuleSection {
   titleKey: string;
   icon: React.ReactNode;
   rules: {
-    subtitle: string;
-    description: string;
+    subtitleKey: string;
+    descKey: string;
   }[];
 }
 
-const ruleSections: RuleSection[] = [
-  {
-    id: 'pilot',
-    titleKey: 'rules.pilot_protocol', // Changed from 'title' to 'titleKey'
-    icon: <Info size={18} />,
-    rules: [
-      {
-        subtitle: 'İSTİFADƏÇİ ÖHDƏLİKLƏRİ',
-        description: 'HƏR BİR İŞTİRAKÇI FEDERASİYANIN MÜƏYYƏN ETDİYİ BÜTÜN TEXNİKİ VƏ ETİK NORMALARI QEYD-ŞƏRTSİZ QƏBUL EDİR.'
-      },
-      {
-        subtitle: 'DİSKVALİFİKASİYA',
-        description: 'PROTOKOLDAN KƏNARA ÇIXMAQ VƏ YA HAKİM QƏRARLARINA ETİRAZ ETMƏK DƏRHAL DİSKVALİFİKASİYA İLƏ NƏTİCƏLƏNƏ BİLƏR.'
-      },
-      {
-        subtitle: 'TEXNİKİ TƏLƏBLƏR',
-        description: 'BÜTÜN AVADANLIQLAR YARIŞDAN 24 SAAT ƏVVƏL TEXNİKİ KOMİSSİYA TƏRƏFİNDƏN YOXLANILMALI VƏ TƏHLÜKƏSİZLİK SERTİFİKATI İLƏ TƏMİN EDİLMƏLİDİR.'
-      }
-    ]
-  },
-  {
-    id: 'technical',
-    titleKey: 'rules.technical_norms', // Changed from 'title' to 'titleKey'
-    icon: <Settings size={18} />,
-    rules: [
-      {
-        subtitle: 'TƏKƏR ÖLÇÜLƏRİ',
-        description: 'PRO CLASS ÜÇÜN MAKSİMUM TƏKƏR ÖLÇÜSÜ 37 DÜYM, AMATEUR CLASS ÜÇÜN İSƏ 33 DÜYM OLARAQ MÜƏYYƏN EDİLMİŞDİR.'
-      },
-      {
-        subtitle: 'MÜHƏRRİK GÜCÜ',
-        description: 'MÜHƏRRİK ÜZƏRİNDƏ APARILAN MODİFİKASİYALAR KATEQORİYA ÜZRƏ LİMİTLƏRİ AŞMAMALIDIR. TURBO SİSTEMLƏRİ YALNIZ XÜSUSİ KLASLARDA İCAZƏLİDİR.'
-      },
-      {
-        subtitle: 'ASQI SİSTEMİ',
-        description: 'AVTOMOBİLİN KLİRENSİ (YERDƏN HÜNDÜRLÜYÜ) VƏ ASQI ARTIKULYASİYASI TƏHLÜKƏSİZLİK STANDARTLARINA UYĞUN OLMALIDIR.'
-      }
-    ]
-  },
-  {
-    id: 'safety',
-    titleKey: 'rules.safety_rules', // Changed from 'title' to 'titleKey'
-    icon: <ShieldAlert size={18} />,
-    rules: [
-      {
-        subtitle: 'KARKAS TƏLƏBİ',
-        description: 'BÜTÜN AÇIQ VƏ YA MODİFİKASİYA OLUNMUŞ AVTOMOBİLLƏRDƏ FIA STANDARTLARINA UYĞUN TƏHLÜKƏSİZLİK KARKASI (ROLL CAGE) MƏCBURİDİR.'
-      },
-      {
-        subtitle: 'YANĞIN SÖNDÜRMƏ',
-        description: 'HƏR BİR AVTOMOBİLDƏ ƏN AZI 2 KİLOQRAMLIQ, ASAN ƏLÇATAN YERDƏ YERLƏŞƏN YANĞINSÖNDÜRƏN BALON OLMALIDIR.'
-      },
-      {
-        subtitle: 'KƏMƏR VƏ DƏBİLQƏ',
-        description: '5 NÖQTƏLİ TƏHLÜKƏSİZLİK KƏMƏRLƏRİ VƏ SERTİFİKATLI KASKALARIN (DƏBİLQƏLƏRİN) İSTİFADƏSİ BÜTÜN MƏRHƏLƏLƏRDƏ MƏCBURİDİR.'
-      }
-    ]
-  },
-  {
-    id: 'eco',
-    titleKey: 'rules.eco_responsibility', // Changed from 'title' to 'titleKey'
-    icon: <Leaf size={18} />,
-    rules: [
-      {
-        subtitle: 'TULLANTILARIN İDARƏ EDİLMƏSİ',
-        description: 'YARIŞ ƏRAZİSİNDƏ VƏ TRASDA HƏR HANSI BİR TULLANTININ ATILMASI QƏTİ QADAĞANDIR. İŞTİRAKÇILAR "LEAVE NO TRACE" PRİNSİPİNƏ ƏMƏL ETMƏLİDİR.'
-      },
-      {
-        subtitle: 'MAYE SIZMALARI',
-        description: 'AVTOMOBİLDƏN YAĞ VƏ YA SOYUDUCU MAYE SIZMASI OLDUĞU TƏQDİRDƏ PİLOT DƏRHAL DAYANMALI VƏ ƏRAZİNİN ÇİRKLƏNMƏSİNİN QARŞISINI ALMALIDIR.'
-      },
-      {
-        subtitle: 'MARŞRUTDAN KƏNARA ÇIXMAMAQ',
-        description: 'TƏBİİ ÖRTÜYÜ QORUMAQ MƏQSƏDİ İLƏ MÜƏYYƏN OLUNMUŞ TRASDANKƏNAR SÜRÜŞLƏR VƏ YA YAŞIL SAHƏLƏRƏ ZƏRƏR VERMƏK QADAĞANDIR.'
-      }
-    ]
-  }
-];
-
 const RulesPage: React.FC = () => {
-  const { t } = useLanguage(); // Added useLanguage hook
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState<string>('pilot');
+
+  const ruleSections: RuleSection[] = [
+    {
+      id: 'pilot',
+      titleKey: t('rules.pilot_protocol', 'PİLOT PROTOKOLU'),
+      icon: <Info size={18} />,
+      rules: [
+        { subtitleKey: t('rules.pilot_duties', 'PİLOTUN ÖHDƏLİKLƏRİ'), descKey: t('rules.pilot_duties_desc', 'Hər bir pilot yarış zamanı nizam-intizam qaydalarına və hakimlərin qərarlarına tabe olmalıdır.') },
+        { subtitleKey: t('rules.disqualification', 'KƏNARLAŞDIRMA'), descKey: t('rules.disqualification_desc', 'Təhlükəsizlik kəmərini taxmayan və ya qeyri-etik davranış sərgiləyən pilotlar yarışdan kənarlaşdırılır.') },
+        { subtitleKey: t('rules.tech_req', 'TEXNİKİ TƏLƏBLƏR'), descKey: t('rules.tech_req_desc', 'Avtomobilin bütün asqı və mühərrik sistemləri texniki baxışdan keçməlidir.') }
+      ]
+    },
+    {
+      id: 'technical',
+      titleKey: t('rules.technical_norms', 'TEXNİKİ NORMATİVLƏR'),
+      icon: <Settings size={18} />,
+      rules: [
+        { subtitleKey: t('rules.tire_size', 'TƏKƏR ÖLÇÜLƏRİ'), descKey: t('rules.tire_size_desc', 'Kateqoriyalara görə maksimum təkər ölçüsü 37 düym olaraq təyin edilmişdir.') },
+        { subtitleKey: t('rules.engine_power', 'MÜHƏRRİK GÜCÜ'), descKey: t('rules.engine_power_desc', 'Stock kateqoriyasında zavod istehsalı olan mühərrik gücü saxlanılmalıdır.') },
+        { subtitleKey: t('rules.suspension', 'ASQI SİSTEMİ'), descKey: t('rules.suspension_desc', 'Unlimited kateqoriyasında istənilən tip asqı sistemindən istifadəyə icazə verilir.') }
+      ]
+    },
+    {
+      id: 'safety',
+      titleKey: t('rules.safety_rules', 'TƏHLÜKƏSİZLİK QAYDALARI'),
+      icon: <ShieldAlert size={18} />,
+      rules: [
+        { subtitleKey: t('rules.roll_cage', 'TƏHLÜKƏSİZLİK KARKASI'), descKey: t('rules.roll_cage_desc', 'Extreme kateqoriyasında bütün maşınlar xarici və ya daxili karkasla təchiz olunmalıdır.') },
+        { subtitleKey: t('rules.fire_extinguisher', 'YANĞINSÖNDÜRƏN'), descKey: t('rules.fire_extinguisher_desc', 'Hər bir avtomobildə əlçatan yerdə ən azı 2 kq-lıq yanğınsöndürən olmalıdır.') },
+        { subtitleKey: t('rules.belt_helmet', 'KƏMƏR VƏ DƏBİLQƏ'), descKey: t('rules.belt_helmet_desc', '4 nöqtəli kəmər və sertifikatlı dəbiqlə istifadəsi bütün mərhələlərdə məcburidir.') }
+      ]
+    },
+    {
+      id: 'eco',
+      titleKey: t('rules.eco_responsibility', 'EKOLOJİ MƏSULİYYƏT'),
+      icon: <Leaf size={18} />,
+      rules: [
+        { subtitleKey: t('rules.waste_management', 'TULLANTILARIN İDARƏSİ'), descKey: t('rules.waste_management_desc', 'Yarış ərazisində və düşərgələrdə tullantı atmaq qəti qadağandır.') },
+        { subtitleKey: t('rules.fluid_leaks', 'MAYELƏRİN SIZMASI'), descKey: t('rules.fluid_leaks_desc', 'Yağ və ya soyuducu maye sızması olan avtomobillər starta buraxılmır.') },
+        { subtitleKey: t('rules.route_adherence', 'MARŞRUTUN QORUNMASI'), descKey: t('rules.route_adherence_desc', 'Təyin olunmuş marşrutdan kənara çıxaraq təbiətə zərər vermək cərimələrə səbəb olur.') }
+      ]
+    }
+  ];
+
   const currentSection = ruleSections.find(s => s.id === activeSection) || ruleSections[0];
 
   return (
-    <div className="bg-[#0A0A0A] min-h-screen py-16 px-6 lg:px-20 text-white">
+    <div className="bg-[#0A0A0A] min-h-screen py-16 px-6 lg:px-20 text-white animate-in fade-in duration-500">
       {/* Standardized Page Header */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-20">
         <div className="flex items-start gap-4">
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
           <div>
             <h2 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('rules.title')} {/* Used t() */}
+              {t('nav.rules', 'QAYDALAR')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[11px] md:text-sm mt-2 uppercase tracking-[0.4em]">
-              {t('rules.subtitle')} {/* Used t() */}
+              FORSAJ MOTORSPORT OFFICIAL RULES
             </p>
           </div>
         </div>
@@ -129,32 +94,32 @@ const RulesPage: React.FC = () => {
                   <span className={activeSection === section.id ? 'text-black' : 'text-[#FF4D00]'}>
                     {section.icon}
                   </span>
-                  {t(section.titleKey)} {/* Used t() with titleKey */}
+                  {section.titleKey}
                 </div>
                 <ChevronRight size={16} className={activeSection === section.id ? 'text-black' : 'text-gray-600'} />
               </button>
             ))}
           </div>
-          {/* Rest of the component content remains the same */}
-          <div className="bg-[#111] p-8 border border-white/5 mt-8 shadow-2xl">
+
+          <div className="bg-[#111] p-8 border border-white/5 mt-8 shadow-2xl rounded-sm">
             <div className="flex items-center gap-4 mb-8">
               <div className="bg-[#FF4D00]/10 p-4 text-[#FF4D00]">
                 <FileText size={24} />
               </div>
               <div>
-                <p className="text-gray-600 font-black italic text-[8px] uppercase tracking-[0.3em] mb-1">{t('common.download')}</p> {/* Used t() */}
+                <p className="text-gray-600 font-black italic text-[8px] uppercase tracking-[0.3em] mb-1">{t('common.download', 'YÜKLƏ')}</p>
                 <p className="text-white font-black italic text-[11px] uppercase tracking-tighter">{activeSection.toUpperCase()}_PROTOKOLU.PDF</p>
               </div>
             </div>
             <button className="w-full bg-[#FF4D00] text-black py-4 font-black italic text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all transform -skew-x-12">
-              <span className="transform skew-x-12 flex items-center gap-2">{t('common.download')} PDF <Download size={14} /></span> {/* Used t() */}
+              <span className="transform skew-x-12 flex items-center gap-2">{t('common.download_pdf', 'PDF YÜKLƏ')} <Download size={14} /></span>
             </button>
           </div>
         </div>
 
         <div className="lg:w-3/4">
-          <div className="bg-[#050505] text-white min-h-[600px] relative overflow-hidden group border border-white/5 shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
-            <div className="absolute top-0 right-0 p-12 opacity-[0.03]">
+          <div className="bg-[#050505] text-white min-h-[600px] relative overflow-hidden group border border-white/5 shadow-[0_30px_60px_rgba(0,0,0,0.5)] rounded-sm">
+            <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
               <span className="text-[250px] font-black italic leading-none select-none uppercase tracking-tighter">
                 {currentSection.id}
               </span>
@@ -163,8 +128,8 @@ const RulesPage: React.FC = () => {
             <div className="relative z-10 p-10 md:p-24">
               <div className="flex items-center gap-4 mb-16">
                 <div className="w-2 h-12 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.4)]"></div>
-                <h3 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-none">
-                  {t(currentSection.titleKey)} {/* Used t() with titleKey */}
+                <h3 className="text-5xl md:text-7xl lg:text-8xl font-black italic uppercase tracking-tighter leading-none">
+                  {currentSection.titleKey}
                 </h3>
               </div>
 
@@ -173,10 +138,10 @@ const RulesPage: React.FC = () => {
                   <div key={index} className="relative pl-12 border-l border-white/5 group/rule">
                     <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 bg-[#FF4D00] shadow-[0_0_10px_rgba(255,77,0,0.3)]"></div>
                     <h4 className="text-[#FF4D00] font-black italic text-2xl uppercase tracking-tighter mb-4 group-hover/rule:text-white transition-colors">
-                      {rule.subtitle}
+                      {rule.subtitleKey}
                     </h4>
                     <p className="text-gray-500 font-bold italic text-sm md:text-base uppercase leading-relaxed tracking-widest max-w-3xl">
-                      {rule.description}
+                      {rule.descKey}
                     </p>
                   </div>
                 ))}
