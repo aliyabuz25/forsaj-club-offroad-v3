@@ -235,8 +235,58 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
                                                         rows={4}
                                                     />
                                                     <div className="mt-2 text-right">
-                                                        <small className="mr-2 text-muted">Auto Translate to:</small>
-                                                        {['AZ', 'EN', 'RU'].map(lang => (
+                                                        {(f.name === 'value' || f.name === 'AZ') && (
+                                                            <button
+                                                                type="button"
+                                                                className="btn btn-sm btn-info mr-2 mb-2"
+                                                                onClick={async () => {
+                                                                    const sourceText = currentItem[f.name];
+                                                                    if (!sourceText) {
+                                                                        toast.error('Tərcümə ediləcək mətn yoxdur');
+                                                                        return;
+                                                                    }
+                                                                    const toastId = toast.loading('Tərcümə edilir...');
+                                                                    try {
+                                                                        const langs = ['EN', 'RU', 'TR', 'AZ'];
+                                                                        const updates: any = {};
+
+                                                                        // If updating 'value', treat it as base for others.
+                                                                        if (f.name === 'value' && !currentItem.AZ) updates.AZ = sourceText;
+
+                                                                        const promises = langs.map(async (lang) => {
+                                                                            if (lang === (f.name === 'AZ' ? 'AZ' : '')) return; // skip self
+                                                                            if (lang === 'AZ' && f.name === 'value') return; // already handled
+
+                                                                            // Don't overwrite existing if not empty? Or force? Let's force for "Auto Translate" content action.
+                                                                            try {
+                                                                                const res = await fetch('/api/translate', {
+                                                                                    method: 'POST',
+                                                                                    headers: { 'Content-Type': 'application/json' },
+                                                                                    body: JSON.stringify({ text: sourceText, targetLang: lang.toLowerCase() })
+                                                                                });
+                                                                                const data = await res.json();
+                                                                                if (data.translatedText) {
+                                                                                    updates[lang] = data.translatedText;
+                                                                                }
+                                                                            } catch (e) {
+                                                                                console.error(e);
+                                                                            }
+                                                                        });
+
+                                                                        await Promise.all(promises);
+
+                                                                        setCurrentItem(prev => ({ ...prev, ...updates }));
+                                                                        toast.success('Bütün dillərə tərcümə edildi!', { id: toastId });
+                                                                    } catch (e) {
+                                                                        toast.error('Xəta baş verdi', { id: toastId });
+                                                                    }
+                                                                }}
+                                                            >
+                                                                <i className="fas fa-magic mr-1"></i> ✨ Auto Translate All
+                                                            </button>
+                                                        )}
+                                                        <small className="mr-2 text-muted">Translate this field to:</small>
+                                                        {['AZ', 'EN', 'RU', 'TR'].map(lang => (
                                                             <button
                                                                 key={lang}
                                                                 type="button"
@@ -253,12 +303,6 @@ const ContentManager: React.FC<ContentManagerProps> = ({ entity, title, fields }
                                                                         const data = await res.json();
                                                                         if (data.translatedText) {
                                                                             toast.success('Translated!', { id: toastId });
-                                                                            // Here we might want to update a specific field if we had separate fields for langs,
-                                                                            // but for now let's just replace the content or show it.
-                                                                            // Since the user asked for "translate content", usually this implies having multi-language support.
-                                                                            // But our current system is simple key-value. 
-                                                                            // I'll assume they might want to just see the translation or replace it.
-                                                                            // For safety, let's copy to clipboard or replace.
                                                                             if (confirm(`Replace content with ${lang} translation?\n\n${data.translatedText}`)) {
                                                                                 handleInputChange(f.name, data.translatedText);
                                                                             }

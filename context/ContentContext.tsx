@@ -6,6 +6,10 @@ interface ContentItem {
     section: string;
     key: string;
     value: string;
+    AZ?: string;
+    EN?: string;
+    RU?: string;
+    TR?: string;
     image?: string;
 }
 
@@ -19,7 +23,6 @@ const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
 export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [content, setContent] = useState<ContentItem[]>([]);
-    const [translatedContent, setTranslatedContent] = useState<{ [key: string]: string }>({});
     const { language } = useLanguage();
 
     useEffect(() => {
@@ -37,15 +40,16 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
         load();
     }, []);
 
-    // We no longer need to manually translate content in React as the CDN handles it.
-    useEffect(() => {
-        // Just sync if needed or keep empty
-    }, [language, content]);
-
     const getContent = (key: string, defaultText: string = '') => {
-        // Look for the item by 'key' or 'id'
         const item = content.find(c => c.key === key || c.id === key);
-        return item ? item.value : defaultText;
+        if (!item) return defaultText;
+
+        // Try specific language field first
+        const langVal = (item as any)[language];
+        if (langVal) return langVal;
+
+        // Fallback to AZ, then 'value', then default
+        return item.AZ || item.value || defaultText;
     };
 
     const getImage = (key: string, defaultImage: string = '') => {

@@ -27,7 +27,11 @@ const AdminDashboard: React.FC = () => {
                 fields={[
                     { name: 'section', label: 'Bölmə', type: 'text' },
                     { name: 'key', label: 'Açar Söz (Kod üçün)', type: 'text' },
-                    { name: 'value', label: 'Mətn (Azərbaycanca)', type: 'textarea' },
+                    { name: 'value', label: 'Mətn (Default/AZ)', type: 'textarea' },
+                    { name: 'AZ', label: 'Mətn (AZ)', type: 'textarea' },
+                    { name: 'EN', label: 'Mətn (EN)', type: 'textarea' },
+                    { name: 'RU', label: 'Mətn (RU)', type: 'textarea' },
+                    { name: 'TR', label: 'Mətn (TR)', type: 'textarea' },
                     { name: 'image', label: 'Şəkil URL', type: 'image' }
                 ]}
             />;
