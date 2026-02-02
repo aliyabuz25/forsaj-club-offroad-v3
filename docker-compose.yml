@@ -1,6 +1,7 @@
 services:
   forsaj-backend:
     image: forsaj-backend:latest
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile.backend
@@ -24,6 +25,7 @@ services:
 
   forsaj-frontend:
     image: forsaj-frontend:latest
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile.frontend
