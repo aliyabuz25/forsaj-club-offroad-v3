@@ -23,12 +23,18 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
     const { language } = useLanguage();
 
     useEffect(() => {
-        fetch('/api/content')
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data)) setContent(data);
-            })
-            .catch(err => console.error('Failed to load content', err));
+        const load = async () => {
+            try {
+                const res = await fetch('/api/content');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data)) setContent(data);
+                }
+            } catch (e) {
+                console.warn('Content failed to load');
+            }
+        };
+        load();
     }, []);
 
     // We no longer need to manually translate content in React as the CDN handles it.

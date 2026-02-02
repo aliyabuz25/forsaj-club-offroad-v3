@@ -134,34 +134,47 @@ export const AdminProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     // Initial load
     React.useEffect(() => {
         const token = localStorage.getItem('token');
-        const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+        const headers: any = { 'Accept': 'application/json' };
+        if (token) headers['Authorization'] = `Bearer ${token}`;
 
-        fetch('/api/settings', { headers }).then(res => res.json()).then(setSettings).catch(() => { });
+        const safeFetch = async (url: string) => {
+            try {
+                const res = await fetch(url, { headers });
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) {
+                return null;
+            }
+        };
 
-        fetch('/api/drivers', { headers }).then(res => res.json()).then(data => {
-            const normalized = Array.isArray(data) ? data.map((d: any) => ({ ...d, image: d.image || d.img })) : [];
-            setDrivers(normalized);
-        }).catch(() => { });
+        const loadContent = async () => {
+            const [s, dr, nw, ev, gl, pr] = await Promise.all([
+                safeFetch('/api/settings'),
+                safeFetch('/api/drivers'),
+                safeFetch('/api/news'),
+                safeFetch('/api/events'),
+                safeFetch('/api/gallery'),
+                safeFetch('/api/partners')
+            ]);
 
-        fetch('/api/news', { headers }).then(res => res.json()).then(data => {
-            const normalized = Array.isArray(data) ? data.map((n: any) => ({ ...n, image: n.image || n.img })) : [];
-            setNews(normalized);
-        }).catch(() => { });
+            if (s) setSettings(s);
+            if (dr) {
+                const normalized = Array.isArray(dr) ? dr.map((d: any) => ({ ...d, image: d.image || d.img })) : [];
+                setDrivers(normalized);
+            }
+            if (nw) {
+                const normalized = Array.isArray(nw) ? nw.map((n: any) => ({ ...n, image: n.image || n.img })) : [];
+                setNews(normalized);
+            }
+            if (ev) {
+                const normalized = Array.isArray(ev) ? ev.map((e: any) => ({ ...e, image: e.image || e.img, img: e.image || e.img })) : [];
+                setEvents(normalized);
+            }
+            if (gl) setGallery(Array.isArray(gl) ? gl : []);
+            if (pr) setPartners(Array.isArray(pr) ? pr : []);
+        };
 
-        fetch('/api/events', { headers }).then(res => res.json()).then(data => {
-            const normalized = Array.isArray(data) ? data.map((e: any) => ({ ...e, image: e.image || e.img, img: e.image || e.img })) : [];
-            setEvents(normalized);
-        }).catch(() => { });
-
-        fetch('/api/gallery', { headers }).then(res => res.json()).then(data => {
-            const normalized = Array.isArray(data) ? data.map((g: any) => ({ ...g, image: g.image || g.img })) : [];
-            setGallery(normalized);
-        }).catch(() => { });
-
-        fetch('/api/partners', { headers }).then(res => res.json()).then(data => {
-            const normalized = Array.isArray(data) ? data.map((p: any) => ({ ...p, image: p.image || p.img })) : [];
-            setPartners(normalized);
-        }).catch(() => { });
+        loadContent();
     }, []);
 
     const updateSettings = async (newSettings: Partial<AdminSettings>) => {

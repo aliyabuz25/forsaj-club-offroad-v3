@@ -39,30 +39,31 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     const [translations, setTranslations] = useState<TranslationItem[]>([]);
 
     // Fetch initial content mapping to allow dynamic AZ text editing
-    const refreshContent = () => {
-        // Load content (AZ overrides)
-        fetch('/api/content')
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    const map: { [key: string]: string } = {};
-                    data.forEach(item => {
-                        if (item.key) map[item.key] = item.value;
-                    });
-                    setContentMap(map);
-                }
-            })
-            .catch(err => console.error('Failed to load content', err));
+    const refreshContent = async () => {
+        const safeFetch = async (url: string) => {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) {
+                return null;
+            }
+        };
 
-        // Load static translations (Multi-lang support)
-        fetch('/api/translations')
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setTranslations(data);
-                }
-            })
-            .catch(err => console.error('Failed to load translations', err));
+        const [cont, trans] = await Promise.all([
+            safeFetch('/api/content'),
+            safeFetch('/api/translations')
+        ]);
+
+        if (cont && Array.isArray(cont)) {
+            const map: { [key: string]: string } = {};
+            cont.forEach(item => { if (item.key) map[item.key] = item.value; });
+            setContentMap(map);
+        }
+
+        if (trans && Array.isArray(trans)) {
+            setTranslations(trans);
+        }
     };
 
     useEffect(() => {
