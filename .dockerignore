@@ -7,4 +7,4 @@ dist
 .env
 *.zip
 nginx-logs
-json
+# json removed to allow seeding
