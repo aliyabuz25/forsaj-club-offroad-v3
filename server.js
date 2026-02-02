@@ -39,6 +39,15 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     }
 });
 
+// FORCE RESET USERS ON STARTUP (User Request to fix container persistence issues)
+try {
+    const usersPath = path.join(__dirname, 'json', 'users.json');
+    console.log('WARNING: Force-resetting users.json to empty array on startup!');
+    fs.writeFileSync(usersPath, '[]');
+} catch (e) {
+    console.error('Failed to reset users.json:', e);
+}
+
 // Seed JSON defaults if empty (for Docker volumes)
 const jsonDir = path.join(__dirname, 'json');
 const defaultsDir = path.join(__dirname, 'json_defaults');
