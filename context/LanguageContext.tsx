@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import toast from 'react-hot-toast';
 
 export type Language = 'AZ' | 'EN' | 'RU' | 'TR';
 
@@ -22,7 +21,20 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [language, setLangState] = useState<Language>('AZ');
+    const [language, setLangState] = useState<Language>(() => {
+        const getCookie = (name: string) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop()?.split(';').shift();
+            return null;
+        };
+        const googtrans = getCookie('googtrans');
+        if (googtrans) {
+            const langCode = googtrans.split('/').pop()?.toUpperCase();
+            if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) return langCode as Language;
+        }
+        return 'AZ';
+    });
     const [contentMap, setContentMap] = useState<{ [key: string]: string }>({});
     const [translations, setTranslations] = useState<TranslationItem[]>([]);
 
@@ -65,42 +77,40 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         return null;
     };
 
-    // Helper to set cookie properly
-    const setCookie = (name: string, value: string, days: number = 30) => {
-        const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
-        const domain = window.location.hostname === 'localhost' ? '' : `; domain=.${window.location.hostname}`;
-        const cookieString = `${name}=${value}; expires=${expires}; path=/;${domain}`;
-        document.cookie = cookieString;
-        document.cookie = `${name}=${value}; expires=${expires}; path=/`; // Also set on current path
+    const setCookie = (name: string, value: string) => {
+        const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+        if (window.location.hostname !== 'localhost') {
+            const domainParts = window.location.hostname.split('.');
+            if (domainParts.length >= 2) {
+                const baseDomain = domainParts.slice(-2).join('.');
+                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.${baseDomain}`;
+            }
+        }
     };
 
     const deleteCookie = (name: string) => {
         const expires = "Thu, 01 Jan 1970 00:00:00 UTC";
-        const domain = window.location.hostname === 'localhost' ? '' : `; domain=.${window.location.hostname}`;
-        document.cookie = `${name}=; expires=${expires}; path=/;${domain}`;
         document.cookie = `${name}=; expires=${expires}; path=/`;
+        if (window.location.hostname !== 'localhost') {
+            const domainParts = window.location.hostname.split('.');
+            if (domainParts.length >= 2) {
+                const baseDomain = domainParts.slice(-2).join('.');
+                document.cookie = `${name}=; expires=${expires}; path=/; domain=.${baseDomain}`;
+            }
+        }
     };
 
     useEffect(() => {
-        const syncLanguageFromCookie = () => {
-            const googtrans = getCookie('googtrans');
-            if (googtrans) {
-                const parts = googtrans.split('/');
-                const langCode = parts[parts.length - 1].toUpperCase();
-                if (['AZ', 'EN', 'RU', 'TR'].includes(langCode)) {
-                    if (language !== langCode) {
-                        setLangState(langCode as Language);
-                    }
-                    return;
-                }
-            } else {
-                if (language !== 'AZ') setLangState('AZ');
+        const googtrans = getCookie('googtrans');
+        if (googtrans) {
+            const langCode = googtrans.split('/').pop()?.toUpperCase();
+            if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) {
+                if (language !== langCode) setLangState(langCode as Language);
             }
-        };
-
-        syncLanguageFromCookie();
-        const interval = setInterval(syncLanguageFromCookie, 1000);
-        return () => clearInterval(interval);
+        } else {
+            if (language !== 'AZ') setLangState('AZ');
+        }
     }, [language]);
 
     // Brand & Native protection
@@ -116,31 +126,13 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     }, [language]);
 
     const setLanguage = (lang: Language) => {
-        const target = lang.toLowerCase();
-
-        if (target === 'az') {
+        if (lang === 'AZ') {
             deleteCookie('googtrans');
-            setLangState('AZ');
-            window.location.reload();
-            return;
-        }
-
-        const cookieValue = `/az/${target}`;
-        setCookie('googtrans', cookieValue);
-        setLangState(lang);
-
-        // Immediate GTranslate trigger if available
-        if (typeof (window as any).doGTranslate === 'function') {
-            try {
-                (window as any).doGTranslate(`az|${target}`);
-                // Small delay then reload to ensure stability
-                setTimeout(() => window.location.reload(), 300);
-            } catch (e) {
-                window.location.reload();
-            }
         } else {
-            window.location.reload();
+            setCookie('googtrans', `/az/${lang.toLowerCase()}`);
         }
+        setLangState(lang);
+        setTimeout(() => window.location.reload(), 100);
     };
 
     const t = (key: string, defaultValue?: string): string => {
@@ -166,7 +158,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage, t, refreshContent }}>
-            <div className="gtranslate_wrapper notranslate" style={{ display: 'none' }}></div>
+            <div id="google_translate_element" style={{ display: 'none' }}></div>
             {children}
         </LanguageContext.Provider>
     );
