@@ -25,16 +25,16 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
           <div className="w-1.5 h-12 bg-[#FF4D00]"></div>
           <div>
             <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('events.next_race_title')}
+              {t('events.next_race_title', 'NÖVBƏTİ YARIŞ')}
             </h2>
-            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg')}</p>
+            <p className="text-[#FF4D00] font-black italic text-[10px] mt-1 uppercase tracking-[0.2em]">{t('events.live_reg', 'QEYDİYYAT DAVAM EDİR')}</p>
           </div>
         </div>
         <button
           onClick={() => onViewChange('events')}
           className="bg-white/5 text-white font-black italic text-[10px] px-8 py-3 rounded-sm transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all border border-white/5"
         >
-          <span className="transform skew-x-12">{t('events.full_calendar')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
+          <span className="transform skew-x-12">{t('events.full_calendar', 'TAM TƏQVİM')}</span> <ChevronRight className="w-4 h-4 transform skew-x-12" />
         </button>
       </div>
 
@@ -71,7 +71,7 @@ const NextRace: React.FC<NextRaceProps> = ({ onViewChange }) => {
             onClick={() => onViewChange('events')}
             className="bg-[#FF4D00] hover:bg-white text-black font-black italic py-5 px-12 rounded-sm flex items-center gap-3 transition-all self-start transform -skew-x-12 group shadow-[0_10px_30px_rgba(255,77,0,0.2)]"
           >
-            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration')}</span>
+            <span className="transform skew-x-12 uppercase text-lg">{t('common.join_registration', 'İNDİ QOŞUL')}</span>
             <ChevronRight className="w-6 h-6 transform skew-x-12 group-hover:translate-x-2 transition-transform" />
           </button>
         </div>

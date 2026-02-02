@@ -55,13 +55,13 @@ const Hero: React.FC<HeroProps> = ({ onViewChange }) => {
             onClick={() => onViewChange('events')}
             className="bg-[#FF4D00] hover:bg-white hover:text-black text-black font-black italic py-5 px-12 rounded-sm flex items-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-[0_10px_40px_rgba(255,77,0,0.3)]"
           >
-            {t('hero.races')} <ChevronRight className="w-6 h-6" />
+            {t('hero.races', 'YARIŞ TƏQVİMİ')} <ChevronRight className="w-6 h-6" />
           </button>
           <button
             onClick={() => onViewChange('about')}
             className="border-2 border-white/20 text-white hover:border-[#FF4D00] hover:text-[#FF4D00] font-black italic py-5 px-12 rounded-sm transition-all bg-white/5 backdrop-blur-sm"
           >
-            {t('hero.about')}
+            {t('hero.about', 'HAQQIMIZDA')}
           </button>
         </div>
       </div>

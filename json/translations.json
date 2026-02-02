@@ -77,7 +77,7 @@
     "AZ": "SƏRHƏDSİZ",
     "EN": "UNLIMITED",
     "RU": "БЕЗГРАНИЧНЫЙ",
-    "TR": "SINIRSIZ"
+    "TR": "SINIR OLMADAN"
   },
   {
     "id": "hero_title_highlight",
@@ -93,7 +93,7 @@
     "AZ": "HƏYƏCANI",
     "EN": "EXCITEMENT",
     "RU": "АЖИОТАЖ",
-    "TR": "HEYECANI"
+    "TR": "HEYECAN"
   },
   {
     "id": "hero_subtitle",
@@ -101,7 +101,7 @@
     "AZ": "Azərbaycanın ən çətin yollarında peşəkar yarışlar və adrenalin dolu anlar.",
     "EN": "Professional races and adrenaline-filled moments on the most difficult roads of Azerbaijan.",
     "RU": "Профессиональные гонки и полные адреналина моменты на самых сложных трассах Азербайджана.",
-    "TR": "Azerbaycan'ın en zorlu yollarında profesyonel yarışlar ve adrenalin dolu anlar."
+    "TR": "Azerbaycan'ın en zorlu yollarında profesyonel yarışlar ve adrenalin dolu anlar yaşandı."
   },
   {
     "id": "hero.races",
@@ -942,5 +942,133 @@
     "EN": "FORSAJ CLUB // OFFICIAL CHANNEL",
     "RU": "FORSAJ CLUB // ОФИЦИАЛЬНЫЙ КАНАЛ",
     "TR": "FORSAJ CLUB // RESMİ KANAL"
+  },
+  {
+    "id": "nav.video_archive",
+    "key": "nav.video_archive",
+    "AZ": "VİDEO ARXİV",
+    "EN": "VIDEO ARCHIVE",
+    "RU": "ВИДЕО АРХИВ",
+    "TR": "VİDEO ARŞİV"
+  },
+  {
+    "id": "common.join_registration",
+    "key": "common.join_registration",
+    "AZ": "İNDİ QOŞUL",
+    "EN": "JOIN NOW",
+    "RU": "ПРИСОЕДИНИТЬСЯ",
+    "TR": "ŞİMDİ KATIL"
+  },
+  {
+    "id": "drivers.rating",
+    "key": "drivers.rating",
+    "AZ": "REYTİNQ",
+    "EN": "RATING",
+    "RU": "РЕЙТИНГ",
+    "TR": "REYTİNG"
+  },
+  {
+    "id": "drivers.standings_desc",
+    "key": "drivers.standings_desc",
+    "AZ": "BÜTÜN PİLOTLARIN RƏSMİ SIRALAMASI // 2024",
+    "EN": "OFFICIAL STANDINGS OF ALL PILOTS // 2024",
+    "RU": "ОФИЦИАЛЬНЫЙ РЕЙТИНГ ВСЕХ ПИЛОТОВ // 2024",
+    "TR": "TÜM PİLOTLARIN RESMİ SIRALAMASI // 2024"
+  },
+  {
+    "id": "drivers.pts",
+    "key": "drivers.pts",
+    "AZ": "XAL",
+    "EN": "PTS",
+    "RU": "ОЧКИ",
+    "TR": "PUAN"
+  },
+  {
+    "id": "drivers.pts_label",
+    "key": "drivers.pts_label",
+    "AZ": "XAL",
+    "EN": "PTS",
+    "RU": "ОЧКИ",
+    "TR": "PUAN"
+  },
+  {
+    "id": "drivers.podium_leaders",
+    "key": "drivers.podium_leaders",
+    "AZ": "PODİUM LİDERLƏRİ",
+    "EN": "PODIUM LEADERS",
+    "RU": "ЛИДЕРЫ ПОДИУМА",
+    "TR": "PODIUM LİDERLERİ"
+  },
+  {
+    "id": "drivers.top_10",
+    "key": "drivers.top_10",
+    "AZ": "TOP 10",
+    "EN": "TOP 10",
+    "RU": "ТОП 10",
+    "TR": "TOP 10"
+  },
+  {
+    "id": "drivers.full_ranking",
+    "key": "drivers.full_ranking",
+    "AZ": "TAM SIRALAMA",
+    "EN": "FULL RANKING",
+    "RU": "ПОЛНЫЙ РЕЙТИНГ",
+    "TR": "TAM SIRALAMA"
+  },
+  {
+    "id": "drivers.all_pilots",
+    "key": "drivers.all_pilots",
+    "AZ": "BÜTÜN PİLOTLAR",
+    "EN": "ALL PILOTS",
+    "RU": "ВСЕ ПИЛОТЫ",
+    "TR": "TÜM PİLOTLAR"
+  },
+  {
+    "id": "drivers.pilots_standings",
+    "key": "drivers.pilots_standings",
+    "AZ": "PİLOTLARIN SIRALAMASI",
+    "EN": "PILOTS STANDINGS",
+    "RU": "РЕЙТИНГ ПИЛОТОВ",
+    "TR": "SÜRÜCÜ SIRALAMASI"
+  },
+  {
+    "id": "leaders.unlimited",
+    "key": "leaders.unlimited",
+    "AZ": "UNLIMITED LİDER",
+    "EN": "UNLIMITED LEADER",
+    "RU": "ЛИДЕР UNLIMITED",
+    "TR": "UNLIMITED LİDER"
+  },
+  {
+    "id": "leaders.legend",
+    "key": "leaders.legend",
+    "AZ": "LEGEND LİDER",
+    "EN": "LEGEND LEADER",
+    "RU": "ЛИДЕР LEGEND",
+    "TR": "LEGEND LİDER"
+  },
+  {
+    "id": "leaders.semi_stock",
+    "key": "leaders.semi_stock",
+    "AZ": "SEMI STOCK LİDER",
+    "EN": "SEMI STOCK LEADER",
+    "RU": "ЛИДЕР SEMI STOCK",
+    "TR": "SEMI STOCK LİDER"
+  },
+  {
+    "id": "leaders.utv",
+    "key": "leaders.utv",
+    "AZ": "UTV LİDER",
+    "EN": "UTV LEADER",
+    "RU": "ЛИДЕР UTV",
+    "TR": "UTV LİDER"
+  },
+  {
+    "id": "common.back",
+    "key": "common.back",
+    "AZ": "GERİ",
+    "EN": "BACK",
+    "RU": "НАЗАД",
+    "TR": "GERİ"
   }
 ]

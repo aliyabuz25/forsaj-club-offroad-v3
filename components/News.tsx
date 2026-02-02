@@ -25,10 +25,10 @@ const News: React.FC<NewsProps> = ({ onViewChange }) => {
             <div className="w-2 h-16 bg-[#FF4D00]"></div>
             <div>
               <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter uppercase leading-none text-white">
-                {t('nav.news')}
+                {t('nav.news', 'XƏBƏRLƏR')}
               </h2>
               <p className="text-[#FF4D00] font-black italic text-xs mt-2 uppercase tracking-widest">
-                {t('news.subtitle')}
+                {t('news.subtitle', 'Motorsport və Offroad dünyasından yeniliklər')}
               </p>
             </div>
           </div>
@@ -36,7 +36,7 @@ const News: React.FC<NewsProps> = ({ onViewChange }) => {
             onClick={() => onViewChange('news')}
             className="bg-[#FF4D00] text-black font-black italic text-xs px-10 py-4 rounded-sm transform -skew-x-12 flex items-center gap-3 hover:bg-white transition-all shadow-xl hover:scale-105 active:scale-95"
           >
-            <span className="transform skew-x-12 flex items-center gap-2">{t('common.all')} <ArrowRight className="w-5 h-5" /></span>
+            <span className="transform skew-x-12 flex items-center gap-2">{t('common.all', 'HAMISI')} <ArrowRight className="w-5 h-5" /></span>
           </button>
         </div>
 

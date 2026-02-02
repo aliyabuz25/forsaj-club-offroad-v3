@@ -37,10 +37,10 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
           <div className="w-2 h-16 bg-[#FF4D00] shadow-[0_0_15px_rgba(255,77,0,0.5)]"></div>
           <div>
             <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none text-white">
-              {t('leaders.title')}
+              {t('leaders.title', 'KATEQORİYA LİDƏRLƏRİ')}
             </h2>
             <p className="text-[#FF4D00] font-black italic text-[10px] md:text-xs mt-2 uppercase tracking-widest">
-              {t('leaders.subtitle')}
+              {t('leaders.subtitle', 'HƏR KLASS ÜZRƏ MÖVSÜMÜN ƏN GÜCLÜ PİLOTLARI')}
             </p>
           </div>
         </div>
@@ -49,7 +49,7 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
           className="bg-white/5 border border-white/10 text-white font-black italic text-[10px] px-8 py-4 transform -skew-x-12 flex items-center gap-2 hover:bg-[#FF4D00] hover:text-black transition-all shadow-md active:scale-95 group"
         >
           <span className="transform skew-x-12 flex items-center gap-2 uppercase tracking-widest">
-            {t('leaders.full_rating')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {t('leaders.full_rating', 'TAM REYTİNQ')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </span>
         </button>
       </div>
@@ -58,7 +58,7 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
         {leaders.map((item) => (
           <div key={item.id} className="flex flex-col group">
             <div className="text-center mb-6">
-              <h4 className="text-gray-500 font-black italic text-xs tracking-[0.2em] uppercase group-hover:text-[#FF4D00] transition-colors">{t(item.title)}</h4>
+              <h4 className="text-gray-500 font-black italic text-xs tracking-[0.2em] uppercase group-hover:text-[#FF4D00] transition-colors">{t(item.title, item.id + ' LİDER')}</h4>
             </div>
 
             <div
@@ -80,7 +80,7 @@ const CategoryLeaders: React.FC<CategoryLeadersProps> = ({ onViewChange }) => {
                 </div>
 
                 <div className="text-right flex flex-col items-end">
-                  <span className="text-gray-400 font-black italic text-[8px] uppercase leading-none mb-1">{t('common.pts')}</span>
+                  <span className="text-gray-400 font-black italic text-[8px] uppercase leading-none mb-1">{t('common.pts', 'XAL')}</span>
                   <span className="text-white text-5xl font-black italic leading-none">
                     {item.leader.points}
                   </span>
