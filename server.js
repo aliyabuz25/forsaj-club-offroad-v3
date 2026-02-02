@@ -97,24 +97,29 @@ app.post('/api/login',
         if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
         const { username, password } = req.body;
+        console.log(`Login attempt: ${username}`);
         const users = getFileData('users.json');
         const user = users.find(u => u.username === username);
 
-        if (!user) return res.status(401).json({ message: 'Invalid credentials' });
+        if (!user) {
+            console.warn(`Login failed: User ${username} not found`);
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
 
-        // Check if password matches (support both hash and legacy plain text for migration if needed, but we prefer hash)
+        // Check if password matches
         let isMatch = false;
         if (user.password.startsWith('$2b$')) {
             isMatch = await bcrypt.compare(password, user.password);
         } else {
-            // Legacy fallback (Should ideally be removed in production)
             isMatch = user.password === password;
         }
 
         if (isMatch) {
+            console.log(`Login success: ${username}`);
             const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, SECRET_KEY, { expiresIn: '8h' });
             res.json({ token, user: { id: user.id, username: user.username, role: user.role, name: user.name } });
         } else {
+            console.warn(`Login failed: Invalid password for ${username}`);
             res.status(401).json({ message: 'Invalid credentials' });
         }
     }
