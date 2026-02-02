@@ -28,11 +28,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
             if (parts.length === 2) return parts.pop()?.split(';').shift();
             return null;
         };
-        const googtrans = getCookie('googtrans');
-        if (googtrans) {
-            const langCode = googtrans.split('/').pop()?.toUpperCase();
-            if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) return langCode as Language;
-        }
+        // GTranslate follows its own cookie pattern
+        const currentLang = getCookie('googtrans')?.split('/').pop()?.toUpperCase();
+        if (currentLang && ['AZ', 'EN', 'RU', 'TR'].includes(currentLang)) return currentLang as Language;
         return 'AZ';
     });
     const [contentMap, setContentMap] = useState<{ [key: string]: string }>({});
@@ -102,42 +100,43 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     };
 
     useEffect(() => {
-        const checkGTranslate = () => {
-            const googtrans = getCookie('googtrans');
-            if (googtrans) {
-                const langCode = googtrans.split('/').pop()?.toUpperCase();
-                if (['AZ', 'EN', 'RU', 'TR'].includes(langCode || '')) {
-                    if (language !== langCode) setLangState(langCode as Language);
-                }
-            } else if (language !== 'AZ') {
-                setLangState('AZ');
+        const checkGTranslateStatus = () => {
+            const getCookie = (name: string) => {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop()?.split(';').shift();
+                return null;
+            };
+            const current = getCookie('googtrans')?.split('/').pop()?.toUpperCase();
+            if (current && ['AZ', 'EN', 'RU', 'TR'].includes(current) && current !== language) {
+                setLangState(current as Language);
             }
         };
 
-        const interval = setInterval(checkGTranslate, 1000);
+        const interval = setInterval(checkGTranslateStatus, 1500);
         return () => clearInterval(interval);
     }, [language]);
 
-    // Brand & Native protection
-    useEffect(() => {
-        const isAZ = language === 'AZ';
-        if (isAZ) {
-            document.documentElement.classList.add('notranslate');
-            document.documentElement.setAttribute('translate', 'no');
-        } else {
-            document.documentElement.classList.remove('notranslate');
-            document.documentElement.removeAttribute('translate');
-        }
-    }, [language]);
-
     const setLanguage = (lang: Language) => {
-        if (lang === 'AZ') {
-            deleteCookie('googtrans');
-        } else {
-            setCookie('googtrans', `/az/${lang.toLowerCase()}`);
-        }
+        const target = lang.toLowerCase();
+
+        // GTranslate standard function
+        const doGTranslate = (lang_pair: string) => {
+            if (typeof (window as any).doGTranslate === 'function') {
+                (window as any).doGTranslate(lang_pair);
+            } else {
+                // Fallback via cookies
+                if (lang === 'AZ') {
+                    deleteCookie('googtrans');
+                } else {
+                    setCookie('googtrans', `/az/${target}`);
+                }
+                window.location.reload();
+            }
+        };
+
         setLangState(lang);
-        window.location.reload();
+        doGTranslate(`az|${target}`);
     };
 
     const t = (key: string, defaultValue?: string): string => {
@@ -163,7 +162,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage, t, refreshContent }}>
-            <div id="google_translate_element" style={{ display: 'none' }}></div>
+            <div className="gtranslate_wrapper" style={{ display: 'none' }}></div>
             {children}
         </LanguageContext.Provider>
     );
