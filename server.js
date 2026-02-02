@@ -147,7 +147,12 @@ app.post('/api/login',
 // Check if any admin exists (for first-time setup)
 app.get('/api/auth/setup-status', (req, res) => {
     const users = getFileData('users.json');
-    const hasAdmin = users.some(u => u.role === 'admin');
+    const hasAdmin = users && Array.isArray(users) && users.some(u => u.role === 'admin');
+    console.log('[DEBUG] setup-status check:', {
+        userCount: users?.length,
+        hasAdmin,
+        users: JSON.stringify(users.map(u => ({ username: u.username, role: u.role })))
+    });
     res.json({ initialized: hasAdmin });
 });
 
